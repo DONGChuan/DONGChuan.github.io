@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 书签
+title: Bookmarks
 menu: bookmark
 class: padY30 mark
 ---
