@@ -1,0 +1,29 @@
+{
+  "name": "DONGChuan.github.io",
+  "description": "DONGChuan blog",
+  "main": "",
+  "authors": [
+    "DONGChuan <dongchuan55@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "DONGchuan",
+    "blog"
+  ],
+  "homepage": "https://github.com/DONGChuan/DONGChuan.github.io",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "octicons": "*",
+    "primer-markdown": "*",
+    "primer-css": "~2.1.0",
+    "share.js": "overtrue-share.js#*",
+    "jquery": "~2.1.4"
+  }
+}

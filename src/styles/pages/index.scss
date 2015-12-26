@@ -1,0 +1,32 @@
+.home {
+    .site-header, .banner {
+        background: #4183c4;
+        color: #fff;
+    }
+
+    .banner {
+        .collection-head {
+            padding:4rem 0;
+            color: #fff;
+            background: transparent;
+            box-shadow:none;
+            -webkit-box-shadow:none;
+        }
+    }
+
+    .site-header {
+        border-bottom:none;
+
+        h1 a {
+            color: #fff;
+        }
+
+        .site-header-nav-item {
+            color: rgba(255,255,255,0.5);
+
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+}

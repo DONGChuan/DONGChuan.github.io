@@ -1,0 +1,81 @@
+title: DONGChuan - 董川的博客
+name: DONGChuan
+email: dongchuan55@gmail.com
+description: 董川的博客
+keywords: 董川
+skill_software_keywords: [Java, C, C++, Python, Design Patterns]
+skill_j2ee_keywords: [JSP, Servlet, Spring, Struct, Hibernet]
+skill_web_keywords: [HTML, CSS, Javascript, Jquery, JAXA, Angularjs, PHP, Boostrap]
+skill_mobile_app_keywords: [Android, Sketch UI Desgin]
+
+timezone: PRC
+encoding: "utf-8"
+
+url: http://dongchuan.github.io
+baseurl:  "/"
+domain:
+permalink:     /articles/:year/:month/:title.html
+paginate_path: 'page:num'
+paginate:   10
+source_code: https://github.com/DONGChuan/DONGChuan.github.io
+
+# Build settings
+markdown:    kramdown
+highlighter: pygments
+lsi:         false
+excerpt_separator: "\n\n"
+
+source:      .
+destination: ./_site
+
+quiet:    false
+defaults: []
+
+kramdown:
+  input: GFM
+  enable_coderay: true
+
+gems:
+  - jemoji
+  - rouge
+  # # # - jekyll-mentions
+  # - jekyll-sitemap
+  - jekyll-html-pipeline
+  - jekyll-paginate
+
+#disqus:
+#  id:
+
+#google:
+#    analytics_id:
+
+# navigation
+navs:
+  -
+    href: /
+    label: Home
+
+  -
+    href: /open-source
+    label: Open-Source
+
+  -
+    href: https://github.com/DONGChuan
+    label: GitHub
+    target: _blank
+
+  #-
+  #  href: http://weibo.com/smfreedom
+  #  label: Weibo
+  #  target: _blank
+
+  -
+    href: /bookmark
+    label: Bookmark
+
+  -
+    href: /about
+    label: About
+
+popular_repos: ['GradleUserGuide','YummyWakeUp']
+contribute_repos: ['UFreedom/UFreedom.github.io']
