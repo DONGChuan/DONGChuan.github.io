@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About Me
-subtitle: Who I Am
+cv: enable
 menu: About
 ---
 {% assign current_year = site.time | date: '%Y' %}
