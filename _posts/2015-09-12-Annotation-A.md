@@ -11,7 +11,7 @@ A set of annotation types are already predefined in the Java SE API in `java.lan
 2. `@Deprecated`
 3. `@SuppressWarnings`
 
-#### @Override
+### @Override
 
 `@Override` informs the compiler that the marked method is meant to override a method in a superclass. If a method with `@Override` fails to override a method in one of its superclasses, a wrong method name for example, the compiler generates an error. It can only be used for methods.
 
@@ -40,7 +40,7 @@ class Apple extends Fruit {
 
 When compile class Apple, it will generate an override error because of wrong method name.
 
-#### @Deprecated
+### @Deprecated
 
 It indicates that the marked element is deprecated and should no longer be used. The compiler generates a **warning** whenever a program uses a method, class, or field with the @Deprecated annotation.
 
@@ -64,7 +64,7 @@ class Orange extends Fruit {
 
 So we would get a warning when use eat() in class Orange.
 
-#### @SuppressWarnings
+### @SuppressWarnings
 
 It tells compiler to suppress specific warnings that it would otherwise generate. In the following example, a deprecated method is used but now `@SuppressWarnings` causes the warning to be suppressed.
 
