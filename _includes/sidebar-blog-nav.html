@@ -1,0 +1,23 @@
+
+<h3>Blog Categories</h3>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<div id="blog-categories">
+    <ul class="list-group">
+        {% for category in site.categories %}
+        <li class="list-group-item">
+            {{ category | first }}
+            <span class="badge">{{ category[1].size }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $("#blog-categories li").css('text-transform','capitalize')
+    });
+
+</script>
+

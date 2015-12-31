@@ -30,3 +30,50 @@
     font-weight: bold;
     color: #fff;
 }
+
+.posts-list {
+    line-height: 2;
+    color: #555;
+    list-style-type:disc;
+}
+
+.posts-list::before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 6px;
+    height: 6px;
+    margin-left: -4px;
+    background: #bbb;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+    transition-property: background;
+}
+
+.posts-list-item {
+    border-bottom: 1px dashed #ccc;
+    margin: 10px;
+    padding: 0;
+
+    height: 30px;
+}
+
+.posts-list-item a {
+    font-size: 16px;
+    font-weight: normal;
+    font-family: Lato, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: inherit;
+    color: #666;
+}
+
+.posts-list-meta {
+    font-size: 12px;
+    font-family: Lato, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 2;
+    color: #555;
+    background: #fff;
+}
