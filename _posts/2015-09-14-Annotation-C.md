@@ -112,10 +112,10 @@ public class AnnotationParsing {
 Output：
 
 {% highlight java %} 
-Annotation in Method 'public java.lang.String com.journaldev.annotations.AnnotationExample.toString()' : @com.journaldev.annotations.MethodInfo(author=Pankaj, revision=1, comments=Main method, date=Nov 17 2012)
-Method with revision no 1 = public java.lang.String com.journaldev.annotations.AnnotationExample.toString()
-Annotation in Method 'public static void com.journaldev.annotations.AnnotationExample.oldMethod()' : @java.lang.Deprecated()
-Annotation in Method 'public static void com.journaldev.annotations.AnnotationExample.oldMethod()' : @com.journaldev.annotations.MethodInfo(author=Pankaj, revision=1, comments=deprecated method, date=Nov 17 2012)
-Method with revision no 1 = public static void com.journaldev.annotations.AnnotationExample.oldMethod()
-Annotation in Method 'public static void com.journaldev.annotations.AnnotationExample.genericsTest() throws java.io.FileNotFoundException' : @com.journaldev.annotations.MethodInfo(author=Pankaj, revision=10, comments=Main method, date=Nov 17 2012)
+Annotation in Method 'public java.lang.String com.dong.annotations.AnnotationExample.toString()' : @com.dong.annotations.MethodInfo(author=Pankaj, revision=1, comments=Main method, date=Nov 17 2012)
+Method with revision no 1 = public java.lang.String com.dong.annotations.AnnotationExample.toString()
+Annotation in Method 'public static void com.dong.annotations.AnnotationExample.oldMethod()' : @java.lang.Deprecated()
+Annotation in Method 'public static void com.dong.annotations.AnnotationExample.oldMethod()' : @com.dong.annotations.MethodInfo(author=Pankaj, revision=1, comments=deprecated method, date=Nov 17 2012)
+Method with revision no 1 = public static void com.dong.annotations.AnnotationExample.oldMethod()
+Annotation in Method 'public static void com.dong.annotations.AnnotationExample.genericsTest() throws java.io.FileNotFoundException' : @com.dong.annotations.MethodInfo(author=Pankaj, revision=10, comments=Main method, date=Nov 17 2012)
 {% endhighlight %}
