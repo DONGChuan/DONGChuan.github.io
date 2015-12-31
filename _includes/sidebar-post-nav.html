@@ -1,0 +1,31 @@
+<h3>Post Directory</h3>
+<section class="post-directory">
+    <!-- Links that trigger the jumping -->
+    <!-- Added by javascript below -->
+    <ol>
+
+    </ol>
+</section>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $( "article h3" ).each(function( index ) {
+            $(".post-directory ol").append("<li><a class=\"jumper\" href=#" +
+                    $(this).attr("id")
+                    + ">"
+                    + $(this).attr("id")
+                    + "</a></li>");
+        });
+    })
+
+    $(".jumper").on("click", function( e ) {
+
+        e.preventDefault();
+
+        $("body, html").animate({
+            scrollTop: $( $(this).attr('href') ).offset().top
+        }, 600);
+
+    });
+</script>
