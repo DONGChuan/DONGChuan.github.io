@@ -60,8 +60,8 @@ navs:
     label: Open-Source
 
   -
-    href: /posts
-    label: Posts
+    href: /blog
+    label: Blog
 
   #-
   #  href: http://weibo.com/smfreedom
