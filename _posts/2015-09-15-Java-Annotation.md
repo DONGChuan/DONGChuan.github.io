@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Java Annotation
+category: java
+tags: [java]
 ---
 
 ## Predefined Annotations

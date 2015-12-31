@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Annotation Part B - Meta-Annotations
+category: java
+tags: [java]
 ---
 
 ## Meta-Annotations

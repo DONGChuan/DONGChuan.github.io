@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Annotation Part C - Customize Annotations
+category: java
+tags: [java]
 ---
 
 ## Customize Annotations
