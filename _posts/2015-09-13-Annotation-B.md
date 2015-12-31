@@ -60,6 +60,8 @@ public @interface Column {
 
 So here, Column annotation is retained by the JVM at runtime, we could get its properties by java reflection to do some more operations!
 
+Only if when we declare retention as `RetentionPolicy.RUNTIME`, we could get the parameters of annotation by java reflection api to do some other operations.
+
 ### @Documented
 
 `@Documented` indicates that **whenever the specified annotation is used those elements should be documented using the Javadoc tool**. 
