@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10a64a97-cd19-4448-b115-eae660cc0254" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_posts/2015-09-14-Annotation-C.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/2015-12-14-hello.md" afterPath="$PROJECT_DIR$/_posts/2015-08-08-hello.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2015-09-13-Annotation-B.md" afterPath="$PROJECT_DIR$/_posts/2015-09-13-Annotation-B.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2015-09-14-Annotation-C.md" afterPath="$PROJECT_DIR$/_posts/2015-09-14-Annotation-C.md" />
     </list>
     <ignored path="DONGChuan.github.io-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,7 +26,7 @@
       <file leaf-file-name="2015-09-12-Annotation-A.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_posts/2015-09-12-Annotation-A.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="-32.58621">
               <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
               <folding />
             </state>
@@ -42,21 +39,8 @@
       <file leaf-file-name="2015-09-14-Annotation-C.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_posts/2015-09-14-Annotation-C.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9111111">
-              <caret line="123" column="49" selection-start-line="123" selection-start-column="49" selection-end-line="123" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="MarkdownPreviewEditor">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2015-09-13-Annotation-B.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/2015-09-13-Annotation-B.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.586206">
-              <caret line="66" column="106" selection-start-line="66" selection-start-column="106" selection-end-line="66" selection-end-column="106" />
+            <state vertical-scroll-proportion="0.64444447">
+              <caret line="70" column="132" selection-start-line="70" selection-start-column="132" selection-end-line="70" selection-end-column="132" />
               <folding />
             </state>
           </provider>
@@ -749,7 +733,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2015-09-12-Annotation-A.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="-32.58621">
           <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
           <folding />
         </state>
@@ -779,8 +763,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2015-09-13-Annotation-B.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.586206">
-          <caret line="66" column="106" selection-start-line="66" selection-start-column="106" selection-end-line="66" selection-end-column="106" />
+        <state vertical-scroll-proportion="0.37777779">
+          <caret line="49" column="28" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -790,8 +774,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2015-09-14-Annotation-C.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9111111">
-          <caret line="123" column="49" selection-start-line="123" selection-start-column="49" selection-end-line="123" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.64444447">
+          <caret line="70" column="132" selection-start-line="70" selection-start-column="132" selection-end-line="70" selection-end-column="132" />
           <folding />
         </state>
       </provider>

@@ -16,9 +16,7 @@ public @interface annotationName {
 }
 {% endhighlight %}
 
-When we use `@interface`, it implements automatically `java.lang.annotation.Annotation` interface. Every method in it 
-is actually a configuration parameter. Name of the method is the name of the parameter, returnType is the type of argument
-(returnType can only be a basic type, Class, String, enum). You can declare the default value of the parameter.
+When we use `@interface`, it implements automatically `java.lang.annotation.Annotation` interface. Every method in it is actually a configuration parameter. Name of the method is the name of the parameter, returnType is the type of argument(returnType can only be a basic type, Class, String, enum). You can declare the default value of the parameter.
 
 It supports the following types:
 
@@ -35,41 +33,42 @@ It supports the following types:
 
 ### Example
 
-Define now @MethodInfo to indicate information about a method
+Define now `@MethodInfo` to indicate information about a method
 
 {% highlight java %}
-@Documented
 @Target(ElementType.METHOD)
 @Inherited
 @Retention(RetentionPolicy.RUNTIME)
 public @interface MethodInfo{
+
     String author() default "Dong";
     String date();
     int revision() default 1;
     String comments();
+    
 }
 {% endhighlight %}
+
+So by its meta annotations, we could know that:
+
+* @Target(ElementType.METHOD) -> It could only mark methods
+* @Inherited -> All the override functions in the subclasses will be added this annotations automatically
+* @Retention(RetentionPolicy.RUNTIME) -> So we could get the configuration parameters set in this annotations by java reflection api at runtime
 
 Now we use this annotation on a method
 
 {% highlight java %} 
 public class AnnotationExample {
  
-    public static void main(String[] args) {
-    }
- 
     @MethodInfo(author = "Dong", comments = "It's just an example", date = "26 12 2015", revision = 3)
     public String todo() {
         return "I use annotations!";
     }
+    
 }
 {% endhighlight %}
 
-我相信这个例子是很明了的，展示了不同场景下注解的使用方式。
-
-Java注解解析
-
-我们将使用Java反射机制从一个类中解析注解，请记住，注解保持性策略应该是RUNTIME，否则它的信息在运行期无效，我们也不能从中获取任何数据。
+Then we will use the Java reflection to parse `@MethodInfo` in order to know information about the method marked by this annotation.
 
 {% highlight java %} 
 public class AnnotationParsing {
@@ -110,7 +109,7 @@ public class AnnotationParsing {
 
 {% endhighlight %}
 
-以上程序的输出是：
+Output：
 
 {% highlight java %} 
 Annotation in Method 'public java.lang.String com.journaldev.annotations.AnnotationExample.toString()' : @com.journaldev.annotations.MethodInfo(author=Pankaj, revision=1, comments=Main method, date=Nov 17 2012)
@@ -120,5 +119,3 @@ Annotation in Method 'public static void com.journaldev.annotations.AnnotationEx
 Method with revision no 1 = public static void com.journaldev.annotations.AnnotationExample.oldMethod()
 Annotation in Method 'public static void com.journaldev.annotations.AnnotationExample.genericsTest() throws java.io.FileNotFoundException' : @com.journaldev.annotations.MethodInfo(author=Pankaj, revision=10, comments=Main method, date=Nov 17 2012)
 {% endhighlight %}
-
-注解API非常强大，被广泛应用于各种Java框架，如Spring，Hibernate，JUnit。
