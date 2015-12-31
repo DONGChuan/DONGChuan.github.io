@@ -77,11 +77,11 @@ public class AnnotationParsing {
         try {
             for (Method method : AnnotationParsing.class
                     .getClassLoader()
-                    .loadClass(("com.journaldev.annotations.AnnotationExample"))
+                    .loadClass(("com.dong.annotations.AnnotationExample"))
                     .getMethods()) {
                 // checks if MethodInfo annotation is present for the method
                 if (method
-                        .isAnnotationPresent(com.journaldev.annotations.MethodInfo.class)) {
+                        .isAnnotationPresent(com.dong.annotations.MethodInfo.class)) {
                     try {
                         // iterates all the annotations available in the method
                         for (Annotation anno : method.getDeclaredAnnotations()) {
