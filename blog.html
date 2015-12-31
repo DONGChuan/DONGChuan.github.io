@@ -5,16 +5,15 @@ keywords: blog, 博客
 description: Chuan's blog
 menu: Blog
 ---
-<div id="test">
 <section class="container posts-content">
-            <ol class="posts-list">
-                {% for post in site.posts %}
-                <li class="posts-list-item">
-                    <span class="posts-list-meta">{{ post.date | date: "%m/%d" }}</span>
-                    <a class="posts-list-name" href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
-                </li>
-                {% endfor %}
-            </ol>
+    <ol class="posts-list">
+        {% for post in site.posts %}
+        <li class="posts-list-item">
+            <span class="posts-list-meta">{{ post.date | date: "%m/%d" }}</span>
+            <a class="posts-list-name" href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+        </li>
+        {% endfor %}
+    </ol>
     <div class="pagination text-align">
         <div class="btn-group">
             {% if paginator.previous_page %}
@@ -48,4 +47,3 @@ menu: Blog
     <!-- /pagination -->
 </section>
 <!-- /section.content -->
-</div>
