@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10a64a97-cd19-4448-b115-eae660cc0254" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_posts/2015-09-15-Java-Annotation.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/css/posts/index.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_includes/header.html" afterPath="$PROJECT_DIR$/_includes/header.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_includes/sidebar-post-nav.html" afterPath="$PROJECT_DIR$/_includes/sidebar-post-nav.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/css/posts/index.css" afterPath="$PROJECT_DIR$/assets/css/posts/index.css" />
     </list>
     <ignored path="DONGChuan.github.io-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,29 +24,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="sidebar-post-nav.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="sidebar-post-nav.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_includes/sidebar-post-nav.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.25">
-              <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.5588235">
+              <caret line="45" column="35" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
               <folding>
-                <marker date="1451587720000" expanded="true" signature="331:493" placeholder="..." />
-                <marker date="1451587720000" expanded="true" signature="331:495" placeholder="..." />
-                <marker date="1451587720000" expanded="true" signature="423:490" placeholder="..." />
-                <marker date="1451587720000" expanded="true" signature="655:852" placeholder="..." />
-                <marker date="1451587720000" expanded="true" signature="655:854" placeholder="..." />
-                <marker date="1451587720000" expanded="true" signature="755:812" placeholder="..." />
-                <marker date="1451587720000" expanded="true" signature="755:849" placeholder="..." />
+                <marker date="1451589974000" expanded="true" signature="372:534" placeholder="..." />
+                <marker date="1451589974000" expanded="true" signature="372:536" placeholder="..." />
+                <marker date="1451589974000" expanded="true" signature="464:531" placeholder="..." />
+                <marker date="1451589974000" expanded="true" signature="696:893" placeholder="..." />
+                <marker date="1451589974000" expanded="true" signature="696:895" placeholder="..." />
+                <marker date="1451589974000" expanded="true" signature="796:853" placeholder="..." />
+                <marker date="1451589974000" expanded="true" signature="796:890" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/css/posts/index.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.066176474">
-              <caret line="3" column="50" selection-start-line="3" selection-start-column="50" selection-end-line="3" selection-end-column="50" />
+            <state vertical-scroll-proportion="-3.125">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -95,10 +92,10 @@
         <option value="$PROJECT_DIR$/_posts/2015-09-14-Annotation-C.md" />
         <option value="$PROJECT_DIR$/_layouts/page.html" />
         <option value="$PROJECT_DIR$/_posts/2015-09-15-Java-Annotation.md" />
-        <option value="$PROJECT_DIR$/_includes/sidebar-post-nav.html" />
         <option value="$PROJECT_DIR$/_layouts/post.html" />
         <option value="$PROJECT_DIR$/_includes/header.html" />
         <option value="$PROJECT_DIR$/assets/css/posts/index.css" />
+        <option value="$PROJECT_DIR$/_includes/sidebar-post-nav.html" />
       </list>
     </option>
   </component>
@@ -751,27 +748,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_includes/sidebar-post-nav.html">
+    <entry file="file://$PROJECT_DIR$/assets/css/posts/index.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.25">
-          <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-          <folding>
-            <marker date="1451587720000" expanded="true" signature="331:493" placeholder="..." />
-            <marker date="1451587720000" expanded="true" signature="331:495" placeholder="..." />
-            <marker date="1451587720000" expanded="true" signature="423:490" placeholder="..." />
-            <marker date="1451587720000" expanded="true" signature="655:852" placeholder="..." />
-            <marker date="1451587720000" expanded="true" signature="655:854" placeholder="..." />
-            <marker date="1451587720000" expanded="true" signature="755:812" placeholder="..." />
-            <marker date="1451587720000" expanded="true" signature="755:849" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="-3.125">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/posts/index.css">
+    <entry file="file://$PROJECT_DIR$/_includes/sidebar-post-nav.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.066176474">
-          <caret line="3" column="50" selection-start-line="3" selection-start-column="50" selection-end-line="3" selection-end-column="50" />
-          <folding />
+        <state vertical-scroll-proportion="0.5588235">
+          <caret line="45" column="35" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
+          <folding>
+            <marker date="1451589974000" expanded="true" signature="372:534" placeholder="..." />
+            <marker date="1451589974000" expanded="true" signature="372:536" placeholder="..." />
+            <marker date="1451589974000" expanded="true" signature="464:531" placeholder="..." />
+            <marker date="1451589974000" expanded="true" signature="696:893" placeholder="..." />
+            <marker date="1451589974000" expanded="true" signature="696:895" placeholder="..." />
+            <marker date="1451589974000" expanded="true" signature="796:853" placeholder="..." />
+            <marker date="1451589974000" expanded="true" signature="796:890" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

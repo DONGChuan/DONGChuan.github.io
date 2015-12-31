@@ -1,9 +1,12 @@
+
 <h3>Post Directory</h3>
+<div id="post-directory-module">
 <section class="post-directory">
     <!-- Links that trigger the jumping -->
     <!-- Added by javascript below -->
     <dl></dl>
 </section>
+</div>
 
 <script type="text/javascript">
 
@@ -24,6 +27,26 @@
                         + "&nbsp;&nbsp;- " + $(this).text()
                         + "</a></dd>");
             });
+        });
+
+        var fixmeTop = $('#post-directory-module').offset().top;       // get initial position of the element
+
+        $(window).scroll(function() {                  // assign scroll event listener
+
+            var currentScroll = $(window).scrollTop(); // get current position
+
+            if (currentScroll >= fixmeTop) {           // apply position: fixed if you
+                $('#post-directory-module').css({                      // scroll to that element or below it
+                    position: 'fixed',
+                    width: 'inherit'
+                });
+            } else {                                   // apply position: static
+                $('#post-directory-module').css({                      // if you scroll above it
+                    position: 'inherit',
+                    width: 'inherit'
+                });
+            }
+
         });
     })
 
