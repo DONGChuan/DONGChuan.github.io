@@ -60,9 +60,8 @@ navs:
     label: Open-Source
 
   -
-    href: https://github.com/DONGChuan
-    label: GitHub
-    target: _blank
+    href: /posts
+    label: Posts
 
   #-
   #  href: http://weibo.com/smfreedom

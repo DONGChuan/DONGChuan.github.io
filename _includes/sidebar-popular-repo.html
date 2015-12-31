@@ -1,6 +1,6 @@
 <h3>Popular Repositories</h3>
 {% assign repos = site.github.public_repositories | sort: "stargazers_count" | reverse %}
-{% for repo in site.github.public_repositories %}
+{% for repo in repos %}
     {% if site.popular_repos contains repo.name %}
     <section class="repo-card">
         <a href="{{ repo.html_url }}" target="_blank">
