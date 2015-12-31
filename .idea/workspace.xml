@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="10a64a97-cd19-4448-b115-eae660cc0254" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_includes/sidebar-post-nav.html" afterPath="$PROJECT_DIR$/_includes/sidebar-post-nav.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/css/posts/index.css" afterPath="$PROJECT_DIR$/assets/css/posts/index.css" />
     </list>
     <ignored path="DONGChuan.github.io-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,16 +26,16 @@
       <file leaf-file-name="sidebar-post-nav.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_includes/sidebar-post-nav.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5588235">
-              <caret line="45" column="35" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.42647058">
+              <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
               <folding>
-                <marker date="1451589974000" expanded="true" signature="372:534" placeholder="..." />
-                <marker date="1451589974000" expanded="true" signature="372:536" placeholder="..." />
-                <marker date="1451589974000" expanded="true" signature="464:531" placeholder="..." />
-                <marker date="1451589974000" expanded="true" signature="696:893" placeholder="..." />
-                <marker date="1451589974000" expanded="true" signature="696:895" placeholder="..." />
-                <marker date="1451589974000" expanded="true" signature="796:853" placeholder="..." />
-                <marker date="1451589974000" expanded="true" signature="796:890" placeholder="..." />
+                <marker date="1451590068000" expanded="true" signature="372:534" placeholder="..." />
+                <marker date="1451590068000" expanded="true" signature="372:536" placeholder="..." />
+                <marker date="1451590068000" expanded="true" signature="464:531" placeholder="..." />
+                <marker date="1451590068000" expanded="true" signature="696:893" placeholder="..." />
+                <marker date="1451590068000" expanded="true" signature="696:895" placeholder="..." />
+                <marker date="1451590068000" expanded="true" signature="796:853" placeholder="..." />
+                <marker date="1451590068000" expanded="true" signature="796:890" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -758,16 +757,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_includes/sidebar-post-nav.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5588235">
-          <caret line="45" column="35" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.42647058">
+          <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
           <folding>
-            <marker date="1451589974000" expanded="true" signature="372:534" placeholder="..." />
-            <marker date="1451589974000" expanded="true" signature="372:536" placeholder="..." />
-            <marker date="1451589974000" expanded="true" signature="464:531" placeholder="..." />
-            <marker date="1451589974000" expanded="true" signature="696:893" placeholder="..." />
-            <marker date="1451589974000" expanded="true" signature="696:895" placeholder="..." />
-            <marker date="1451589974000" expanded="true" signature="796:853" placeholder="..." />
-            <marker date="1451589974000" expanded="true" signature="796:890" placeholder="..." />
+            <marker date="1451590068000" expanded="true" signature="372:534" placeholder="..." />
+            <marker date="1451590068000" expanded="true" signature="372:536" placeholder="..." />
+            <marker date="1451590068000" expanded="true" signature="464:531" placeholder="..." />
+            <marker date="1451590068000" expanded="true" signature="696:893" placeholder="..." />
+            <marker date="1451590068000" expanded="true" signature="696:895" placeholder="..." />
+            <marker date="1451590068000" expanded="true" signature="796:853" placeholder="..." />
+            <marker date="1451590068000" expanded="true" signature="796:890" placeholder="..." />
           </folding>
         </state>
       </provider>
