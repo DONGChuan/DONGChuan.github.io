@@ -2,18 +2,28 @@
 <section class="post-directory">
     <!-- Links that trigger the jumping -->
     <!-- Added by javascript below -->
-    <ol></ol>
+    <dl></dl>
 </section>
 
 <script type="text/javascript">
 
     $(document).ready(function(){
-        $( "article h3" ).each(function( index ) {
-            $(".post-directory ol").append("<li><a class=\"jumper\" href=#" +
+        $( "article h2" ).each(function( index ) {
+            $(".post-directory dl").append("<dt><a class=\"jumper\" href=#" +
                     $(this).attr("id")
                     + ">"
-                    + $(this).attr("id")
-                    + "</a></li>");
+                    + $(this).text()
+                    + "</a></dt>");
+
+            var children = $(this).nextUntil("h2", "h3")
+
+            children.each(function( index) {
+                $(".post-directory dl").append("<dd><a class=\"jumper\" href=#" +
+                        $(this).attr("id")
+                        + ">"
+                        + "&nbsp;&nbsp;- " + $(this).text()
+                        + "</a></dd>");
+            });
         });
     })
 
