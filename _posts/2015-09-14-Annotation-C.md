@@ -51,9 +51,9 @@ public @interface MethodInfo{
 
 So by its meta annotations, we could know that:
 
-* @Target(ElementType.METHOD) -> It could only mark methods
-* @Inherited -> All the override functions in the subclasses will be added this annotations automatically
-* @Retention(RetentionPolicy.RUNTIME) -> So we could get the configuration parameters set in this annotations by java reflection api at runtime
+* `@Target(ElementType.METHOD)` -> It could only mark methods
+* `@Inherited` -> All the override functions in the subclasses will be added this annotations automatically
+* `@Retention(RetentionPolicy.RUNTIME)` -> So we could get the configuration parameters set in this annotations by java reflection api at runtime
 
 Now we use this annotation on a method
 
