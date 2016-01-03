@@ -17,7 +17,7 @@ A set of annotation types are already predefined in the Java SE API in `java.lan
 
 `@Override` informs the compiler that the marked method is meant to override a method in a superclass. If a method with `@Override` fails to override a method in one of its superclasses, a wrong method name for example, the compiler generates an error. It can only be used for methods.
 
-{% highlight java linenos %}
+{% highlight java %}
 public class Fruit {
     public void eat(){
         System.out.println("Eat fruit");
@@ -48,7 +48,7 @@ It indicates that the marked element is deprecated and should no longer be used.
 
 It also has a certain "inheritance": **If we use in the code an overrided/inherited types or methods from deprecated ones, the compiler still generates a warning**.
 
-{% highlight java linenos %}
+{% highlight java %}
 public class Fruit {
     @Deprecated
     public void eat(){
@@ -70,7 +70,7 @@ So we would get a warning when use eat() in class Orange.
 
 It tells compiler to suppress specific warnings that it would otherwise generate. In the following example, a deprecated method is used but now `@SuppressWarnings` causes the warning to be suppressed.
 
-{% highlight java linenos %}
+{% highlight java %}
 public class Fruit {
     @Deprecated
     public void eat(){
@@ -129,7 +129,7 @@ The following is some common warnings:
 *  `ElementType.PARAMETER` can be applied to the parameters of a method.
 *  `ElementType.TYPE` can be applied to any element of a class.
 
-{% highlight java linenos %}
+{% highlight java %}
 @Target(ElementType.TYPE)
 public @interface Table {
     //......
@@ -151,7 +151,7 @@ So annotation @Table can be used for class/interface/enum. @NoDBColumn can be us
 * `RetentionPolicy.CLASS` – The annotation is retained by the compiler at compile time, but is ignored by the JVM.
 * `RetentionPolicy.RUNTIME` – The annotation is retained by the JVM so it can be used by the runtime environment.
 
-{% highlight java linenos %}
+{% highlight java %}
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Column {
@@ -232,7 +232,7 @@ Now we use this annotation on a method
 {% highlight java %} 
 public class AnnotationExample {
  
-    @MethodInfo(author = "Dong", comments = "It's just an example", date = "26 12 2015", revision = 3)
+    @MethodInfo(author = "Dong", comments = "An example", date = "26 12 2015", revision = 3)
     public String todo() {
         return "I use annotations!";
     }
@@ -284,10 +284,6 @@ public class AnnotationParsing {
 Output：
 
 {% highlight java %} 
-Annotation in Method 'public java.lang.String com.dong.annotations.AnnotationExample.toString()' : @com.dong.annotations.MethodInfo(author=Pankaj, revision=1, comments=Main method, date=Nov 17 2012)
-Method with revision no 1 = public java.lang.String com.dong.annotations.AnnotationExample.toString()
-Annotation in Method 'public static void com.dong.annotations.AnnotationExample.oldMethod()' : @java.lang.Deprecated()
-Annotation in Method 'public static void com.dong.annotations.AnnotationExample.oldMethod()' : @com.dong.annotations.MethodInfo(author=Pankaj, revision=1, comments=deprecated method, date=Nov 17 2012)
-Method with revision no 1 = public static void com.dong.annotations.AnnotationExample.oldMethod()
-Annotation in Method 'public static void com.dong.annotations.AnnotationExample.genericsTest() throws java.io.FileNotFoundException' : @com.dong.annotations.MethodInfo(author=Pankaj, revision=10, comments=Main method, date=Nov 17 2012)
+Annotation in Method 'public java.lang.String com.dong.annotations.AnnotationExample.todo()' : @com.dong.annotations.MethodInfo(author=Pankaj, revision=1, comments=An example, date=Nov 17 2012)
+Method with revision no 1 = public java.lang.String com.dong.annotations.AnnotationExample.todo()
 {% endhighlight %}
