@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10a64a97-cd19-4448-b115-eae660cc0254" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/images/posts/strategy_pattern.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_posts/2015-09-03-Strategy.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2015-09-03-Strategy.md" afterPath="$PROJECT_DIR$/_posts/2015-09-03-Strategy.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2015-09-13-Singleton.md" afterPath="$PROJECT_DIR$/_posts/2015-09-13-Singleton.md" />
     </list>
     <ignored path="DONGChuan.github.io-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,7 +23,21 @@
     <favorites_list name="DONGChuan.github.io-master" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="2015-09-13-Singleton.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_posts/2015-09-13-Singleton.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.54092526">
+              <caret line="230" column="2" selection-start-line="230" selection-start-column="2" selection-end-line="230" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="MarkdownPreviewEditor">
+            <state />
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -75,8 +88,8 @@
         <option value="$PROJECT_DIR$/_posts/2015-06-21-Tween-Animation.md" />
         <option value="$PROJECT_DIR$/_posts/2015-08-18-Object-Animation.md" />
         <option value="$PROJECT_DIR$/_posts/2015-08-15-Parcelable-Interface.md" />
-        <option value="$PROJECT_DIR$/_posts/2015-09-13-Singleton.md" />
         <option value="$PROJECT_DIR$/_posts/2015-09-03-Strategy.md" />
+        <option value="$PROJECT_DIR$/_posts/2015-09-13-Singleton.md" />
       </list>
     </option>
   </component>
@@ -381,10 +394,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="71" y="23" width="1280" height="709" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25019857" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25019857" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -766,17 +779,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2015-09-13-Singleton.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2015-08-15-Parcelable-Interface.md">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-19.655172">
@@ -801,6 +803,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/images/posts/strategy_pattern.png">
       <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2015-09-13-Singleton.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.54092526">
+          <caret line="230" column="2" selection-start-line="230" selection-start-column="2" selection-end-line="230" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
         <state />
       </provider>
     </entry>

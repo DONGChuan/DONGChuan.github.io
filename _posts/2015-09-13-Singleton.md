@@ -228,7 +228,7 @@ Here
 INSTANCE
 {% endhighlight %}
 
-### Ref
+## Ref
 
 * [Wiki](https://en.wikipedia.org/wiki/Singleton_pattern)
 * [Double-checked locking and the Singleton pattern](http://www.ibm.com/developerworks/library/j-dcl/)
