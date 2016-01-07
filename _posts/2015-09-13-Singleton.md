@@ -172,7 +172,7 @@ public class Singleton {
 }
 {% endhighlight %}
 
-When `getInstance()` is invoked in the first time. It will load`SingletonHolder.instance` which leads `SingletonHolder` class to be initialized. When `SingletonHolder` is initialized, it will initialize its static field. As it's a static field, so it will only be initialized one time and thread safe :D
+When `getInstance()` is invoked in the first time. It will load `SingletonHolder.instance` which leads `SingletonHolder` class to be initialized. When `SingletonHolder` is initialized, it will initialize its static field. As it's a static field, so it will only be initialized one time and thread safe :D
 
 ### Enum
 
