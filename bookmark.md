@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Bookmarks
 menu: bookmark
 class: padY30 mark
