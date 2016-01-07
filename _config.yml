@@ -43,8 +43,10 @@ gems:
   - jekyll-html-pipeline
   - jekyll-paginate
 
-#google:
-#    analytics_id:
+analytics :
+  provider : google
+  google :
+      tracking_id : 'UA-72165600-1'
 
 # navigation
 navs:
