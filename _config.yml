@@ -43,9 +43,6 @@ gems:
   - jekyll-html-pipeline
   - jekyll-paginate
 
-#disqus:
-#  id:
-
 #google:
 #    analytics_id:
 
