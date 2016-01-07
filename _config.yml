@@ -63,11 +63,6 @@ navs:
     href: /blog
     label: Blog
 
-  #-
-  #  href: http://weibo.com/smfreedom
-  #  label: Weibo
-  #  target: _blank
-
   -
     href: /bookmark
     label: Bookmark
