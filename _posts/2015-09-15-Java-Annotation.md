@@ -2,6 +2,7 @@
 layout: post
 title: Java Annotation
 category: java
+comments: true
 tags: [java]
 ---
 
