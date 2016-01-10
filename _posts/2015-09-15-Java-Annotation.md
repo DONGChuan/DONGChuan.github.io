@@ -295,3 +295,7 @@ Output：
 Annotation in Method 'public java.lang.String com.dong.annotations.AnnotationExample.todo()' : @com.dong.annotations.MethodInfo(author=Pankaj, revision=1, comments=An example, date=Nov 17 2012)
 Method with revision no 1 = public java.lang.String com.dong.annotations.AnnotationExample.todo()
 {% endhighlight %}
+
+## Ref
+- [Oracle Java Doc](https://docs.oracle.com/javase/tutorial/java/annotations/)
+- [Wiki - Java Annotation](https://fr.wikipedia.org/wiki/Annotation_(Java))
