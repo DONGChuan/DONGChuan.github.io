@@ -28,7 +28,7 @@
         <entry file="file://$PROJECT_DIR$/_includes/bookmarks.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.7074468">
-              <caret line="31" column="47" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
+              <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -827,7 +827,7 @@
     <entry file="file://$PROJECT_DIR$/_includes/bookmarks.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7074468">
-          <caret line="31" column="47" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
+          <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
           <folding />
         </state>
       </provider>
