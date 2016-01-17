@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="/assets/vendor/share.js/dist/css/share.min.css">
     <link rel="stylesheet" href="/assets/css/globals/responsive.css">
     <link rel="stylesheet" href="/assets/css/posts/index.css">
+    <link rel="stylesheet" href="/assets/css/pages/index.css">
+    <link rel="stylesheet" href="/assets/css/pages/hover-min.css">
     <!-- Latest compiled and minified CSS -->
     {% for css in page.css %}
     <link rel="stylesheet" href="/assets/css/{{css}}">
@@ -72,6 +74,11 @@
     <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
     <script src="/assets/js/index.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <!-- Trip.js-->
+    <script src="/bower_components/Trip.js/dist/trip.min.js"></script>
+    <link rel="stylesheet" href="/bower_components/Trip.js/dist/trip.min.css">
+
 </head>
 <body class="{{ page.class }}">
     <header class="site-header">
@@ -79,7 +86,7 @@
             <h1><a href="/" title="{{ site.name }}"><span class="octicon octicon-mark-github"></span> {{ site.name }}</a></h1>
             <nav class="site-header-nav" role="navigation">
                 {% for nav in site.navs %}
-                <a href="{{ nav.href }}" class="{% if page.menu == nav.label %} selected {% endif %} site-header-nav-item" target="{{ nav.target | default: _self }}" title="{{ nav.label }}">{{ nav.label }}</a>
+                <a href="{{ nav.href }}" class="{% if page.menu == nav.label %} selected {% endif %} site-header-nav-item hvr-underline-from-center" target="{{ nav.target | default: _self }}" title="{{ nav.label }}">{{ nav.label }}</a>
                 {% endfor %}
             </nav>
         </div>
