@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Bookmarks
-menu: bookmark
+menu: Bookmark
 class: padY30 mark
 ---
 {% include bookmarks.html %}
