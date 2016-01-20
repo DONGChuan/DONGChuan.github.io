@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Build Path and Class Path
+title: JDBC Guide
 category: java
 tags: [java, jdbc]
 ---
