@@ -122,6 +122,7 @@ There are three kinds of statements:
 
 {% highlight java %}
 Statement stmt = conn.createStatement();
+{% endhighlight %}
 
 ### PreparedStatement
 
