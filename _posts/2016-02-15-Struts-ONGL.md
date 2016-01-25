@@ -58,14 +58,14 @@ Tag to **iterate a collection** (List, set, array or map). It has three attribut
 
 Instance of IteratorStatus also has following functions:
 
-if `status="test"'`,
+if `status="test"`,
 
-* `#test.count` returns number of element already iterated. (equels to 'int getCount()')
-* `#test.index` returns index of current element. (equels to 'int getIndex()')
-* `#test.even` returns wether current element is even. (equels to 'boolean isEven()')
-* `#test.odd` returns wether current element is odd. (equels to 'boolean isOdd()')
-* `#test.first` returns wether current element is the first one. (equels to 'boolean isFirst()')
-* `#test.last` returns  wether current element is the last one. (equels to 'boolean isLast()')
+* `#test.count` returns number of element already iterated. (equals to `int getCount()`)
+* `#test.index` returns index of current element. (equals to `int getIndex()`)
+* `#test.even` returns wether current element is even. (equals to `boolean isEven()`)
+* `#test.odd` returns wether current element is odd. (equals to `boolean isOdd()`)
+* `#test.first` returns wether current element is the first one. (equals to `boolean isFirst()`)
+* `#test.last` returns  wether current element is the last one. (equals to `boolean isLast()`)
 
 If now we have a list called employeeList which is `List<Employee>`. Employee has two attributes `name` and `age` with **getter/setter**:
 
@@ -112,7 +112,7 @@ If it's **Map**:
 
 It **appends several collections to form a new collection**.
 
-The new collection has the following order (different from tag `merge`):
+The new collection has the following order (different from tag `merge):
 
 1. First Entry of the First Iterator
 2. Second Entry of the First Iterator
