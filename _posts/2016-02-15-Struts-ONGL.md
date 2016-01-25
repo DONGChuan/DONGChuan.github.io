@@ -211,6 +211,7 @@ this converter, it simply add "converter-" to each entries.
 
 Simply subet
 
+{% highlight java %}
 <!-- myList is a List<String> given by action -->
 <s:subset source="myList">
     <s:iterator>
@@ -221,6 +222,7 @@ Simply subet
 
 With decider:
 
+{% highlight java %}
 public class MySubsetTagAction extends ActionSupport {
 	
 	...
@@ -235,6 +237,7 @@ public class MySubsetTagAction extends ActionSupport {
 }
 {% endhighlight %}
 
+{% highlight java %}
 <!-- myList is a List<String> given by action -->
 <s:subset source="myList" decider="myDecider">
     <s:iterator>
@@ -253,6 +256,7 @@ It **sorts a List using a Comparator**
 | var | X |   | The name to store the resultant iterator into page context |
 | source | X |  | Source to sort |
 
+{% highlight java %}
 <s:set name="test" value="{'aefi','abc','world!','kkkkk'}" />
 <s:bean id="sort" name="action.SortComparator"></s:bean>
 <s:sort source="test" comparator="sort">
@@ -262,7 +266,7 @@ It **sorts a List using a Comparator**
 </s:sort>
 {% endhighlight %}
 
-
+{% highlight java %}
 public class SortComparator implements Comparator<Object> {
     public int compare(Object arg0, Object arg1) {
     	// Compare by length
