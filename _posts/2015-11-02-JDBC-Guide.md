@@ -1,7 +1,7 @@
 ---
 layout: post
 title: JDBC Guide
-category: java
+category: jdbc
 tags: [java, jdbc]
 ---
 
@@ -54,7 +54,6 @@ jdbc:mysql://localhost:3306/testDB?useUnicode=true&characterEncoding=utf-8
 ### Good Practice
 
 * Keep all the DB configurations in a properties file
-* Singleton to get 
 
 For example, now we have **DBConfig.properties**:
 
@@ -142,6 +141,7 @@ Each parameter marker is referred by its ordinal position. The first marker repr
 
 ### CallableStatement
 
+//Todo
 
 ## Execute a statement
 
