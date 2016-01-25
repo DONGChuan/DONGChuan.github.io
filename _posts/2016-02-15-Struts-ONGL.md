@@ -80,7 +80,7 @@ If now we have a list called employeeList which is `List<Employee>`. Employee ha
 	</s:iterator>  
 </table>
 {% endhighlight %}
-
+  
 If it's **List<String>**, use `s:property` without `value` to present a string element in the list:
 
 {% highlight java %}
@@ -112,7 +112,7 @@ If it's **Map**:
 
 It **appends several collections to form a new collection**.
 
-The new collection has the following order (different from tag 'merge'):
+The new collection has the following order (different from tag `merge`):
 
 1. First Entry of the First Iterator
 2. Second Entry of the First Iterator
