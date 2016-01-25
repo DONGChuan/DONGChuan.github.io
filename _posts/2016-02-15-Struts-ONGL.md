@@ -27,7 +27,7 @@ It's an expression language for getting/setting properties of Java objects and o
 
 ### if/elseif/else
 
-'if' and 'elseif' must have 'test' attribute in which should be a boolean expression.
+`if` and `elseif` must have `test` attribute in which should be a boolean expression.
 
 {% highlight java %}
 // Set a parameter called 'age' with value 30
@@ -58,16 +58,16 @@ Tag to **iterate a collection** (List, set, array or map). It has three attribut
 
 Instance of IteratorStatus also has following functions:
 
-if 'status="test"',
+if `status="test"'`,
 
-* '#test.count' returns number of element already iterated. (equels to 'int getCount()')
-* '#test.index' returns index of current element. (equels to 'int getIndex()')
-* '#test.even' returns wether current element is even. (equels to 'boolean isEven()')
-* '#test.odd' returns wether current element is odd. (equels to 'boolean isOdd()')
-* '#test.first' returns wether current element is the first one. (equels to 'boolean isFirst()')
-* '#test.last' returns  wether current element is the last one. (equels to 'boolean isLast()')
+* `#test.count` returns number of element already iterated. (equels to 'int getCount()')
+* `#test.index` returns index of current element. (equels to 'int getIndex()')
+* `#test.even` returns wether current element is even. (equels to 'boolean isEven()')
+* `#test.odd` returns wether current element is odd. (equels to 'boolean isOdd()')
+* `#test.first` returns wether current element is the first one. (equels to 'boolean isFirst()')
+* `#test.last` returns  wether current element is the last one. (equels to 'boolean isLast()')
 
-If now we have a list called employeeList which is 'List<Employee>'. Employee has two attributes 'name' and 'age' with **getter/setter**:
+If now we have a list called employeeList which is `List<Employee>`. Employee has two attributes `name` and `age` with **getter/setter**:
 
 {% highlight java %}
 <table>
@@ -81,7 +81,7 @@ If now we have a list called employeeList which is 'List<Employee>'. Employee ha
 </table>
 {% endhighlight %}
 
-If it's **List<String>**, use '<s:property/>' without 'value' to present a string element in the list:
+If it's **List<String>**, use `<s:property/>` without `value` to present a string element in the list:
 
 {% highlight java %}
 <table>
@@ -121,7 +121,7 @@ The new collection has the following order (different from tag 'merge'):
 5. Second Entry of the Second Iterator
 6. Third Entry of the Second Iterator
 
-The following example shows three lists of type 'List<String>' to be appended together. These three lists are passed by some Action.
+The following example shows three lists of type `List<String>` to be appended together. These three lists are passed by some Action.
 
 {% highlight java %}
 <s:append var="newList">
@@ -136,7 +136,7 @@ The following example shows three lists of type 'List<String>' to be appended to
 
 ### merge
 
-The same as 'append' but in different order:
+The same as `append` but in different order:
 
 1. First Entry of the First Iterator
 2. First Entry of the Second Iterator
@@ -147,7 +147,7 @@ The same as 'append' but in different order:
 
 ### generator
 
-**Generate an iterator based on give string**. If 'var' not set, it will only exist in Value Stack which means you can not use it ourside the tag. (Not in page context)
+**Generate an iterator based on give string**. If `var` not set, it will only exist in Value Stack which means you can not use it outside the tag. (Not in page context)
 
 | Name | Required | Default | Description | 
 |---|---|---|---|
@@ -209,7 +209,7 @@ this converter, it simply add "converter-" to each entries.
 | source | X |  | Source to do subset |
 | start | X | 0 | Indicate the startig index |
 
-Simply subet
+Simply subset:
 
 {% highlight java %}
 <!-- myList is a List<String> given by action -->
@@ -255,6 +255,8 @@ It **sorts a List using a Comparator**
 | comparator | O |  | The comparator to use (java.util.Comparator) |
 | var | X |   | The name to store the resultant iterator into page context |
 | source | X |  | Source to sort |
+
+Sort by string length:
 
 {% highlight java %}
 <s:set name="test" value="{'aefi','abc','world!','kkkkk'}" />
