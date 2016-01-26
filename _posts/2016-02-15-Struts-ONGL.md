@@ -33,7 +33,7 @@ Before using ONGL, we need to import it in JSP page:
 
 `if` and `elseif` must have `test` attribute in which should be a boolean expression.
 
-{% highlight java %}
+{% highlight jsp %}
 // Set a parameter called 'age' with value 30
 <s:set name="age" value="30"/>
 <s:if test="#age>60">    
@@ -73,7 +73,7 @@ if `status="test"`,
 
 If now we have a list called employeeList which is `List<Employee>`. Employee has two attributes `name` and `age` with **getter/setter**:
 
-{% highlight java %}
+{% highlight jsp %}
 <table>
 	<s:iterator value="employeeList" status="list">
 		<tr>
@@ -87,7 +87,7 @@ If now we have a list called employeeList which is `List<Employee>`. Employee ha
   
 If it's **List<String>**, use `s:property` without `value` to present a string element in the list:
 
-{% highlight java %}
+{% highlight jsp %}
 <table>
 	<s:iterator value="numberList" status="list2">
 		<tr>
@@ -100,7 +100,7 @@ If it's **List<String>**, use `s:property` without `value` to present a string e
 
 If it's **Map**:
 
-{% highlight java %}
+{% highlight jsp %}
 <table>
 	<s:iterator value="keyValueMap" status="map">
 		<tr>
@@ -127,7 +127,7 @@ The new collection has the following order (different from tag `merge):
 
 The following example shows three lists of type `List<String>` to be appended together. These three lists are passed by some Action.
 
-{% highlight java %}
+{% highlight jsp %}
 <s:append var="newList">
      <s:param value="list1" />
      <s:param value="list2" />
@@ -163,7 +163,7 @@ The same as `append` but in different order:
 
 A string separated by ",":
 
-{% highlight java %}
+{% highlight jsp %}
 <s:generator val="%{'aaa,bbb,ccc,ddd,eee'}" count="3" separator=",">
 	<s:iterator>
     	<s:property />
@@ -173,7 +173,7 @@ A string separated by ",":
 
 Generate an iterator with comparator attribute:
 
-{% highlight java %}
+{% highlight jsp %}
 <s:generator val="%{'aaa,bbb,ccc,ddd,eee'}" separator="," converter="myConverter">
 	<s:iterator>
      return<s:property /><br/>
@@ -215,7 +215,7 @@ this converter, it simply add "converter-" to each entries.
 
 Simply subset:
 
-{% highlight java %}
+{% highlight jsp %}
 <!-- myList is a List<String> given by action -->
 <s:subset source="myList">
     <s:iterator>
@@ -241,7 +241,7 @@ public class MySubsetTagAction extends ActionSupport {
 }
 {% endhighlight %}
 
-{% highlight java %}
+{% highlight jsp %}
 <!-- myList is a List<String> given by action -->
 <s:subset source="myList" decider="myDecider">
     <s:iterator>
@@ -264,7 +264,7 @@ It **sorts a List using a Comparator**
 
 Sort by string length:
 
-{% highlight java %}
+{% highlight jsp %}
 <s:set name="test" value="{'aefi','abc','world!','kkkkk'}" />
 <s:bean id="sort" name="action.SortComparator"></s:bean>
 <s:sort source="test" comparator="sort">
@@ -299,8 +299,8 @@ It could call actions directly from a JSP page by specifying the action name and
 | namespace | X | Namespace from where tag is used | Namespace of the action |
 | ignoreContextParams | X | false | Whether the request parameters are to be passed to the action |
 | rethrowException | X | false | Whether an exception should be rethrown, if the target action throws an exception |
-
-####Example
+ 
+#### Example
 
 {% highlight java %}
 public class ActionTagAction extends ActionSupport {

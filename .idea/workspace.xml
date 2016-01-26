@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10a64a97-cd19-4448-b115-eae660cc0254" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2016-02-15-Struts-ONGL.md" afterPath="$PROJECT_DIR$/_posts/2016-02-15-Struts-ONGL.md" />
     </list>
     <ignored path="DONGChuan.github.io-master.iws" />
