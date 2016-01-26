@@ -9,13 +9,17 @@ OGNL stands for [Object Graph Navigation Language](http://commons.apache.org/pro
 
 It's an expression language for getting/setting properties of Java objects and other extra functions. It works as a binding between GUI elements or UI components to model objects.
 
+This post is a summary after studying [Apache Struts 2 Documentation - ONGL](https://struts.apache.org/docs/generic-tag-reference.html).
+
 ## Import tag lib
+
+Before using ONGL, we need to import it in JSP page:
 
 {% highlight java %}
 <%@ taglib prefix="s" uri="/struts-tags" %>
 {% endhighlight %}
 
-## Control Tag
+## Control Tags
 
 * if/elseif/else
 * iterator
@@ -256,6 +260,8 @@ It **sorts a List using a Comparator**
 | var | X |   | The name to store the resultant iterator into page context |
 | source | X |  | Source to sort |
 
+#### Example
+
 Sort by string length:
 
 {% highlight java %}
@@ -275,6 +281,65 @@ public class SortComparator implements Comparator<Object> {
         return arg0.toString().length() - arg1.toString().length();
     }
 }
+{% endhighlight %}
+
+## Data Tags
+
+### action
+
+It could call actions directly from a JSP page by specifying the action name and an optional namespace. 
+
+>Any result processor defined for this action in struts.xml will be ignored, unless the executeResult parameter is specified.
+
+| Name | Required | Default | Description | 
+|---|---|---|---|
+| **executeResult** | x | false | Whether the result of this action (probably a view) should be executed/rendered |
+| var | X |   | Name used to reference the value pushed into the Value Stack |
+| name | O |  | Name of the action to be executed (without the extension suffix eg. .action) |
+| namespace | X | Namespace from where tag is used | Namespace of the action |
+| ignoreContextParams | X | false | Whether the request parameters are to be passed to the action |
+| rethrowException | X | false | Whether an exception should be rethrown, if the target action throws an exception |
+
+####Example
+
+{% highlight java %}
+public class ActionTagAction extends ActionSupport {
+ 
+	public String execute() throws Exception {
+     	return SUCCESS;
+ 	}
+ 
+ 	public String test() throws Exception {
+    	ServletActionContext.getRequest().setAttribute("variable", "A variable");
+     	return SUCCESS;
+ 	}
+}
+{% endhighlight %}
+
+{% highlight xml %}
+<action name="actionA" class="com.dong.test">
+    <result name="success">test.jsp</result>
+</action>
+<action name="actionB" class="com.dong.test" method="test">
+    <result name="success">test.jsp</result>
+</action>
+{% endhighlight %}
+
+When we acess the test page with a request parameter - `localhost:8000/index?author=Dong`:
+
+{% highlight jsp %}
+<!-- success.jsp will be included in this page -->
+<!-- And show "test - Dong"-->
+<s:action name="actionA" executeResult="true" />
+
+<!-- test.jsp will be included in this page-->
+<!-- No request parameter is allowed, so could only show "test -"-->
+<s:action name="actionB" executeResult="true" ignoreContextParams="true" />
+
+<!-- test.jsp will NOT be included in this page-->
+<!-- But put a String in request scope under an id "variable" which will be retrieved using property tag -->
+<s:action name="actionB" executeResult="false" />
+<s:property value="#attr.variable" /><!-- #attr is to access to PageContext if available , we use value="variable" directly -->
 {% endhighlight %}
 
 ## Ref
