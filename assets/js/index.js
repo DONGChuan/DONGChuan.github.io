@@ -35,3 +35,22 @@ setInterval(function(){
     $("#chuan-title").fadeIn(1000);
 
 }, 3000);
+
+// Window Scroll
+var windowScroll = function () {
+    $(window).scroll(function () {
+
+        var scrollPos = $(this).scrollTop();
+
+        if ($(window).scrollTop() > 70) {
+            $('#site-header-id').addClass('site-header-nav-scrolled');
+        } else {
+            $('#site-header-id').removeClass('site-header-nav-scrolled');
+        }
+
+    });
+};
+
+$( document ).ready(function() {
+    windowScroll();
+});
