@@ -106,3 +106,7 @@
 	z-index: -1;
 	position: fixed;
 }
+
+#container-open-source {
+	margin-top: 150px;
+}
