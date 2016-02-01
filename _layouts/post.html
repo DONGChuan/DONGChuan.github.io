@@ -10,6 +10,9 @@ comments: true
                     <h1 class="collection-header">{{ page.title }}</h1>
                     <div class="collection-info">
                         <span class="meta-info">
+                            {% if page.logo %}
+                                {{ page.logo }}
+                            {% endif %}
                             {% if page.date %}
                             <span class="octicon octicon-calendar"></span> {{ page.date | date: "%Y/%m/%d" }}
                             {% endif %}

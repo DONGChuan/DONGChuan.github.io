@@ -37,23 +37,6 @@
     list-style-type:disc;
 }
 
-.posts-list::before {
-    content: " ";
-    position: absolute;
-    left: 0;
-    top: 12px;
-    width: 6px;
-    height: 6px;
-    margin-left: -4px;
-    background: #bbb;
-    border-radius: 50%;
-    border: 1px solid #fff;
-    transition-duration: 0.2s;
-    transition-timing-function: ease-in-out;
-    transition-delay: 0s;
-    transition-property: background;
-}
-
 .posts-list-item {
     border-bottom: 1px dashed #ccc;
     margin: 10px;
