@@ -29,7 +29,7 @@
             });
         });
 
-        var fixmeTop = $('#post-directory-module').offset().top;       // get initial position of the element
+        var fixmeTop = $('#post-directory-module').offset().top - 80;       // get initial position of the element
 
         $(window).scroll(function() {                  // assign scroll event listener
 
@@ -37,7 +37,7 @@
 
             if (currentScroll >= fixmeTop) {           // apply position: fixed if you
                 $('#post-directory-module').css({                      // scroll to that element or below it
-                    top: '0',
+                    top: '80px',
                     position: 'fixed',
                     width: 'inherit'
                 });
