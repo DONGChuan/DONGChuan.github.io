@@ -181,20 +181,18 @@ Generate an iterator with comparator attribute:
 </s:generator>
 {% endhighlight %} 
 
-{% highlight java %} 
+{% highlight java %}
 public class GeneratorTagAction extends ActionSupport {
- 
-  ....
-  // getMyConverter function name -> converter="myConverter"
-  public Converter getMyConverter() {
-     return new Converter() {
-         public Object convert(String value) throws Exception {
-             return "converter-"+value;
-         }
-     };
-  }
-  ...
- 
+    ...
+    // getMyConverter function name -> converter="myConverter"
+    public Converter getMyConverter() {
+        return new Converter() {
+            public Object convert(String value) throws Exception {
+                return "converter-"+value;
+            }
+        };
+    }
+    ...
 }
 {% endhighlight %}
 
