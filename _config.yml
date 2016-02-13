@@ -21,7 +21,7 @@ source_code: https://github.com/DONGChuan/DONGChuan.github.io
 
 # Build settings
 markdown:    kramdown
-highlighter: pygments
+highlighter: rouge
 lsi:         false
 excerpt_separator: "\n\n"
 
