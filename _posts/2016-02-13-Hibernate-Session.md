@@ -65,7 +65,7 @@ But be careful here, `save()` does not guarantee the same, it returns an identif
 
 ## load() and get()
 
-load() and get() result in an SQL SELECT BY ID. It returns the persistent instance of the given entity class with the given identifier.(load() returna a "proxy")
+`load()` and `get()` result in an SQL `SELECT BY ID`. It returns the persistent instance of the given entity class with the given identifier.(`load()` returna a "proxy")
 
 {% highlight java %}
 // Opens session and begins transaction
@@ -78,17 +78,17 @@ User user = (User) session.load(User.class, 1); // 1 is the identifier in the da
 
 ### Different between load() and get()
 
-* load() returns a **“proxy” without hitting the database** (lazy loading). In Hibernate, proxy is an object with the given identifier value, its properties are not initialized yet, it just look like a temporary fake object. If no row found , it will **throws an exception** - ObjectNotFoundException.
+* `load()` returns a **“proxy” without hitting the database** (lazy loading). In Hibernate, proxy is an object with the given identifier value, its properties are not initialized yet, it just look like a temporary fake object. If no row found , it will **throws an exception** - ObjectNotFoundException.
 
-* get() always **hits the database and returns the real object** instead of a proxy. If no row found , **it return null**.
+* `get()` always **hits the database and returns the real object** instead of a proxy. If no row found , **it return null**.
 
 ### Which one to use
 
-If I'm not sure whether the object exists or not, I use get() to avoid an exception. If I'm sure, I prefer load().
+If I'm not sure whether the object exists or not, I use `get()` to avoid an exception. If I'm sure, I prefer `load()`.
 
 ## update() and saveOrUpdate()
 
-Which function will result in SQL UPDATE? We could find update() or saveOrUpdate(). But we need to know firstly, there is no need to call these functions to do update. When we get()/load() a persistent object, and then call setters to modify something. After transaction commit() or session flush(). Database will be updated.
+Which function will result in SQL `UPDATE`? We could find `update()` or `saveOrUpdate()`. But we need to know firstly, there is no need to call these functions to do update. When we `get()/load()` a persistent object, and then call setters to modify something. After transaction `commit()` or session `flush()`. Database will be updated.
 
 {% highlight java %}
 // Opens session and begins transaction
@@ -104,7 +104,7 @@ session.flush();
 
 ### update() 
 
-So why we need update()? In fact, it's mainly used to updated a detached object which was ever a persistent object and now session is closed. When update() a detached object, **it will become persistent again**.
+So why we need `update()`? In fact, it's mainly used to updated a detached object which was ever a persistent object and now session is closed. When `update()` a detached object, **it will become persistent again**.
 
 {% highlight java %}
 firstSession = sessionFactory.openSession();    
@@ -134,13 +134,13 @@ secondSession.close();
 
 ### saveOrUpdate()
 
-It means either save() or update() the given instance on the basis of identifier exists or not. When we are not sure whether the instance was ever persistent (so whether an identifier exists or not). USE IT! If the instance has an identifier, update() will be run to update it in databas. If no identifier, save() will be run to add an identifier and insert it into database.
+It means either `save()` or `update()` the given instance on the basis of identifier exists or not. When we are not sure whether the instance was ever persistent (so whether an identifier exists or not). USE IT! If the instance has an identifier, `update()` will be run to update it in databas. If no identifier, `save()` will be run to add an identifier and insert it into database.
 
 ## merge()
 
-merge() is also used to update a detached object. It copies the state of the given object onto the persistent object with the same identifier. 
+`merge()` is also used to update a detached object. It copies the state of the given object onto the persistent object with the same identifier. 
 
-The difference with update() is that update() tries to reattach the instance, meaning that there is no other persistent object with the same identifier attached to the Session right now otherwise NonUniqueObjectException is thrown. merge(), however, just copies all values to a persistent instance in the Session (which will be loaded if it is not currently loaded). The input object is not changed. So merge is more general() than update(), but may use more resources.
+The difference with `update()` is that `update()` tries to reattach the instance, meaning that there is no other persistent object with the same identifier attached to the Session right now otherwise NonUniqueObjectException is thrown. `merge()`, however, just copies all values to a persistent instance in the Session (which will be loaded if it is not currently loaded). The input object is not changed. So merge is more general than `update()`, but may use more resources.
 
 {% highlight java %}
 Session session = sessionFactory.openSession();
@@ -165,7 +165,7 @@ tx.commit();
 session.close();
 {% endhighlight %} 
 
-So if in this situation, we should use merge(), it needs to merge user1 with user2:
+So if in this situation, we should use `merge()`, it needs to merge user1 with user2:
 
 {% highlight java %}
 User user2 = (User) session.get(User.class, 2);
@@ -178,7 +178,7 @@ So here merge returns the **same reference** of user2.
 
 ## delete()
 
-delete() results in SQL DELETE
+`delete()` results in SQL `DELETE`
 
 {% highlight java %}
 Session session = sessionFactory.openSession();
@@ -193,11 +193,11 @@ session.close();
 
 ## find()
 
-No find() in current version! We must use query or criteria to achieve it.
+No `ind()` in current version! We must use query or criteria to achieve it.
 
 ## flush()
 
-session.flush() forces Hibernate to **synchronize the in-memory state of the Session with the database**. 
+`session.flush()` forces Hibernate to **synchronize the in-memory state of the Session with the database**. 
 
 By default, Hibernate will flush changes automatically for you:
 
