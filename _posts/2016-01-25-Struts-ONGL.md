@@ -84,8 +84,8 @@ If now we have a list called employeeList which is `List<Employee>`. Employee ha
 	</s:iterator>  
 </table>
 {% endhighlight %}
-  
-If it's **List<String>**, use `s:property` without `value` to present a string element in the list:
+
+If it's **List\<String\>**, use `s:property` without `value` to present a string element in the list:
 
 {% highlight JSP %}
 <table>
