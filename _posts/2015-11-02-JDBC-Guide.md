@@ -170,7 +170,7 @@ int i = preparedStatement.executeUpdate();
 
 ## Extract data
 
-We use 'ResultSet.getXXX()' to etract data from result set by **column name**.
+We use `ResultSet.getXXX()`` to etract data from result set by **column name**.
 
 {% highlight java %}
 while(rs.next()){
