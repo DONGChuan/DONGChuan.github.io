@@ -21,29 +21,74 @@ Persistent objects should be in one of the following three states at a given poi
 
 ## Open a session
 
+> Different version of Hibernate has different way to do it. The following is for Hibernate 4.3 only
+
+To open a session, it's better to create an util class:
+
 {% highlight java %}
-// Loads hibernate.cfg.xml by default
-Configuration config = new Configuration().configure();
-SessionFactory sessionFactory = config.buildSessionFactory();
+public class HibernateUtils {
 
-// Opens a session
-Session session = sessionFactory.openSession();
-Transaction tx = session.beginTransaction();
+	private static SessionFactory sessionFactory;
+	private static Session session;
+	
+	static{
+		// Loads hibernate.cfg.xml by default
+		Configuration cfg = new Configuration().configure();
+		
+		StandardServiceRegistryBuilder ssrb = new StandardServiceRegistryBuilder().applySettings(cfg.getProperties());
+		ServiceRegistry service=ssrb.build();
+		sessionFactory = cfg.buildSessionFactory(service);
+	}
 
-....
+	/**
+	 * Get session
+	 */
+	public static Session getSession(){
+		// We could also use openSession()
+		return sessionFactory.getCurrentSession();
+	}
 
-tx.commit();
+	/**
+	 * Close session
+	 */
+	public static void closeSession(){
+		if(session != null && session.isOpen()){
+			session.close();
+		}
+	}
+	
+	public static void closeSession(Session session){
+		if(session!=null&&session.isOpen()){
+			session.close();
+		}
+	}
+}
+{% endhighlight %}
 
-// Close a session
-session.close();
-{% endhighlight %} 
+To use `getCurrentSession()`, it needs to add in hibernate.cfg.xml:
+
+{% highlight xml %}
+<property name="hibernate.current_session_context_class">thread</property>
+{% endhighlight %}
+
+### openSession vs getCurrentSession
+
+####openSession()
+
+1. We can use it when we decided to manage the Session our self.
+2. It does not try to store or pull the session from the current context. Just a brand new one.
+3. **If we use this method, we need to `flush()` and `close()` the session. It does not flush and close() automatically**.
+
+####getCurrentSession()
+
+The "CurrentSession" refers to a Hibernate Session bound by Hibernate behind the scenes, to the transaction scope. It **creates a brand new session** if does not exist or **uses an existing one** if one already exists. It automatically configured with both auto-flush and auto-close attributes as true means **Session will be automatically flushed and closed**. It's better to use `getCurrentSession()` method when our transaction runs long time or with multi calls of session.
 
 ## save()
 
 `save()` results in an SQL INSERT. It persists the given transient instance, first assigning a generated identifier. In brief, it adds/saves a new entity into database.
 
 {% highlight java %}
-Session session = sessionFactory.openSession();
+Session session = HibernateUtils.getSession();
 Transaction tx = session.beginTransaction();
 
 User user = new User(); 
@@ -54,7 +99,7 @@ user.setAge(26);
 session.save(user);
 
 tx.commit();
-session.close();
+// Because getCurrentSession(), so no need session.close();
 {% endhighlight %} 
 
 But be careful here, `save()` does not guarantee the same, it returns an identifier, and if an INSERT has to be executed to get the identifier, **this INSERT happens immediately**, no matter if you are inside or outside of a transaction. This is not good in a long-running conversation with an extended Session/persistence context.
@@ -68,12 +113,14 @@ But be careful here, `save()` does not guarantee the same, it returns an identif
 `load()` and `get()` result in an SQL `SELECT BY ID`. It returns the persistent instance of the given entity class with the given identifier.(`load()` returna a "proxy")
 
 {% highlight java %}
-// Opens session and begins transaction
+Session session = HibernateUtils.getSession();
+Transaction tx = session.beginTransaction();
 
 User user = (User) session.load(User.class, 1); // 1 is the identifier in the database
 // User user = (User) session.get(User.class, 1); 
 
-// Commits and closes session
+tx.commit();
+// Because we use getCurrentSession, so no need to run session.close();
 {% endhighlight %} 
 
 ### Different between load() and get()
@@ -91,15 +138,15 @@ If I'm not sure whether the object exists or not, I use `get()` to avoid an exce
 Which function will result in SQL `UPDATE`? We could find `update()` or `saveOrUpdate()`. But we need to know firstly, there is no need to call these functions to do update. When we `get()/load()` a persistent object, and then call setters to modify something. After transaction `commit()` or session `flush()`. Database will be updated.
 
 {% highlight java %}
-// Opens session and begins transaction
+Session session = HibernateUtils.getSession();
+Transaction tx = session.beginTransaction();
 
 User user = (User) session.load(User.class, 1);
 user.setAge(30);
 
 session.flush();
 // or tx.commit(); it does the same thing
-
-// Closes session
+// Because getCurrentSession(), so no need session.close();
 {% endhighlight %} 
 
 ### update() 
@@ -107,13 +154,13 @@ session.flush();
 So why we need `update()`? In fact, it's mainly used to updated a detached object which was ever a persistent object and now session is closed. When `update()` a detached object, **it will become persistent again**.
 
 {% highlight java %}
-firstSession = sessionFactory.openSession();    
-tx = firstSession.beginTransaction();
+Session session = HibernateUtils.getSession();
+Transaction tx = session.beginTransaction();
 
 User user = (User) session.get(User.class, 2);
 
 tx.commit();
-firstSession.close();
+// Because getCurrentSession(), so first session is closed here
 
 ....
 
@@ -121,15 +168,15 @@ firstSession.close();
 user.setAge(new Integer(27));
 
 // We open a second session
-secondSession = sessionFactory.openSession();    
-tx = secondSession.beginTransaction();
+Session secondSession = HibernateUtils.getSession();
+Transaction tx = session.beginTransaction();
 
 // Update!
 secondSession.update(user);
 
 // Commit!
 tx.commit();
-secondSession.close();
+// Because getCurrentSession(), so no need secondSession.close();
 {% endhighlight %} 
 
 ### saveOrUpdate()
@@ -143,18 +190,18 @@ It means either `save()` or `update()` the given instance on the basis of identi
 The difference with `update()` is that `update()` tries to reattach the instance, meaning that there is no other persistent object with the same identifier attached to the Session right now otherwise NonUniqueObjectException is thrown. `merge()`, however, just copies all values to a persistent instance in the Session (which will be loaded if it is not currently loaded). The input object is not changed. So merge is more general than `update()`, but may use more resources.
 
 {% highlight java %}
-Session session = sessionFactory.openSession();
+Session session = HibernateUtils.getSession();
 Transaction tx = session.beginTransaction();
 
 User user1 = (User) session.get(User.class, 2);
 
-tx.commit();
-session.close();
+tx.commit(); 
+// Because getCurrentSession(), so no need session.close();
 
 ....
 user1.setAge(30);
 
-session = sessionFactory.openSession();    
+session = HibernateUtils.getSession(); 
 tx= session.beginTransaction(); 
 
 User user2 = (User) session.get(User.class, 2); // Same id as user1
@@ -162,7 +209,7 @@ User user2 = (User) session.get(User.class, 2); // Same id as user1
 session.update(user1); // It throws NonUniqueObjectException because in the session, another persistent object with the same id already exists. user1 == user2 false
 
 tx.commit();
-session.close();
+// Because we use getCurrentSession, so no need session.close();
 {% endhighlight %} 
 
 So if in this situation, we should use `merge()`, it needs to merge user1 with user2:
@@ -181,14 +228,14 @@ So here merge returns the **same reference** of user2.
 `delete()` results in SQL `DELETE`
 
 {% highlight java %}
-Session session = sessionFactory.openSession();
+Session session = HibernateUtils.getSession();
 Transaction tx = session.beginTransaction();
 
 User user = (User) session.get(User.class, 1);
 session.delete(user);
 
 tx.commit();
-session.close();
+// Because getCurrentSession(), so no need session.close();
 {% endhighlight %} 
 
 ## find()
