@@ -73,13 +73,13 @@ To use `getCurrentSession()`, it needs to add in hibernate.cfg.xml:
 
 ### openSession vs getCurrentSession
 
-####openSession()
+#### openSession()
 
 1. We can use it when we decided to manage the Session our self.
 2. It does not try to store or pull the session from the current context. Just a brand new one.
 3. **If we use this method, we need to `flush()` and `close()` the session. It does not flush and close() automatically**.
 
-####getCurrentSession()
+#### getCurrentSession()
 
 The "CurrentSession" refers to a Hibernate Session bound by Hibernate behind the scenes, to the transaction scope. It **creates a brand new session** if does not exist or **uses an existing one** if one already exists. It automatically configured with both auto-flush and auto-close attributes as true means **Session will be automatically flushed and closed**. It's better to use `getCurrentSession()` method when our transaction runs long time or with multi calls of session.
 
