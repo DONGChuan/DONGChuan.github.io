@@ -14,11 +14,15 @@ It includes APIs for the tasks mentioned below:
 * Executing SQL statements.
 * Viewing & Modifying the resulting records.
 
+## Add libs
+
+To use jdbc, we must add related libs firstly in the buildpath/classpath. For example, with mysql, we must download **mysql-connector-java-*.jar**. According to different IDEs, we will also have different ways to add them. In IDEA, it needs to put jars in a lib folder on your root and right click, choose **add as Library**.
+
 ## Import packages
 
 {% highlight java %}
 import java.sql.*; // JDBC packages.  
-import java.math.*; // // To support BigDecimal and BigInteger only
+import java.math.*; // To support BigDecimal and BigInteger only
 {% endhighlight %}
 
 Import the following two packages if we need to use extended functionality provided by the Oracle driver. Check more details [here](https://docs.oracle.com/cd/F49540_01/DOC/java.815/a64685/oraext.htm#1000888)
@@ -30,6 +34,8 @@ import oracle.sql.*;
 
 ## Register JDBC driver
 
+Prior to JDBC 4.0, we must manually load drivers with the method `Class.forName`
+
 {% highlight java %}
 Class.forName("com.mysql.jdbc.Driver"); // For mysql
 Class.forName("oracle.jdbc.driver.OracleDriver"); // For oracle
@@ -37,21 +43,29 @@ Class.forName("oracle.jdbc.driver.OracleDriver"); // For oracle
 
 For the other drivers, we could check [JDBC Driver List](http://www.sql-workbench.net/manual/jdbc-setup.html) for details.
 
+According to [Oracle Java Tutorials](http://docs.oracle.com/javase/tutorial/jdbc/basics/connecting.html), any JDBC >= 4.0 drivers that are found in your classpath are automatically loaded.
+
 ## Open a connection
+
+To open a connection, we must invoke `DriverManager.getConnection()` with following parameters:
+
+1. URL (jdbc:sqlType://hostname:port/dataBaseName?Param=Value&Param=Value)
+2. Username
+3. Password
 
 {% highlight java %}
 Connection conn = DriverManager.getConnection("jdbc:mysql://host:port/databaseName", "username", "password");
 {% endhighlight %}
 
-### Mysql URL example
+#### MySQL URL example
 
 {% highlight java %}
 jdbc:mysql://localhost:3306/testDB?useUnicode=true&characterEncoding=utf-8
 {% endhighlight %}
 
-**seUnicode=true&characterEncoding=utf-8** here is very useful to avoid some character problems like Chinese even if you already set utf-8 when created tables.
+**useUnicode=true&characterEncoding=utf-8** here is very useful to avoid some character problems like Chinese even if you already set utf-8 when created tables.
 
-### Good Practice
+#### Good Practice
 
 * Keep all the DB configurations in a properties file
 
@@ -64,7 +78,7 @@ user=root
 password=abcdefg
 {% endhighlight %}
 
-Then load this file 
+Then load this file and get connection by a DBHelper class:
 
 {% highlight java %}
 public class DBHelper {
@@ -121,7 +135,10 @@ There are three kinds of statements:
 
 {% highlight java %}
 Statement stmt = conn.createStatement();
+// ResultSet result = stmt.executeQuery("SELECT * FROM Employees");
 {% endhighlight %}
+
+Because `Statement` does not accept parameters, so we could only use it to execute some static queries.
 
 ### PreparedStatement
 
@@ -133,11 +150,11 @@ preparedStatement.setInt(1, 29);
 preparedStatement.setString(2, "Jack");
 {% endhighlight %}
 
-**?** symbol is known as the **parameter marker**. We must supply values for every parameter before executing the SQL statement.
+**?** symbol is known as the **parameter marker**. We must supply values for every parameter before executing SQL statement.
 
-The setXXX() methods bind values to the parameters, where XXX represents the Java data type of the value you wish to bind to the input parameter.
+The setXXX() methods bind values to the parameters, where XXX represents the Java data type of the value you wish to bind to the input parameter. Each parameter marker is referred by its ordinal position. The first marker represents position 1, then 2, and so forth. (Not from 0!)
 
-Each parameter marker is referred by its ordinal position. The first marker represents position 1, then 2, and so forth. (Not from 0!)
+So with the help of parameter marker, we could prepare a SQL statement which will be used many times by `PreparedStatement`. We only need to set the values before execute it.
 
 ### CallableStatement
 
