@@ -14,11 +14,13 @@ It includes APIs for the tasks mentioned below:
 * Executing SQL statements.
 * Viewing & Modifying the resulting records.
 
-## Add libs
+## Steps to use JDBC
+
+### Add libs
 
 To use jdbc, we must add related libs firstly in the buildpath/classpath. For example, with mysql, we must download **mysql-connector-java-*.jar**. According to different IDEs, we will also have different ways to add them. In IDEA, it needs to put jars in a lib folder on your root and right click, choose **add as Library**.
 
-## Import packages
+### Import packages
 
 {% highlight java %}
 import java.sql.*; // JDBC packages.  
@@ -32,7 +34,7 @@ import oracle.jdbc.driver.*;
 import oracle.sql.*;
 {% endhighlight %}
 
-## Register JDBC driver
+### Register JDBC driver
 
 Prior to JDBC 4.0, we must manually load drivers with the method `Class.forName`
 
@@ -45,7 +47,7 @@ For the other drivers, we could check [JDBC Driver List](http://www.sql-workbenc
 
 According to [Oracle Java Tutorials](http://docs.oracle.com/javase/tutorial/jdbc/basics/connecting.html), any JDBC >= 4.0 drivers that are found in your classpath are automatically loaded.
 
-## Open a connection
+### Open a connection
 
 To open a connection, we must invoke `DriverManager.getConnection()` with following parameters:
 
@@ -121,7 +123,7 @@ public class DBHelper {
 }
 {% endhighlight %}
 
-## Creat a statement 
+### Creat a statement 
 
 There are three kinds of statements:
 
@@ -131,7 +133,7 @@ There are three kinds of statements:
 
 3. **CallableStatement**  is used to access the database stored procedures. It accepts runtime input parameters.
 
-### Statement
+#### Statement
 
 {% highlight java %}
 Statement stmt = conn.createStatement();
@@ -140,7 +142,7 @@ Statement stmt = conn.createStatement();
 
 Because `Statement` does not accept parameters, so we could only use it to execute some static queries.
 
-### PreparedStatement
+#### PreparedStatement
 
 {% highlight java %}
 String SQL = "Update Employees SET age = ? WHERE name = ?";
@@ -156,11 +158,11 @@ The setXXX() methods bind values to the parameters, where XXX represents the Jav
 
 So with the help of parameter marker, we could prepare a SQL statement which will be used many times by `PreparedStatement`. We only need to set the values before execute it.
 
-### CallableStatement
+#### CallableStatement
 
 //Todo
 
-## Execute a statement
+### Execute a statement
 
 * **boolean execute(String SQL)** returns true if a ResultSet object can be retrieved; otherwise, false. Use this method to execute SQL DDL statements which you only need to know whether excuted sucessfully or not.
 
@@ -185,9 +187,9 @@ preparedStatement.setString(2, "Jack");
 int i = preparedStatement.executeUpdate();
 {% endhighlight %}
 
-## Extract data
+### Extract datas
 
-We use `ResultSet.getXXX()`` to etract data from result set by **column name**.
+We use `ResultSet.getXXX()` to etract datas from result set by **column name**.
 
 {% highlight java %}
 while(rs.next()){
@@ -198,7 +200,7 @@ while(rs.next()){
 }
 {% endhighlight %}
 
-## Close
+### Close
 
 We must clean up environment
 
@@ -207,6 +209,8 @@ rs.close(); // Close firstly resultSet
 stmt.close(); // Then we should close statement
 conn.close(); // In the end, close connection
 {% endhighlight %}
+
+## Transaction
 
 ## Ref
 
