@@ -154,9 +154,9 @@ preparedStatement.setString(2, "Jack");
 
 **?** symbol is known as the **parameter marker**. We must supply values for every parameter before executing SQL statement.
 
-The setXXX() methods bind values to the parameters, where XXX represents the Java data type of the value you wish to bind to the input parameter. Each parameter marker is referred by its ordinal position. The first marker represents position 1, then 2, and so forth. (Not from 0!)
+The `setXXX()` methods bind values to the parameters, where XXX represents the Java data type of the value you wish to bind to the input parameter. Each parameter marker is referred by its ordinal position. The first marker represents position 1, then 2, and so forth. (Not from 0!)
 
-So with the help of parameter marker, we could prepare a SQL statement which will be used many times by `PreparedStatement`. We only need to set the values before execute it.
+So with the help of parameter marker, we could prepare a SQL statement which will be used many times by `PreparedStatement`. We only need to set the values before executing it.
 
 #### CallableStatement
 
@@ -211,6 +211,93 @@ conn.close(); // In the end, close connection
 {% endhighlight %}
 
 ## Transaction
+
+JDBC is in auto-commit mode by default which means every SQL statement is committed to the database upon its completion. For [Transaction](https://en.wikipedia.org/wiki/Transaction_processing) of JDBC, we need to set **false** of `setAutoCommit()` for a connection. So in this way, only when we invoke manually `commit()` of a connection, all the operations will be validated. If any exception happens, we need to `rollback()` which will cancel all the operations:
+
+{% highlight java %}
+try { 
+    …
+    conn.setAutoCommit(false);
+
+    stmt = conn.createStatement(); 
+    stmt.execute("....");
+    stmt.execute("....");
+    stmt.execute("....");
+
+    conn.commit(); // Everthing is right! Validate it!
+ } 
+ catch(SQLException e) { 
+    try { 
+         conn.rollback(); // Roll back all the operations
+    } catch (SQLException e1) {
+         e1.printStackTrace();
+    }
+    e.printStackTrace(); 
+ }
+{% endhighlight %}
+
+#### Using Savepoints
+
+With a savepoint, we could rollback to use the rollback method to undo only the changes made after the savepoint. The `Connection` and `Statement`/`PreparedStatement` object has three methods about it:
+
+1. `Connection` - `setSavepoint(String savepointName)`: defines a new savepoint. It returns a `Savepoint` object.
+2. `Connection` - `rollback(Savepoint savepoint)`: rolls back to the specified savepoint.
+3. `Statement`/`PreparedStatement` - `releaseSavepoint(Savepoint savepoint)`: releases a savepoint. Do not forget it!
+
+{% highlight java %}
+conn.setAutoCommit(false);
+Statement stmt = conn.createStatement();
+stmt.executeUpdate("....");
+stmt.executeUpdate("....");
+
+Savepoint savepoint = conn.setSavepoint(); // Set save point
+
+stmt.executeUpdate("....");
+
+// Rollback to the savepoint for some reasons
+conn.rollback(savepoint);
+. . .
+conn.commit();
+
+// Do not forget to release it!
+stmt.releaseSavepoint(savepoint);
+{% endhighlight %}
+
+## Batch Processing
+
+Batch Processing allows us to **group related SQL statements into a batch and submit them with one call to the database**. `Statement`, `PreparedStatement`, and `CallableStatement` have following methods to support it:
+
+1. `addBatch()` is used to add individual statements to the batch.
+2. `executeBatch()` is used to start the execution of all the statements grouped together. It returns an array of integers, and each element of the array represents the update count for the respective update statement.
+3. `clearBatch()` removes all the statements you added with the addBatch() method. However, you cannot selectively choose which statement :(
+
+{% highlight java %}
+conn.setAutoCommit(false);
+
+Statement stmt = conn.createStatement();
+stmt.addBatch("..."); // Add in batch
+stmt.addBatch("..."); // Add in batch
+stmt.addBatch("..."); // Add in batch
+...
+stmt.executeBatch(); // Execute together
+conn.commit();
+{% endhighlight %}
+
+Another example with `PreparedStatement`:
+
+{% highlight java %}
+PreparedStatement stmt = conn.prepareStatement(
+    "INSERT INTO Employees VALUES(?, ?)");
+Employees[] employees = ...;
+
+for(int i = 0; i < employees.length; i++) {
+     stmt.setInt(1, employees[i].getAge());
+     stmt.setString(2, employees[i].getName());
+     stmt.addBatch(); // Add in batch
+}
+
+stmt.executeBatch(); // Execute together
+{% endhighlight %}
 
 ## Ref
 
