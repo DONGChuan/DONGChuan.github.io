@@ -77,7 +77,7 @@ Based on the model state, Angular also adds some CSS classes automatically to an
 * `ng-valid/ng-invalid`: This is used if the model is valid or not
 * `ng-pristine/ng-dirty`: This is used if the model is pristine or ng-dirty.
 * `ng-untouched/ng-touched`:  This is used when the input is never visited or not.
-* `ng-invalid-/<errorkey>//ng-valid-/<errorkey/>`: This is used for a specific failed/sucessed validation.
+* `ng-invalid-<errorkey>/ng-valid-<errorkey>`: This is used for a specific failed/sucessed validation.
 * `ng-empty/ng-not-empty`:  This is used if the model is empty or not
 
 For example, when we check the page by Inspect of browser (not your own code), we could find a list of class already added in input:
@@ -150,13 +150,89 @@ With above example, each time, only one message will be shown. (Always the upper
 
 ### Message reuse and override
 
-ToDo
+#### Reuse
+
+Because many messages are the same in a big and complex form, we could reuse them by defining all messages in a sepereted file:
+
+{% highlight html %}
+<div ng-message="required">This field is required</div>
+<div ng-message="minlength">This field is too short</div>
+<div ng-message="maxlength">This field is too long</div>
+<div ng-message="required">This field is required</div>
+<div ng-message="email">This needs to be a valid email</div>
+{% endhighlight %}
+
+And include it by `ng-messages-include`:
+
+{% highlight html %}
+<div ng-messages="form.test.$error" ng-if="form.test.$dirty">
+     <div ng-messages-include="fileName.html"></div>    
+</div>
+{% endhighlight %}
+
+#### Override
+
+If generic messages are not enough to match all input fields, we could override messages defined in the remote template by redefining them within the directive container.
+
+{% highlight html %}
+<div ng-messages="form.test.$error" ng-if="form.test.$dirty">
+    <div ng-message="required">Override the required message</div>
+    <!-- Must put override ones above template -->
+
+    <div ng-messages-include="fileName.html"></div>    
+</div>
+{% endhighlight %}
 
 ### Custom validation
 
-we need to explicitly set the $dirty flag at both the form and element level
+There two ways to create a custom validation:
 
-ToDo
+1. By [AngularJS-UI](https://htmlpreview.github.io/?https://github.com/angular-ui/ui-validate/master/demo/index.html)
+2. By our own directive
+
+#### By AngularJS-UI
+
+Check [AngularJS-UI](https://htmlpreview.github.io/?https://github.com/angular-ui/ui-validate/master/demo/index.html)
+
+#### By our onw directive
+
+Define a directive:
+
+{% highlight javascript %}
+// A validation works like a blacklist, user input can not be in this list
+app.directive('blacklist', function(){ 
+    return {
+        require: 'ngModel',
+        link: function(scope, elem, attr, ngModel) {
+
+            var blacklist = attr.blacklist.split(',');
+
+            //For DOM -> model validation
+            ngModel.$parsers.unshift(function(value) {
+                var valid = blacklist.indexOf(value) === -1;
+                ngModel.$setValidity('blacklist', valid);
+                return valid ? value : undefined;
+            });
+
+            //For model -> DOM validation
+            ngModel.$formatters.unshift(function(value) {
+                ngModel.$setValidity('blacklist', blacklist.indexOf(value) === -1);
+                return value;
+            });
+        }
+    };
+});
+{% endhighlight %}
+
+Add it in input element:
+
+{% highlight html %}
+<form name="form">
+   <input type="text" name="type" ng-model="data.fruitName" blacklist="coconuts,bananas,pears" required/>
+   <span ng-show="myForm.fruitName.$error.blacklist"> The phrase "{{data.fruitName}}" is blacklisted</span>
+   <span ng-show="myForm.fruitName.$error.required">required</span>
+</form>
+{% endhighlight %}
 
 ## Submit
 
@@ -164,7 +240,25 @@ Form in Angular has a different role to play as compared to traditional html for
 
 The standard form behavior of posting data to the server using full-page post-back does not make sense with a SPA framework such as AngularJS. In Angular, **all server requests are made through AJAX** invocations originating from controllers, directives, or services. While the traditional one will refresh the whole page.
 
-Firstly, we need to know that from controller also has some APIs and properties as model controller:
+So two ways to do it:
+
+1. By `ng-submit`
+
+{% highlight html %}
+<form name="form" ng-submit="submit()">
+   <button type="submit" ng-disabled="form.$invalid">Submit</button>
+</form>
+{% endhighlight %}
+
+2. By binding function to the button directly
+
+{% highlight html %}
+<form name="form">
+    <button ng-click="submit()" ng-disabled="form.$invalid">Submit</button>
+</form>
+{% endhighlight %}
+
+Then, we need to know that from controller also has some APIs and properties as model controller:
 
 * `$setValidity(validationKey, status, childController)`: This is similar to the `$setValidity` API of `NgModelController` but is used to set the validation state of the model controller inside form controller.
 * `$setDirty()`: This is used to mark the form dirty.
@@ -252,9 +346,10 @@ $scope.reset = function () {
 {% endhighlight %}
 
 ## Ref
-
-
-
+- [AngularJS Form](https://docs.angularjs.org/guide/forms)
+- [AngularJS by Example](https://www.packtpub.com/web-development/angularjs-example)
+- [AngularJS ngMessage](https://docs.angularjs.org/api/ngMessages)
+- [Stackover Custom validation](http://stackoverflow.com/questions/12581439/how-to-add-custom-validation-to-an-angularjs-form)
 
 
 
