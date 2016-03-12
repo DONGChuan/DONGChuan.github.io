@@ -77,7 +77,7 @@ Based on the model state, Angular also adds some CSS classes automatically to an
 * `ng-valid/ng-invalid`: This is used if the model is valid or not
 * `ng-pristine/ng-dirty`: This is used if the model is pristine or ng-dirty.
 * `ng-untouched/ng-touched`:  This is used when the input is never visited or not.
-* `ng-invalid-\<errorkey>\/ng-valid-\<errorkey\>`: This is used for a specific failed/sucessed validation.
+* `ng-invalid-/<errorkey>//ng-valid-/<errorkey/>`: This is used for a specific failed/sucessed validation.
 * `ng-empty/ng-not-empty`:  This is used if the model is empty or not
 
 For example, when we check the page by Inspect of browser (not your own code), we could find a list of class already added in input:
