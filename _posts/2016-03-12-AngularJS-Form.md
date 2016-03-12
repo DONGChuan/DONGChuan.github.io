@@ -5,8 +5,6 @@ category: AngularJS
 tags: [angularjs]
 ---
 
-AngularJS Form
-
 AngularJS provides a small and well-defined set of constructs that make standard form-based operations easier. For a form, we should consider three points:
 
 1. Allowing user input
@@ -19,7 +17,7 @@ AngularJS provides a small and well-defined set of constructs that make standard
 
 It already has **built-in support for validating**. Validations are automatically setup by AngularJS according to:
 
-* Input type - text, numbers, e-mails, URLs, radios, checkboxes, and a few others. (such as `\<intput type=\'email\'\/\>`).
+* Input type - text, numbers, e-mails, URLs, radios, checkboxes, and a few others. (such as `<intput type='email'/>`).
 * Validation attributes - `required`, `min`, `max`, and custom attributes such as `ng-pattern`, `ng-minlength`, and `ng-maxlength`.
 
 {% highlight html %}
@@ -76,11 +74,11 @@ If there is no `form.formName.$dirty`, the validation message is shown as soon a
 
 Based on the model state, Angular also adds some CSS classes automatically to an input element.
 
-* ng-valid/ng-invalid: This is used if the model is valid or not
-* ng-pristine/ng-dirty: This is used if the model is pristine or ng-dirty.
-* ng-untouched/ng-touched:  This is used when the input is never visited or not.
-* ng-invalid-<errorkey>/ng-valid-<errorkey>: This is used for a specific failed/sucessed validation.
-* ng-empty/ng-not-empty:  This is used if the model is empty or not
+* `ng-valid/ng-invalid`: This is used if the model is valid or not
+* `ng-pristine/ng-dirty`: This is used if the model is pristine or ng-dirty.
+* `ng-untouched/ng-touched`:  This is used when the input is never visited or not.
+* `ng-invalid-\<errorkey>\/ng-valid-\<errorkey\>`: This is used for a specific failed/sucessed validation.
+* `ng-empty/ng-not-empty`:  This is used if the model is empty or not
 
 For example, when we check the page by Inspect of browser (not your own code), we could find a list of class already added in input:
 
@@ -168,10 +166,10 @@ The standard form behavior of posting data to the server using full-page post-ba
 
 Firstly, we need to know that from controller also has some APIs and properties as model controller:
 
-* $setValidity(validationKey, status, childController): This is similar to the `$setValidity` API of `NgModelController` but is used to set the validation state of the model controller inside form controller.
-* $setDirty(): This is used to mark the form dirty.
-* $setPristine(): This is used to make the form pristine. This is often used to mark the form pristine after persisting the data to server. The $setPristine call propagates to all model controllers registered with the form, so **all child inputs are also set back to the pristine state**.
-* $setUntouched(): This is used to mark the form untouched. This is mostly called in sync with `$setPristine`, after data is submitted.
+* `$setValidity(validationKey, status, childController)`: This is similar to the `$setValidity` API of `NgModelController` but is used to set the validation state of the model controller inside form controller.
+* `$setDirty()`: This is used to mark the form dirty.
+* `$setPristine()`: This is used to make the form pristine. This is often used to mark the form pristine after persisting the data to server. The $setPristine call propagates to all model controllers registered with the form, so **all child inputs are also set back to the pristine state**.
+* `$setUntouched()`: This is used to mark the form untouched. This is mostly called in sync with `$setPristine`, after data is submitted.
 
 Other than the state manipulation API, there are some handy properties:
 
