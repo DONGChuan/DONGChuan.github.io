@@ -70,5 +70,5 @@ navs:
     href: /about
     label: About
 
-popular_repos: ['GradleUserGuide','YummyWakeUp', 'Android2048', 'Java-BackGammon', 'Java-Interview-Question', 'DONGChuan/TransactionManagement']
+popular_repos: ['GradleUserGuide','YummyWakeUp', 'Java-BackGammon', 'Java-Interview-Question', 'PoetrySearch']
 contribute_repos: ['UFreedom/YummyTime', 'UFreedom/CountDownTextView']
