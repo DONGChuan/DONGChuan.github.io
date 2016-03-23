@@ -3,9 +3,9 @@ name: DONGChuan
 email: dongchuan55@gmail.com
 description: Chuan's Website
 keywords: 董川
-skill_software_keywords: [Java, C, C++, Python, Design Patterns]
-skill_j2ee_keywords: [JSP, Servlet, Spring, Struct, Hibernet]
-skill_web_keywords: [HTML, CSS, Javascript, Jquery, JAXA, Angularjs, PHP, Boostrap]
+skill_software_keywords: [Java, C, C++, Qt, Python, MySQL, Oracle, SQLite, PL/SQL, Design Patterns]
+skill_j2ee_keywords: [Spring, Struct, Hibernet, JSP]
+skill_web_keywords: [HTML, CSS, Javascript, Jquery, ajax, Angularjs, Nodejs, MongoDB, PHP, Symfony, Boostrap]
 skill_mobile_app_keywords: [Android, Sketch UI Desgin]
 
 timezone: PRC
@@ -38,8 +38,6 @@ kramdown:
 gems:
   - jemoji
   - rouge
-  # # # - jekyll-mentions
-  # - jekyll-sitemap
   - jekyll-html-pipeline
   - jekyll-paginate
 
