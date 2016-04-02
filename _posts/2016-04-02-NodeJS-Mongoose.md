@@ -194,7 +194,7 @@ Each Schema can define instance and static methods for its model.
 * Define instance method - SchemaName.**methods**.functionName = function functionName () {};
 * Define static method - SchemaName.**statics**.functionName = function functionName () {};
 
-{% highlight nodejs %}
+{% highlight javascript %}
 var mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/mongodemo');
