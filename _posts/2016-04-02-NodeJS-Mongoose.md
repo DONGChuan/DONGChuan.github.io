@@ -14,7 +14,7 @@ We could define default values on schema.
 1. **Default values** directly.
 2. **Default function** - set the default schema option to a function and use the return value as the default.
 
-{% highlight nodejs %}
+{% highlight javascript %}
 var mongoose = require('mongoose');
 
 mongoose.connect("mongodb://localhost/mongodemo");
@@ -49,7 +49,7 @@ Getters and setters could change attributes defined by the keys and values in th
 * Setter: **transform data before it is stored mongodb**.
 * Getter: **transform the representation of the data when retreive from mongodb**.
 
-{% highlight nodejs %}
+{% highlight javascript %}
 var mongoose = require('mongoose');
 
 mongoose.connect("mongodb://localhost/mongodemo");
@@ -89,7 +89,7 @@ console.log('user: ', user);
 
 Another example about getter:
 
-{% highlight nodejs %}
+{% highlight javascript %}
 var UserSchema = new mongoose.Schema({
   blogurl: {
     type: String,
@@ -126,25 +126,25 @@ user.save(function(err){
 
 Like in html, available validations are:
 
-for type: Number
+**for type: Number**
 
 * required: true/false
 * max: Number
 * min: Number
 
-for type: String
+**for type: String**
 
 * required: true/false
 * enum: [A, B, C]
 * match: regexp
-* maxlength 
-* minlength
+* maxlength: Number
+* minlength: Number
 
-We could also customize a validation:
+We could also **customize a validation**:
 
-* validate: function(){} - customized validation. Must return true/false
+* `validate: function(){}` - customized validation. Must return true/false
 
-{% highlight nodejs %}
+{% highlight javascript %}
 var mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/mongodemo');
