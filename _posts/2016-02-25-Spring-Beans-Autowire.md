@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Spring beans autowire
+title: Spring Beans Autowire
 category: Spring
 tags: [spring]
 ---
@@ -26,7 +26,9 @@ There are mainly four types:
 public class Test {  
 
     private TestBean testBean; 
-    // Autowire by name 'testBean', so the bean id should be testBean. But in fact, it searches by setter name setTestBean() removing 'set' prefix and lowercase the first character, so 'testBean'
+    // Autowire by name 'testBean', so the bean id should be testBean. 
+    // But in fact, it searches by setter name setTestBean() removing 'set' 
+    // prefix and lowercase the first character, so 'testBean'
       
     // Getter and setter
 }
@@ -49,7 +51,9 @@ We could in the mean time **using `<propery ref='xxx' ...` to override the value
 public class Test {  
 
     private TestBean testBean; 
-    // Autowire by type, so spring container searches type 'TestBean'. But in fact, it searches in setTestBean(TestBean testBean) to find 'TestBean' datatype.
+    // Autowire by type, so spring container searches type 'TestBean'. 
+    // But in fact, it searches in setTestBean(TestBean testBean) to 
+    // find 'TestBean' datatype.
       
     // Getter and setter
 }
@@ -73,7 +77,10 @@ public class Test {
 
     private TestBean testBean; 
 
-    public Test(TestBean testBean) {} // Autowire by constructor, so spring container searches type 'TestBean' in construtor
+    public Test(TestBean testBean) {
+        // do stuff
+    } 
+    // Autowire by constructor, so spring container searches type 'TestBean' in constructor
 
     // Getter and setter
 }
@@ -90,21 +97,21 @@ Unlike byType and byName using `<propery ref='xxx' ...` to override, `<construct
 
 ### autodetect
 
-Spring automatically detect which type to use. **It firstly tries to autowire by constructor, if it does not work, Spring tries to autowire by byType.**
+Spring automatically detects which type to use. **It firstly tries to autowire by constructor, if it does not work, Spring tries to autowire by byType.**
 
-## `autowire` mixed with `ref`
+## autowire mixed with ref
 
-** If `autowire` mixed with `ref`, 'ref' will override 'autowire'**
+**If `autowire` mixed with `ref`, `ref` will override `autowire`**
 
 ## default-autowire
 
-We could using `default-autowire` on `<beans></beans>` instead of repeating autowire type on each bean:
+We could use `default-autowire` on `<beans></beans>` instead of repeating autowire type setting on each bean:
 
 {% highlight xml %}
 <beans default-autowire="byType" .....> 
 {% endhighlight %}
 
-In the bean including in it, we could ovrride it by setting autowire type explicitly:
+For the beans including in `<beans></beans>` , we could ovrride it by setting autowire type explicitly:
 
 {% highlight xml %}
 <beans default-autowire="byType" .....> 
@@ -125,7 +132,7 @@ We could use `autowire-candidate` to **exclude a bean from autowiring**. By defa
 <beans default-autowire="byType" .....> 
 
 	<bean id="testBean" class="com.dong.TestBean"/>
-	<!-- Set autowire-candidate to false, so it will never been considered for autowiring-->
+	<!-- Set autowire-candidate to false, so it will never be considered for autowiring-->
 	<bean id="testBadBean" class="com.dong.TestBean" autowire-candidate="false"/>
 
 	<bean id="test" class="com.dong.test" autowire="constructor"/>
