@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10a64a97-cd19-4448-b115-eae660cc0254" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2016-04-02-NodeJS-Mongoose.md" afterPath="$PROJECT_DIR$/_posts/2016-04-02-NodeJS-Mongoose.md" />
     </list>
     <ignored path="DONGChuan.github.io-master.iws" />
@@ -124,8 +123,8 @@
         <entry file="file://$PROJECT_DIR$/_posts/2016-04-02-NodeJS-Mongoose.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor vertical-scroll-proportion="2.8292682">
-                <caret line="323" column="0" selection-start-line="323" selection-start-column="0" selection-end-line="323" selection-end-column="0" />
+              <first_editor vertical-scroll-proportion="5.134146">
+                <caret line="386" column="0" selection-start-line="386" selection-start-column="0" selection-end-line="386" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -839,8 +838,8 @@
       </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="2.8292682">
-            <caret line="323" column="0" selection-start-line="323" selection-start-column="0" selection-end-line="323" selection-end-column="0" />
+          <first_editor vertical-scroll-proportion="5.134146">
+            <caret line="386" column="0" selection-start-line="386" selection-start-column="0" selection-end-line="386" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />

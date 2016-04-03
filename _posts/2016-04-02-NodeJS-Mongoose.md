@@ -356,6 +356,40 @@ reseller.save(function(err) {
 });
 {% endhighlight %}
 
+## Virtual attributes
+
+Virtual attributes are **attributes that are convenient to have around but that do not get persisted to mongodb**. For example, we persist firstName and lastName, but we also prefer to have fullName. Then virtual attribute could be a good choice!
+
+> We must set toJSON/toObject to be able to output it!
+
+{% highlight javascript %}
+var mongoose = require('mongoose');
+
+var PersonSchema = new mongoose.Schema({
+    firstName: String,
+    lastName: String
+});
+
+// Set virtual attributes
+PersonSchema.virtual('fullName').get(function(){
+    return this.firstName + ' ' + this.lastName;
+});
+
+// If without it, when "console.log('JSON:', JSON.stringify(person));", we could not see fullname
+PersonSchema.set('toJSON', {getters: true, virtual: true});
+
+var Person = mongoose.model('Person', PersonSchema);
+
+var person = new Person({
+    firstName: 'Chuan',
+    lastName: 'DONG'
+});
+
+console.log('user full name: ', person.fullName);
+
+console.log('JSON:', JSON.stringify(person));
+{% endhighlight %}
+
 ## Ref
 [Mongoosejs DOCs](http://mongoosejs.com/docs/guide.html) - Mongoosejs offical docs
 [极客学院](http://www.jikexueyuan.com/course/1905.html) - Nodejs 使用进阶 
