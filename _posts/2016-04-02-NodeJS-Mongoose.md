@@ -5,7 +5,7 @@ category: NodeJS
 tags: [nodejs]
 ---
 
-This is quick note after learning Mongoose.
+This is quick note after learning Mongoose. [Code demo](https://github.com/DONGChuan/MongooseDemo)
 
 ## Default value in schema
 
@@ -240,9 +240,125 @@ book.save(function(err){
 });
 {% endhighlight %}
 
+## Middleware
+
+Middleware (also called **pre and post hooks**) are **functions which are passed control during execution of asynchronous functions**. Mongoose has 2 types of middleware: 
+
+**document middleware**:
+
+* [init](http://mongoosejs.com/docs/api.html#document_Document-init)
+* [validate](http://mongoosejs.com/docs/api.html#document_Document-validate)
+* [save](http://mongoosejs.com/docs/api.html#model_Model-save)
+* [remove](http://mongoosejs.com/docs/api.html#model_Model-remove)
+
+**query middleware**:
+
+* [count](http://mongoosejs.com/docs/api.html#query_Query-count)
+* [find](http://mongoosejs.com/docs/api.html#query_Query-find)
+* [findOne](http://mongoosejs.com/docs/api.html#query_Query-findOne)
+* [findOneAndRemove](http://mongoosejs.com/docs/api.html#query_Query-findOne)
+* [findOneAndUpdate](http://mongoosejs.com/docs/api.html#query_Query-findOneAndUpdate)
+* [update](http://mongoosejs.com/docs/api.html#query_Query-update)
+
+Both of them support pre and post hooks.
+
+>There is no query hook for remove(), only for documents. If we set a 'remove' hook, it will be fired when you call myDoc.remove(), not when we call MyModel.remove().
+
+#### Pre and Post
+
+Two types of pre hooks:
+
+* Serial - **Serial middleware are executed one after another, when each middleware calls next**.
+* Parallel - **Parallel middleware are executed in parallel**.
+
+**Post middleware are executed after the hooked method and all of its pre middleware have completed**. Two types of post hooks:
+
+* Common post hook does not directly receive flow control, e.g. no next or done callbacks are passed to it. it is used in a way to register traditional event listeners for these methods. 
+* **Asynchronous Post Hooks** - they are executed in a pre-defined order. If post hook function takes at least 2 parameters (function(doc, next)), mongoose will assume the second parameter is a next() function that we will call to trigger the next middleware in the sequence.
+
+> When we put common post hook with asynchronous post hook together. Common post hook will be triggered firstly!
+
+{% highlight javascript %}
+var mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost/mongodemo');
+
+var ResellerSchema = new mongoose.Schema({
+    address: String
+});
+
+ResellerSchema.pre('save', function(next){
+    console.log('pre serial save middleware');
+    next();
+});
+
+// `true` means it is a parallel middleware. We **must** specify `true`
+// as the second parameter if we want to use parallel middleware.
+ResellerSchema.pre('save', true, function(next, done){
+    console.log('pre parallel save middleware');
+    // The hooked method 'save', will not be executed until done is called by each middleware (in our case, only one).
+    // Then mongoose knows to go next()!
+    done();
+    next();
+});
+
+ResellerSchema.post('save', function(doc, next){
+    console.log('post save middleware A ' + doc);
+    next();
+});
+
+// Will not execute until the first middleware calls `next()`
+ResellerSchema.post('save', function(doc, next){
+    console.log('post save middleware B ' + doc);
+    next();
+});
+
+// this one is not asynchronous, but it will be triggered firstly before the above two posts!
+ResellerSchema.post('save', function(doc){
+    console.log('post save middleware no Asynchronous ' + doc);
+});
+
+var Reseller = mongoose.model('Reseller', ResellerSchema);
+
+var reseller = new Reseller({
+    address: '101st, People Read'
+});
+
+reseller.save();
+
+// Output
+// pre serial save middleware
+// pre parallel save middleware
+// post save middleware no Asynchronous { _id: 5700dcd659caab4c1018795e,
+//   address: '101st, People Read',
+//   __v: 0 }
+// post save middleware A { _id: 5700dcd659caab4c1018795e,
+//   address: '101st, People Read',
+//   __v: 0 }
+// post save middleware B { _id: 5700dcd659caab4c1018795e,
+//   address: '101st, People Read',
+//   __v: 0 }
+{% endhighlight %}
+
+### Error handling
+
+If any middleware calls next or done with a parameter of type Error, the flow is interrupted, and the error is passed to the callback.
+
+{% highlight javascript %}
+ResellerSchema.pre('save', function(next) {
+  // We **must** do `new Error()`. `next('something went wrong')` will **not** work
+  var err = new Error('something went wrong');
+  next(err);
+});
+
+reseller.save(function(err) {
+  console.log(err.message) // something went wrong
+});
+{% endhighlight %}
+
 ## Ref
 [Mongoosejs DOCs](http://mongoosejs.com/docs/guide.html) - Mongoosejs offical docs
-
+[极客学院](http://www.jikexueyuan.com/course/1905.html) - Nodejs 使用进阶 
 
 
 
