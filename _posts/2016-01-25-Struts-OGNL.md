@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Struts ONGL
+title: Struts OGNL
 category: Struts
 tags: [struts]
 ---
