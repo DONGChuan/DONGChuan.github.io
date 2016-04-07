@@ -213,3 +213,102 @@ We could use `new` key word directly in SpEL, if class is not in `java.lang`, we
 	<property name="involution" value="#{T(java.lang.Math).PI * counter.total ^ 2}"/>
 </bean>
 {% endhighlight %}
+
+## Comparison operators
+
+* lt (<) 
+* gt (>)
+* le (<=)
+* ge (>=) 
+* eq (==)
+* ne (!=)
+
+## Logic operators
+
+* or (||)
+* and (&&)
+* not (!)
+
+{% highlight java %}
+String expression = "isMember('Tom') and !isMember('Jean')";
+{% endhighlight %}
+
+## Elvis Operator
+
+The Elvis operator is a shortening of the ternary operator syntax. It could avoid repeating a variable twice.
+
+{% highlight java %}
+name != null ? name : "someValue"
+{% endhighlight %}
+
+Same as:
+
+{% highlight java %}
+name ? : "someValue"
+{% endhighlight %}
+
+## Safe Navigation operator
+
+Sometimes, we need to verify that an object is not null before accessing methods or properties of the object. The safe navigation operator will simply **return null instead of throwing an exception**.
+
+{% highlight java %}
+parser.parseExpression("#person?.name").getValue(); // Return null
+parser.parseExpression("#person.name").getValue(); // Throw NullPointerException
+{% endhighlight %}
+
+## Collection Selection
+
+`collection.?[condition_expression]` will **filter collection and return a new collection containing a subset of the original elements match conditions**.
+
+The following example selects from list `cities` all the cities which has more than 100000 populations:
+
+{% highlight xml %}
+<!-- Create a list of beans -->
+<util:list id="cities">
+    <bean class="com.dong.demo.SpELCity" p:name="Chicago" p:state="IL" p:population="2853114"/>
+    <bean class="com.dong.demo.SpELCity" p:name="Atlanta" p:state="GA" p:population="537958"/>
+    <bean class="com.dong.demo.SpELCity" p:name="Dallas" p:state="TX" p:population="1279910"/>
+    <bean class="com.dong.demo.SpELCity" p:name="Houston" p:state="TX" p:population="2242193"/>
+    <bean class="com.dong.demo.SpELCity" p:name="Odessa" p:state="TX" p:population="90943"/>
+    <bean class="com.dong.demo.SpELCity" p:name="El Paso" p:state="TX" p:population="613190"/>
+    <bean class="com.dong.demo.SpELCity" p:name="Jal" p:state="NM" p:population="1996"/>
+    <bean class="com.dong.demo.SpELCity" p:name="Las Cruces" p:state="NM" p:population="91865">
+</util:list>
+
+<bean id="spELCityList" class="com.dong.demo.SpELCityList">
+	<property name="bigCities" value="#{cities.?[population gt 100000]}"/>
+</bean>
+{% endhighlight %}
+
+## Collection Projection
+
+`collection.!condition_expression]` will **create a new collection containing a subset which is the value of condition_expression**.
+
+The following example creates a new collection. Each of its item is a string combination of `name` and `state` from list `cities`:
+
+{% highlight xml %}
+<!-- Same list as above example -->
+
+<bean id="spELCityList" class="com.dong.demo.SpELCityList">
+	<property name="cityNames2" value="#{cities.![name + ', ' + state]}"/>
+</bean>
+{% endhighlight %}
+
+## Expression templating
+
+Expression templates allow a mixing of literal text with one or more evaluation blocks. Each evaluation block is delimited with `#{ }`.
+
+{% highlight java %}
+// Persion is a class has two properties name and height
+Person p1 = new Persion("DONG", 180);
+Person p1 = new Persion("Chuan", 190);
+
+Expression expr = parser.parseExpression('my name is #{name}, my height is #{height}', new TemplateParserContext());
+
+System.out.println(expr.getValue(p1));
+System.out.println(expr.getValue(p2));
+{% endhighlight %}
+
+## Ref
+[SpEL reference](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html)
+[Spring 表达式语言](http://www.jikexueyuan.com/course/1670.html)
