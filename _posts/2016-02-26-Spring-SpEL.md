@@ -5,7 +5,7 @@ category: Spring
 tags: [spring]
 ---
 
-This is quick note after learning Spring SpEL.
+This is quick note after learning Spring SpEL. [Code Demo](https://github.com/DONGChuan/SpEL-Demo)
 
 Spring Expression Language (SpEL), like OGNL, is a powerful expression language that supports querying and manipulating an object graph at runtime.
 
