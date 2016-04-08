@@ -34,7 +34,7 @@ setInterval(function(){
     });
     $("#chuan-title").fadeIn(1000);
 
-}, 1500);
+}, 2000);
 
 // Window Scroll
 var windowScroll = function () {
