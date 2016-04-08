@@ -214,7 +214,9 @@ We could use `new` key word directly in SpEL, if class is not in `java.lang`, we
 </bean>
 {% endhighlight %}
 
-## Comparison operators
+## Relational operators
+
+There are two formats **symbolic** and **textual**. Textual format is suggested because it could avoid problems where the symbols used have special meaning for the document type in which the expression is embedded (eg. in XML).
 
 * lt (<) 
 * gt (>)
@@ -225,8 +227,8 @@ We could use `new` key word directly in SpEL, if class is not in `java.lang`, we
 
 ## Logic operators
 
-* or (||)
-* and (&&)
+* or
+* and
 * not (!)
 
 {% highlight java %}
