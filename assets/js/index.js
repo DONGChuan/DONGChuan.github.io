@@ -10,16 +10,16 @@ setInterval(function(){
     $("#chuan-title").fadeOut(1000, function() {
         switch (counter % 6) {
             case 0:
-                $("#chuan-title").html("Chuan is a Cool Boy :P");
+                $("#chuan-title").html("Chuan is so cool, right?");
                 break;
             case 1:
-                $("#chuan-title").html("Chuan is a Software Engineer");
+                $("#chuan-title").html("Chuan plans to be a Full Stack developer");
                 break;
             case 2:
-                $("#chuan-title").html("Chuan is a Web Developer");
+                $("#chuan-title").html("Chuan dreams to be a CTO ");
                 break;
             case 3:
-                $("#chuan-title").html("Chuan is an Android Engineer");
+                $("#chuan-title").html("Chuan is now fighting with AngularJS");
                 break;
             case 4:
                 $("#chuan-title").html("Chuan loves animals and traveling");
