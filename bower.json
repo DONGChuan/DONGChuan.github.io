@@ -25,8 +25,10 @@
     "primer-css": "~2.1.0",
     "share.js": "overtrue-share.js#*",
     "jquery": "~2.1.4",
-    "flag-icon-css": "1.0.0",
+    "flag-icon-css": "^1.4.0",
     "simple-jekyll-search": "~1.1.0",
-    "Trip.js": "trip.js#~3.1.3"
+    "Trip.js": "trip.js#^3.1.5",
+    "angular": "^1.5.3",
+    "jquery-ui": "^1.11.4"
   }
 }
