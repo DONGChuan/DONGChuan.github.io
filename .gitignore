@@ -3,5 +3,4 @@ _site
 node_modules
 /vendor
 .DS_Store
-bower_components
 .idea
