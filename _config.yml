@@ -61,6 +61,10 @@ navs:
     label: Blog
 
   -
+    href: /footprint
+    label: Footprint
+
+  -
     href: /bookmark
     label: Bookmark
 
