@@ -79,7 +79,22 @@
     <link rel="stylesheet" href="/bower_components/flag-icon-css/css/flag-icon.css" >
     <link rel="stylesheet" href="/bower_components/share.js/dist/css/share.min.css">
 
+    <!-- 3rd party scripts -->
     <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="/bower_components/Trip.js/dist/trip.min.js"></script>
+    <script src="/bower_components/share.js/dist/js/share.min.js"></script>
+
+    <!-- custom scripts-->
+    <script src="/assets/js/index.js"></script>
+    <script src="/assets/js/geopattern.js"></script>
+    <script src="/assets/js/prism.js"></script>
+    <script src="/assets/js/lunr.min.js"></script>
+    <script src="/assets/js/search.js"></script>
+
+    {% for javascript in page.javascript %}
+    <script src="/assets/js/{{javascript}}"></script>
+    {% endfor %}
 
 </head>
 <body class="{{ page.class }}" ng-app="app">

@@ -47,7 +47,6 @@ var windowScroll = function () {
         } else {
             $('#site-header-id').removeClass('site-header-nav-scrolled');
         }
-
     });
 };
 
