@@ -1,9 +1,9 @@
--------------------------
+---
 layout: post
 title: SpringMVC Annotation in Controller
 category: SpringMVC
 tags: [spring, springmvc]
--------------------------
+---
 
 This is a quick note about frequently used annotations in SpringMVC controller
 
