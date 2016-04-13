@@ -9,27 +9,27 @@ This is a quick note about frequently used annotations in SpringMVC controller
 
 ## @RequestMapping
 
-Annotation for **mapping web requests onto specific handler classes and/or handler methods**. It means `DispatcherServlet` intercepts the request, then the switch request to thecorresponding method determined by @RequestMapping.
+Annotation for **mapping web requests onto specific handler classes and/or handler methods**. It means `DispatcherServlet` intercepts the request, then it switches request to the corresponding method determined by @RequestMapping.
 
-1. `@RequestMapping` on class means all handling methods on this controller are relative to the this path.
-2. `@RequestMapping` on method means mapping URLs to this method
+1. `@RequestMapping("path")` on class means all handling methods on this controller are relative to the given path.
+2. `@RequestMapping("path")` on method means mapping requests which match given path to this method
 
 ### Properties
 
-* `value` indicates url to map. If no other properties, we could use its simplified form `@RequestMapping("/path")`.
+* `value` indicates url to map. If no other properties, we could use its simplified form `@RequestMapping("path")`.
 
-* `method` indicates HTTP methods. It will support all methods if not specified 
+* `method` indicates HTTP methods. It will support all methods if not specified .
 
 {% highlight java %}
 method = RquestMethod.GET
-method = {RquestMethod.GET，RquestMethod.POST }
+method = {RquestMethod.GET, RquestMethod.POST }
 {% endhighlight %}
 
-* `consumes` indicates Content-Type to handle.
+* `consumes` indicates Content-Type of the mapped request. A request will be mapped only when its Content-Type matches it.
 
 {% highlight java %}
 consumes = "application/json"
-consumes = {"application/json"，"text/html" }
+consumes = {"application/json", "text/html" }
 {% endhighlight %}
 
 * `produces` indicates the producible media types of the mapped request, a request will be mapped only when Accept matches it.
@@ -45,20 +45,20 @@ produces = {"application/json", "charset=UTF-8" }
 headers = "content-type=text/*"
 {% endhighlight %}
 
-* `params` indicates only the requests having these parameters can be mapped. We could also add `!=` pr `==` to indicate conditions.
+* `params` indicates only the requests having these parameters can be mapped. We could also add `!=` pr `==` to add conditions.
 
 {% highlight java %}
 // myParam exists and its value is myValue
 params="myParam = myValue" 
 
 // myParamA exists and its value is myValueA. // myParamB exists and its value is not myValueB
-params = {"myParamA = myValueA"，"myParamB ！= myValueB" }
+params = {"myParamA = myValueA", "myParamB ！= myValueB" }
 
 // myParamA exists
 params = "myParamA" 
 
 // myParamA exists and myParamB does not exits
-params = {"myParamA"，"!myParamB" } 
+params = {"myParamA", "!myParamB" } 
 {% endhighlight %}
 
 ### Example
@@ -107,9 +107,9 @@ public class TestController {
  		// ToDo
     }
 
-    // Or if you want to another parameter name
+    // Or if you want another parameter name
     //@RequestMapping(value="/{id}", method = RequestMethod.GET)
-    //public void functionB(@PathVariable("id") int another name) {
+    //public void functionB(@PathVariable("id") int anotherName) {
  	//	// ToDo
     //}
 }
@@ -132,7 +132,7 @@ public class TestController {
 
 ## @RequestParam 
 
-It is used to **bind request parameters to a method parameter in the controller**. Not mix with `@PathVariable` which is used to obtain some placeholder from the uri only.
+It is used to **bind request parameters to a method parameter in the controller**. Do not mix it with `@PathVariable` which is used to obtain placeholders from the uri only.
 
 As usual, we do it like this `request.getParameter("name")`, now with annotation:
 
@@ -169,4 +169,4 @@ public void test(@CookieValue("foo") String valueFromCookie) {
 ## Ref
 
 [极客学院-常用注解类](http://jiuye.jikexueyuan.com/play?id=2239&class_id=36)
-[](http://stackoverflow.com/questions/13715811/requestparam-vs-pathvariable)
+[Annotation Type RequestMapping](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestMapping.html)
