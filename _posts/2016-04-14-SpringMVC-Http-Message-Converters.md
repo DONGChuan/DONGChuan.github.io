@@ -5,7 +5,7 @@ category: SpringMVC
 tags: [spring, springmvc]
 ---
 
-This is quick note about learning spring mvc http message converter. Especially thanks to this [post](http://www.baeldung.com/spring-httpmessageconverter-rest) by Eugen Paraschiv.
+Quick note after learning spring mvc http message converter. Especially thanks to this [post](http://www.baeldung.com/spring-httpmessageconverter-rest) by Eugen Paraschiv.
 
 ## Http Message Converters
 

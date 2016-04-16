@@ -5,7 +5,7 @@ category: NodeJS
 tags: [nodejs]
 ---
 
-This is quick note after learning Mongoose. [Code demo](https://github.com/DONGChuan/MongooseDemo)
+Quick note after learning Mongoose. [Code demo](https://github.com/DONGChuan/MongooseDemo)
 
 ## Default value in schema
 
