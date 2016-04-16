@@ -1,11 +1,11 @@
 ---
 layout: post
-title: SpringMVC Annotation in Controller
+title: SpringMVC RequestMapping
 category: SpringMVC
 tags: [spring, springmvc]
 ---
 
-This is a quick note about frequently used annotations in SpringMVC controller
+This is a quick note about learning request mapping annotations in SpringMVC controller
 
 ## @RequestMapping
 
@@ -22,21 +22,21 @@ Annotation for **mapping web requests onto specific handler classes and/or handl
 
 {% highlight java %}
 method = RquestMethod.GET
-method = {RquestMethod.GET, RquestMethod.POST }
+method = {RquestMethod.GET, RquestMethod.POST}
 {% endhighlight %}
 
 * `consumes` indicates Content-Type of the mapped request. A request will be mapped only when its Content-Type matches it.
 
 {% highlight java %}
 consumes = "application/json"
-consumes = {"application/json", "text/html" }
+consumes = {"application/json", "text/html"}
 {% endhighlight %}
 
-* `produces` indicates the producible media types of the mapped request, a request will be mapped only when Accept matches it.
+* `produces` indicates the producible media types of the mapped request, **a request will be mapped only when Accept matches it**.
 
 {% highlight java %}
 produces = "application/json"
-produces = {"application/json", "charset=UTF-8" }
+produces = {"application/json", "charset=UTF-8"}
 {% endhighlight %}
 
 * `headers` indicates only the requests having these headers can be mapped.
@@ -52,13 +52,13 @@ headers = "content-type=text/*"
 params="myParam = myValue" 
 
 // myParamA exists and its value is myValueA. // myParamB exists and its value is not myValueB
-params = {"myParamA = myValueA", "myParamB ！= myValueB" }
+params = {"myParamA = myValueA", "myParamB ！= myValueB"}
 
 // myParamA exists
 params = "myParamA" 
 
 // myParamA exists and myParamB does not exits
-params = {"myParamA", "!myParamB" } 
+params = {"myParamA", "!myParamB"} 
 {% endhighlight %}
 
 ### Example
@@ -68,16 +68,16 @@ params = {"myParamA", "!myParamB" }
 @RequestMapping("/users") 
 public class TestController {
 	
-	// Handler all /users GET request
+    // Handler all /users GET request
     @RequestMapping(method = RequestMethod.GET) 
     public void functionA() {
-    	// ToDo
+        ...
     }
 
     // Handler all /users/new POST request
     @RequestMapping(value="/new", method = RequestMethod.POST)
     public RequestMapping functionC() {
-    	// ToDo
+        ...
     }
 
 }
@@ -94,7 +94,7 @@ public class TestController {
 
 **It can be used on a method argument to bind it to the value of a URI template variable**. The argument can be of any simple type such as int, long, Date, etc. Spring automatically converts to the appropriate type or throws a `TypeMismatchException` if it fails to do.
 
->If we do not specify the url placeholder name like `@PathVariable('name')`, we must keep parameter name the same as url placeholder.
+>If we do not specify the url placeholder name like `@PathVariable('name')`, we must keep method parameter name  same as url placeholder.
 
 {% highlight java %}
 @Controller
@@ -104,13 +104,13 @@ public class TestController {
     // Handler all /users/{id} GET request
     @RequestMapping(value="/{id}", method = RequestMethod.GET)
     public void functionA(@PathVariable int id) {
- 		// ToDo
+        ...
     }
 
     // Or if you want another parameter name
     //@RequestMapping(value="/{id}", method = RequestMethod.GET)
     //public void functionB(@PathVariable("id") int anotherName) {
- 	//	// ToDo
+    //	// ToDo
     //}
 }
 {% endhighlight %}
@@ -124,7 +124,7 @@ public class TestController {
 
   	@RequestMapping("/book/{bookId}")
   	public void test(@PathVariable String userId, @PathVariable String bookId) {
-		// ToDo
+        ...
   	}
 
 }
@@ -141,8 +141,8 @@ As usual, we do it like this `request.getParameter("name")`, now with annotation
 public void test(
 	@PathVariable("userId") int user,
     @RequestParam(value = "date", required = false) Date dateOrNull) {
-  	
-  	//ToDo
+  	    ...
+  	}
 }
 {% endhighlight %}
 
@@ -157,12 +157,12 @@ It has three properties:
 
 ## @CookieValue
 
-It's same as `@RequestParam` but bind cookie values to a method parameter. It also has three properties `value`, `required` and `defaultValue` which are also the same 
+Same as `@RequestParam` but bind cookie values to a method parameter. It also has three properties `value`, `required` and `defaultValue` which are also the same 
 
 {% highlight java %}
 @RequestMapping(value="/user", method = RequestMethod.GET)
 public void test(@CookieValue("foo") String valueFromCookie) {
-  	//ToDo
+  	...
 }
 {% endhighlight %}
 
