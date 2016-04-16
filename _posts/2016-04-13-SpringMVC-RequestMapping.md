@@ -166,7 +166,11 @@ public void test(@CookieValue("foo") String valueFromCookie) {
 }
 {% endhighlight %}
 
+## @RequestBody and @ResponseBody
+
+Check another note [SpringMVC-Http-Message-Converters](http://dongchuan.github.io/articles/2016/04/SpringMVC-Http-Message-Converters.html)
+
 ## Ref
 
-[极客学院-常用注解类](http://jiuye.jikexueyuan.com/play?id=2239&class_id=36)
-[Annotation Type RequestMapping](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestMapping.html)
+* [极客学院-常用注解类](http://jiuye.jikexueyuan.com/play?id=2239&class_id=36)
+* [Annotation Type RequestMapping](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestMapping.html)
