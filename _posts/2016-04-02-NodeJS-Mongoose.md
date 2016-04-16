@@ -391,8 +391,9 @@ console.log('JSON:', JSON.stringify(person));
 {% endhighlight %}
 
 ## Ref
-[Mongoosejs DOCs](http://mongoosejs.com/docs/guide.html) - Mongoosejs offical docs
-[极客学院](http://www.jikexueyuan.com/course/1905.html) - Nodejs 使用进阶 
+
+* [Mongoosejs DOCs](http://mongoosejs.com/docs/guide.html) - Mongoosejs offical docs
+* [极客学院](http://www.jikexueyuan.com/course/1905.html) - Nodejs 使用进阶 
 
 
 
