@@ -5,7 +5,7 @@ category: SpringMVC
 tags: [spring, springmvc]
 ---
 
-Quick note after learning request mapping annotations in SpringMVC controller
+Quick note about request mapping annotations in SpringMVC controller
 
 ## @RequestMapping
 
