@@ -32,9 +32,11 @@ public class Author {
 }
 {% endhighlight %}
 
+And in xml map file, we need to define result Map of `Author`:
+
 {% highlight xml %}
 <resultMap id="AuthorMap" type="Author">
-	<!-- author.id is tablename.id which is used to be distinguished from user.id -->
+	<!-- author.id is tableName.id which is used to be distinguished from user.id -->
 	<id property="id" column="author.id"/>
 	<result property="realName" column="realName" />
 	<result property="IDCard" column="IDCard" />
@@ -71,7 +73,7 @@ List<User> userList = session.selectList("selectAuthorJoin");
 
 ### Constructor
 
-If we do not care about user id or some other property. We could use `<constructor>` 
+If we do not care about user id or some other property. We could use `<constructor>` to limit what we want based on constructors of object.
 
 {% highlight java %}
 public User() {}
@@ -87,7 +89,7 @@ public User(String userName, String password) {
 	<id property="id" column="author.id" />
 	<result property="realName" column="realName" />
 	<result property="IDCard" column="IDCard" />
-	<association property="jikeUser" column="userID" javaType="JiKeUser">
+	<association property="user" column="userID" javaType="JiKeUser">
 		<constructor>
 			<arg column="userName" javaType="String" />
 			<arg column="password" javaType="String" />
@@ -101,13 +103,13 @@ public User(String userName, String password) {
 
 ### Subquery
 
-Subquery/Inner query/Nested query is a query within another SQL query and embedded within the WHERE clause.
+**Subquery/Inner query/Nested query is a query within another SQL query and embedded within the WHERE clause**.
 
 {% highlight sql %}
 select * from author where userID in (select id from user)
 {% endhighlight %}
 
-So there are in fact two statements here. 
+So there are in fact two statements here. Let's define each select statement and resultMap:
 
 {% highlight xml %}
 <resultMap id="AuthorSubMap" type="Author">
@@ -124,22 +126,22 @@ So there are in fact two statements here.
 </select>
 {% endhighlight %}
 
-In the above settings, `<association>` will pass `userID` as parameter to findById.
+In the above settings, `<association>` will pass `userID` as parameter to `findById`.
 
 #### N+1 problem
 
-But think about we have 10 authors, so here findById will run 10 times! So we run 10 + 1 statements. It's called "N+1" problem of subquery. Many people said it's not as good as join query.
+But think about we have 10 authors, so here findById will be called 10 times! So we need to call 10 + 1 statements. It's called "N+1" problem of subquery. Many people think it's not as good as join query.
 
 #### Solution
 
-The solution is lazy load. **Statement will be queried until the point at which it is needed**.
+The solution is lazy load. **Statement will be not queried until the point at which it is needed**.
 
 Let's firstly find differences between subquery and join query.
 
-* Join query: Query one time. But it get all the properties of two table, so it consumes resources.
-* Subquery: Query N+1 times. It depends on what we want in the final result.
+* Join query: Query one time. But it gets all the properties of two table, so it consumes resources.
+* Subquery: Query N+1 times. It depends on what we want in the final result. With lazy loading, we may not need to make N times queries if not necessary.
 
-Set lazy loading in configuration file, this setting must be in front of others:
+To set lazy loading in configuration file, **this setting must be in front of others**:
 
 {% highlight xml %}
 <settings>
@@ -148,25 +150,28 @@ Set lazy loading in configuration file, this setting must be in front of others:
 </settings>
 {% endhighlight %}
 
+To test:
+
 {% highlight java %}
-List<Author> authorlist = session.selectList("selectAuthorSub");
-for(Author auther:authorlist) {
+List<Author> authorList = session.selectList("selectAuthorSub");
+for(Author author:authorList) {
 
 	System.out.println(auther.getRealName());
 	System.out.println("Lazyloading");
-	// findById query will not run until getUser() is invoked. It's lazy loading here.
+	// findById query will not be called until getUser() is invoked. It's lazy loading here.
+	// If we never call getUser(), so findById will also never be called
 	System.out.println(auther.getUser().getUserName());
 	
 }
 {% endhighlight %}
 
-So here with lazyloading, if we never need to call `getUser()`, it only queries one time which is efficient!
+So here with lazy loading, if we never need to call `getUser()`, it only queries one time which is efficient!
 
 ## collection
 
 `<collection>` element works almost identically to `<association>`. But it is used to map a set of nested results like List.
 
-In the following example, each User could have a list of Visits:
+In the following example, each User could have a list of visitors:
 
 {% highlight java %}
 public class User {
@@ -174,12 +179,12 @@ public class User {
 	private int id;
 	private String userName;
 	private String password;
-	private List<Visit> visitList;
+	private List<Visitor> visitorList;
 
 	// Getters and Setters
 }
 
-public class Visit {
+public class Visitor {
 
     private Integer visitID;
     private Date visitDate;
@@ -197,7 +202,7 @@ Then in xml map file, we use `<collection>` to indicate that list of visits.
 	<id property="id" column="id" />
 	<result property="userName" column="userName" />
 	<!-- `ofType` indicates the containing type of ArrayList -->
-	<collection property="visitList" javaType="ArrayList" column="visitID" ofType="Visit">
+	<collection property="visitorList" javaType="ArrayList" column="visitID" ofType="Visitor">
 		<result property="visitID" column="visitID" />
 		<result property="visitIP" column="visitIP" />
 		<result property="visitDate" column="visitDate" />
@@ -205,7 +210,7 @@ Then in xml map file, we use `<collection>` to indicate that list of visits.
 </resultMap>
 
 <select id="selectVisit" resultMap="visitMap">
-	select * from user inner join visit on user.id = visit.userID
+	select * from user inner join visitor on user.id = visit.userID
 </select>
 {% endhighlight %}
 
@@ -218,9 +223,9 @@ for(User user:userList) {
 
 	System.out.println(user.getUserName());
 
-	for(Visit visit:user.getVisitList()) {
+	for(Visitor visitor:user.getVisitorList()) {
 
-		System.out.println(visit.getVisitDate()+visit.getVisitIP());
+		System.out.println(visitor.getVisitDate() + visitor.getVisitIP());
 
 	}	
 }
@@ -228,7 +233,7 @@ for(User user:userList) {
 
 ## discriminator
 
-A single database query might return result sets of many different (but hopefully somewhat related) data types. So here `<discriminator>` is used to **determine which data types or so-called resultMap to use according to a column value**. It is like `switch` in other programming languages.
+A single database query might return result sets of many different data types. So here `<discriminator>` is used to **determine which data types or so-called resultMap to use according to a column value**. It is like `switch` in other programming languages.
 
 The following resultMap will return different data types according to value of `vehicle_type`.
 
