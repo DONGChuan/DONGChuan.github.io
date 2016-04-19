@@ -5,7 +5,7 @@ category: MyBatis
 tags: [mybatis]
 ---
 
-Quick note about MyBatis basic configuration and CRUD.
+Quick note about MyBatis configuration and CRUD.
 
 ## Mybatis configuration
 
@@ -255,4 +255,4 @@ test.deleteUser(1);
 ## Refs
 
 * [Mybatis doc refs](http://www.mybatis.org/mybatis-3/index.html)
-* [极客学院-MyBatis 基本操作](http://www.jikexueyuan.com/course/880.html)
+* [极客学院-MyBatis 基本操作](http://jiuye.jikexueyuan.com/play?id=880&class_id=36)
