@@ -76,7 +76,7 @@ public class TestController {
 
     // Handler all /users/new POST request
     @RequestMapping(value="/new", method = RequestMethod.POST)
-    public RequestMapping functionC() {
+    public void functionC() {
         ...
     }
 
