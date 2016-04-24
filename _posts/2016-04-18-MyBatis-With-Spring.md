@@ -83,9 +83,9 @@ The following example mixed both of xml and annotation.
 <!-- namespace must indicate mapper interface full package path -->
 <mapper namespace="com.dong.web.mapper.UserMapper">
 
-  <select id="getRowCount" resultType="int">
-    select count(*) from tb_user
-  </select>
+    <select id="getRowCount" resultType="int">
+        select count(*) from tb_user
+    </select>
 
 </mapper> 
 {% endhighlight %}
@@ -126,7 +126,7 @@ We have two ways to get sesion in DAOs:
 * SqlSessionTemplate 
 * SqlSessionDaoSupport
 
-> `But I prefer to use `MapperScannerConfigurer` or `MapperFactoryBean` to avoid coding DAOs manually
+> But I prefer to use `MapperScannerConfigurer` or `MapperFactoryBean` to avoid coding DAOs manually
 
 ### Transaction
 
