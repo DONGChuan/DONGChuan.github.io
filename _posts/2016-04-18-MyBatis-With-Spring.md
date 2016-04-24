@@ -3,7 +3,7 @@ layout: post
 title: MyBatis with Spring
 category: MyBatis
 tags: [mybatis, spring]
------------------------
+---
 
 Quick note about MyBatis with Spring. It's a summary from official site [mybatis-spring](http://www.mybatis.org/spring/). Code demo: [A simple SpingMVC + Mybatis Helloworld](https://github.com/DONGChuan/SpringMVC-Mybatis-Helloworld)
 
