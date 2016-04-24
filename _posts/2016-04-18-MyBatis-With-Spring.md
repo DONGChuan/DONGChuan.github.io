@@ -146,7 +146,7 @@ So first, in mybatis-spring, just need to enable Spring transaction processing:
 * Manage session life-cycle, including closing, committing or rolling back the session as necessary. 
 * Translate MyBatis exceptions into Spring DataAccessExceptions.
 
-So the idea here is to create a bean of `SqlSessionTemplate` and inject it in Service layer:
+So the idea here is to create a bean of `SqlSessionTemplate` and inject it in DAO layer:
 
 {% highlight xml %}
 <!-- Create a SqlSession bean -->
@@ -154,7 +154,7 @@ So the idea here is to create a bean of `SqlSessionTemplate` and inject it in Se
     <constructor-arg index="0" ref="sqlSessionFactory" />
 </bean>
 
-<!-- Inject it in Service layer -->
+<!-- Inject it in DAO layer -->
 <bean id="userDAO" class="com.dong.web.dao.UserDaoImpl">
     <property name="sqlSession" ref="sqlSession" />
 </bean>
