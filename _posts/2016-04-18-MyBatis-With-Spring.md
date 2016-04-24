@@ -179,6 +179,8 @@ public class UserDaoImpl implements UserDao {
 
 #### Batch Processing
 
+To enable batch feature:
+
 {% highlight xml %}
 <bean id="sqlSession" class="com.dong.web.dao.UserServiceImpl">
     <constructor-arg index="0" ref="sqlSessionFactory" />
@@ -198,7 +200,7 @@ public void insertUsers(User[] users) {
 
 ### SqlSessionDaoSupport
 
-It is an abstract support class that provides `SqlSession`. **We could also call `getSqlSession()` by extending `SqlSessionDaoSupport` to get `SqlSession`**:
+It is an abstract support class that provides `SqlSession`. **We could call `getSqlSession()` by extending `SqlSessionDaoSupport` to get `SqlSession`**:
 
 {% highlight java %}
 public class UserDaoImpl extends SqlSessionDaoSupport implements UserDao {
