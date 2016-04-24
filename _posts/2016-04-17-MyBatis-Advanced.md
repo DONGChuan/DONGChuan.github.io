@@ -89,7 +89,7 @@ public User(String userName, String password) {
 	<id property="id" column="author.id" />
 	<result property="realName" column="realName" />
 	<result property="IDCard" column="IDCard" />
-	<association property="user" column="userID" javaType="JiKeUser">
+	<association property="user" column="userID" javaType="User">
 		<constructor>
 			<arg column="userName" javaType="String" />
 			<arg column="password" javaType="String" />
