@@ -126,7 +126,7 @@ We have two ways to get sesion in DAOs:
 * SqlSessionTemplate 
 * SqlSessionDaoSupport
 
-> But I prefer to use `MapperScannerConfigurer` or `MapperFactoryBean` to avoid coding DAOs manually
+> But I prefer to use `MapperScannerConfigurer` or `MapperFactoryBean` directly to avoid coding DAOs manually. `MapperScannerConfigurer` could even automatically scan mapper interfaces. It's the beat choice!
 
 ### Transaction
 
