@@ -136,7 +136,10 @@ So first, in mybatis-spring, just need to enable Spring transaction processing:
 <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
     <property name="dataSource" ref="dataSource" />
 </bean>
+<tx:annotation-driven transaction-manager="transactionManager"/>
 {% endhighlight %}
+
+Then add `@Transactional` annotation on service layer.
 
 ### SqlSessionTemplate
 
