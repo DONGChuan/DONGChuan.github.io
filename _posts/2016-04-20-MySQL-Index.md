@@ -151,9 +151,9 @@ So we need to know how to choose columns to set index and also optimize queries.
 
 ## How to choose columns for index
 
-* Consider about columns as conditions in queries frequently called.
+1. Consider about columns as conditions in queries frequently called.
 
-* Consider about columns in `WHERE` and `JOIN`.
+2. Consider about columns in `WHERE` and `JOIN`.
 
 {% highlight sql %}
 SELECT t.Name 
@@ -165,12 +165,12 @@ WHERE m.age=20 AND m.city='Paris'
 
 ⋅⋅⋅So we could consider about setting index for age, city in `WHERE` or username in `JOIN`. **Only one index can be used per SELECT/statement in the query**
 
-> Index works with these operators <,<=,=,>,>=,between,in and like (Only for expression not beginning with
+⋅⋅⋅Index works with these operators <,<=,=,>,>=,between,in and like (Only for expression not beginning with
   % or _). 
 
-* Not suggest columns which will be updated, inserted or deleted too frequently.
+3. Not suggest columns which will be updated, inserted or deleted too frequently.
 
-* Better to choose columns with big cardinality, so different values. It is easy to distinguish birthday with differentdates. It means nothing set index on gendar to distinguish gendar with only 'M' or 'F'. Because always half will be left.
+4. Better to choose columns with big cardinality, so different values. It is easy to distinguish birthday with differentdates. It means nothing set index on gendar to distinguish gendar with only 'M' or 'F'. Because always half will be left.
 
 ⋅⋅⋅We could compte **Index Selectivity** to help us to choose.
 
@@ -180,17 +180,17 @@ Index Selectivity =  Cardinality / Rows of table
 
 ⋅⋅⋅The higher the index selectivity value the more suggested to choose.
 
-* In composite index, consider about leftmost, column with big index selectivity should be on left.
+5. In composite index, consider about leftmost, column with big index selectivity should be on left.
 
-* Consider table with many records, for example, 2000 records.
+6. Consider table with many records, for example, 2000 records.
 
-* Consider **short index** to reduce size of index. Sometimes we don't need to index on the entire field, we could set a prefix length. For exampe, a column is CHAR(200), if in the first 10 characters, most records are unique.We could use short index:
+7.  Consider **short index** to reduce size of index. Sometimes we don't need to index on the entire field, we could set a prefix length. For exampe, a column is CHAR(200), if in the first 10 characters, most records are unique.We could use short index:
 
 {% highlight sql %}
 ALTER TABLE tb_name ADD INDEX index_name (long_string(10)); 
 {% endhighlight %}
 
-So mysql only indexes according to first 10 characters which involves less disk I/O, comsumes less index spaces, 
+⋅⋅⋅So mysql only indexes according to first 10 characters which involves less disk I/O, comsumes less index spaces, 
 so may increase query speed.
 
 ## Do not!
