@@ -151,9 +151,9 @@ So we need to know how to choose columns to set index and also optimize queries.
 
 ## How to choose columns for index
 
-1. Consider about columns as conditions in queries frequently called.
+###### Consider about columns as conditions in queries frequently called.
 
-2. Consider about columns in `WHERE` and `JOIN`.
+###### Consider about columns in `WHERE` and `JOIN`.
 
 {% highlight sql %}
 SELECT t.Name 
