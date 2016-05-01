@@ -163,7 +163,7 @@ ON t.name = m.username
 WHERE m.age=20 AND m.city='Paris' 
 {% endhighlight %}
 
-So we could consider about setting index for age, city in `WHERE` or username in `JOIN`. **Only one index can be used per SELECT/statement in the query**
+⋅⋅⋅So we could consider about setting index for age, city in `WHERE` or username in `JOIN`. **Only one index can be used per SELECT/statement in the query**
 
 > Index works with these operators <,<=,=,>,>=,between,in and like (Only for expression not beginning with
   % or _). 
@@ -172,13 +172,13 @@ So we could consider about setting index for age, city in `WHERE` or username in
 
 * Better to choose columns with big cardinality, so different values. It is easy to distinguish birthday with differentdates. It means nothing set index on gendar to distinguish gendar with only 'M' or 'F'. Because always half will be left.
 
-We could compte **Index Selectivity** to help us to choose.
+⋅⋅⋅We could compte **Index Selectivity** to help us to choose.
 
 {% highlight sql %}
 Index Selectivity =  Cardinality / Rows of table
 {% endhighlight %}
 
-The higher the index selectivity value the more suggested to choose.
+⋅⋅⋅The higher the index selectivity value the more suggested to choose.
 
 * In composite index, consider about leftmost, column with big index selectivity should be on left.
 
