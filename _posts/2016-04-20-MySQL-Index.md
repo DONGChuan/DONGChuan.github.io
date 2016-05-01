@@ -9,12 +9,12 @@ Quick note about MySQL Index.
 
 ## Why Index
 
-Indexes are used to ****find rows with specific column values quickly**. Without an index, MySQL must begin with the first row 
+Indexes are used to **find rows with specific column values quickly**. Without an index, MySQL must begin with the first row 
 and then read through the entire table to find the relevant rows. The larger the table, the more this costs. If the table 
 has an index for the columns in question, MySQL can quickly determine the position to seek to in the middle of the data file 
 without having to look at all the data. This is much faster than reading every row sequentially.
 
-Most MySQL indexes are stored in [B-trees](http://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_b_tree). But indexes on spatial data types use [R-trees]();
+Most MySQL indexes are stored in [B-trees](http://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_b_tree). But indexes on spatial data types use R-trees;
 
 ## Index Type
 
@@ -105,13 +105,13 @@ Three ways to create index
 {% highlight sql %}
 CREATE TABLE tb_name(  
   ...
-  INDEX [indexName] (column_list),
-  UNIQUE INDEX [indexName] (column_list),
+  INDEX indexName (column_list),
+  UNIQUE INDEX index_name (column_list),
   PRIMARY KEY(ID) 
 ); 
 
 ALTER TABLE table_name ADD INDEX index_name (column_list);
-ALTER TABLE table_name ADD UNIQUE INDEX (column_list);
+ALTER TABLE table_name ADD UNIQUE INDEX index_name (column_list);
 ALTER TABLE table_name ADD PRIMARY KEY (column_list);
 
 CREATE INDEX index_name ON table_name (column_list);
@@ -124,7 +124,7 @@ CREATE UNIQUE INDEX index_name ON table_name (column_list);
 DROP INDEX index_name ON talbe_name
 ALTER TABLE table_name DROP INDEX index_name
 
-# To delete primary key, as it's unique in each table, no need to indicate index name
+# To delete primary key, as it iss unique in each table, no need to indicate index name
 ALTER TABLE table_name DROP PRIMARY KEY
 {% endhighlight %}
 
@@ -149,13 +149,13 @@ Adding index increases query speed. But:
 
 So we need to know how to choose columns to set index and optimize queries.
 
-1. Consider about columns as conditions in queries frequently called.
-2. Consider about columns in `WHERE` and `JOIN`.
+#### Consider about columns as conditions in queries frequently called.
+#### Consider about columns in `WHERE` and `JOIN`.
 
 {% highlight sql %}
 SELECT t.Name 
 FROM table1 t 
-LEFT JOIN table2 m   
+LEFT JOIN table2 m
 ON t.name = m.username 
 WHERE m.age=20 AND m.city='Paris' 
 {% endhighlight %}
@@ -165,9 +165,9 @@ So we could consider about setting index for age, city in `WHERE` or username in
 > Index works with these operators <,<=,=,>,>=,between,in and like (Only for expression not beginning with
   % or _). 
 
-3. Not suggest columns which will be updated, inserted or deleted too frequently.
+#### Not suggest columns which will be updated, inserted or deleted too frequently.
 
-4. Better to choose columns with big cardinality, so different values. It is easy to distinguish birthday with different
+#### Better to choose columns with big cardinality, so different values. It is easy to distinguish birthday with different
  dates. It means nothing set index on gendar to distinguish gendar with only 'M' or 'F'. Because always half will be left.
 
 We could compte **Index Selectivity** to help us to choose.
@@ -178,11 +178,11 @@ Index Selectivity =  Cardinality / Rows of table
 
 The higher the index selectivity value the more suggested to choose.
 
-5. In composite index, consider about leftmost, column with big index selectivity should be on left.
+#### In composite index, consider about leftmost, column with big index selectivity should be on left.
 
-6. Consider table with many records, for example, 2000 records.
+#### Consider table with many records, for example, 2000 records.
 
-7. Consider **short index** to reduce size of index. Sometimes we don't need to index on the entire field, we 
+##### Consider **short index** to reduce size of index. Sometimes we don't need to index on the entire field, we 
 could set a prefix length. For exampe, a column is CHAR(200), if in the first 10 characters, most records are unique.
 We could use short index:
 
@@ -195,21 +195,19 @@ so may increase query speed.
 
 ## Do not!
 
-1. Index does not work with <>,not in, !=.
+* Index does not work with <>,not in, !=.
 
-2. Do not calculate on columns, it will make index invalid.
+* Do not calculate on columns, it will make index invalid.
 
 {% highlight sql %}
-select * from users where YEAR(adddate) < 2007; 
-{% endhighlight %}
+select * from users where YEAR(adddate) < 2007;
 
 Better change to like this:
 
-{% highlight sql %}
-select * from users where adddate < ‘2007-01-01’;  
+select * from users where adddate < '2007-01-01';
 {% endhighlight %}
 
-3. Avoid to use `NULL` as default value for indexed column.
+* Avoid to use `NULL` as default value for indexed column.
 
 ## Refs
 
