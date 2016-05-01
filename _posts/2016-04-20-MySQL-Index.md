@@ -167,9 +167,9 @@ WHERE m.age=20 AND m.city='Paris'
 
 Index works with these operators <,<=,=,>,>=,between,in and like (Only for expression not beginning with% or _). 
 
-3. Not suggest columns which will be updated, inserted or deleted too frequently.
+###### Not suggest columns which will be updated, inserted or deleted too frequently.
 
-4. Better to choose columns with big cardinality, so different values. It is easy to distinguish birthday with differentdates. It means nothing set index on gendar to distinguish gendar with only 'M' or 'F'. Because always half will be left.
+###### Better to choose columns with big cardinality, so different values. It is easy to distinguish birthday with differentdates. It means nothing set index on gendar to distinguish gendar with only 'M' or 'F'. Because always half will be left.
 
 We could compte **Index Selectivity** to help us to choose.
 
@@ -179,11 +179,11 @@ Index Selectivity =  Cardinality / Rows of table
 
 The higher the index selectivity value the more suggested to choose.
 
-5. In composite index, consider about leftmost, column with big index selectivity should be on left.
+###### In composite index, consider about leftmost, column with big index selectivity should be on left.
 
-6. Consider table with many records, for example, 2000 records.
+###### Consider table with many records, for example, 2000 records.
 
-7.  Consider **short index** to reduce size of index. Sometimes we don't need to index on the entire field, we could set a prefix length. For exampe, a column is CHAR(200), if in the first 10 characters, most records are unique.We could use short index:
+###### Consider **short index** to reduce size of index. Sometimes we don't need to index on the entire field, we could set a prefix length. For exampe, a column is CHAR(200), if in the first 10 characters, most records are unique.We could use short index:
 
 {% highlight sql %}
 ALTER TABLE tb_name ADD INDEX index_name (long_string(10)); 
