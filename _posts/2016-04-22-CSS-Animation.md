@@ -77,15 +77,19 @@ The duration of the animation, in seconds (e.g., 5s) or milliseconds (e.g., 200m
 
 The speed curve or pace of the animation:
 
-linear	The animation has the same speed from start to end	Play it »
-ease	**Default value**. The animation has a slow start, then fast, before it ends slowly.
-ease-in	 start slowly and end fast.
-ease-out	start more quickly than linear ones and end slowly. the opposite of ease-in.
-ease-in-out	The animation has both a slow start and a slow end
-initial	Sets this property to its default value. So `ease`.
-inherit	Inherits this property from its parent element.
+The speed curve or pace of the animation:
 
-Check [The basics of easing](https://developers.google.com/web/fundamentals/design-and-ui/animations/the-basics-of-easing?hl=en) for details.
+| Timing Function | De  |
+|---|---|
+| linear | The animation has the same speed from start to end |
+| ease | **Default value**. The animation has a slow start, then fast, before it ends slowly. |
+| ease-in | Start slowly and end fast.  |
+| ease-out | Start more quickly than linear ones and end slowly. The opposite of ease-in. |
+| ease-in-out | Both a slow start and a slow end |
+| initial | Sets this property to its default value. So `ease`. |
+| inherit | Inherits this property from its parent element. |
+
+> Check [The basics of easing](https://developers.google.com/web/fundamentals/design-and-ui/animations/the-basics-of-easing?hl=en) for details.
 
 ### animation-delay 
 
