@@ -77,8 +77,6 @@ The duration of the animation, in seconds (e.g., 5s) or milliseconds (e.g., 200m
 
 The speed curve or pace of the animation:
 
-The speed curve or pace of the animation:
-
 | Timing Function | Description |
 |---|---|
 | linear | The animation has the same speed from start to end |
