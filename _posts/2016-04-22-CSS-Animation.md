@@ -79,7 +79,7 @@ The speed curve or pace of the animation:
 
 The speed curve or pace of the animation:
 
-| Timing Function | De  |
+| Timing Function | Description |
 |---|---|
 | linear | The animation has the same speed from start to end |
 | ease | **Default value**. The animation has a slow start, then fast, before it ends slowly. |
