@@ -14,7 +14,7 @@ company: Gfi Informatique
 company_url: http://www.gfi.fr/en/
 github_url: https://github.com/DONGChuan
 
-url: "http://localhost:4000" # the base hostname & protocol for your site
+url: "http://dongchuan.github.io" # the base hostname & protocol for your site
 
 ## Gem
 gems:
