@@ -1,12 +1,12 @@
 {
-  "name": "primer-user-content",
+  "name": "primer-markdown",
   "keywords": [
     "github",
     "markdown",
     "css"
   ],
   "main": [
-    "dist/github-markdown.css"
+    "dist/user-content.css"
   ],
   "ignore": [
     "**/.*",
@@ -17,14 +17,15 @@
     "render-test.md"
   ],
   "homepage": "https://github.com/primer/markdown",
-  "version": "2.1.7",
-  "_release": "2.1.7",
+  "version": "2.5.1",
+  "_release": "2.5.1",
   "_resolution": {
     "type": "version",
-    "tag": "v2.1.7",
-    "commit": "66c71cd395676b58fe3de587fb643eb0c11509d8"
+    "tag": "v2.5.1",
+    "commit": "9f136835634d6869960f6cad946846d07dd4acb6"
   },
   "_source": "https://github.com/primer/markdown.git",
-  "_target": "2.1.7",
-  "_originalSource": "https://github.com/primer/markdown.git"
+  "_target": "^2.5.1",
+  "_originalSource": "primer-markdown",
+  "_direct": true
 }

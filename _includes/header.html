@@ -1,111 +1,17 @@
-<!DOCTYPE html>
-<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <title>{% if page.title %}{{ page.title }} &mdash; {% endif %}{{ site.title }}</title>
-    <link rel="stylesheet" href="/assets/css/components/collection.css">
-    <link rel="stylesheet" href="/assets/css/components/repo-card.css">
-    <link rel="stylesheet" href="/assets/css/sections/repo-list.css">
-    <link rel="stylesheet" href="/assets/css/sections/mini-repo-list.css">
-    <link rel="stylesheet" href="/assets/css/components/boxed-group.css">
-    <link rel="stylesheet" href="/assets/css/globals/common.css">
-    <link rel="stylesheet" href="/assets/css/globals/responsive.css">
-    <link rel="stylesheet" href="/assets/css/posts/index.css">
-    <link rel="stylesheet" href="/assets/css/pages/index.css">
-    <link rel="stylesheet" href="/assets/css/pages/hover-min.css">
-    <link rel="stylesheet" href="/assets/css/globals/prism.css">
-    <!-- Latest compiled and minified CSS -->
-    {% for css in page.css %}
-    <link rel="stylesheet" href="/assets/css/{{css}}">
-    {% endfor %}
-
-    {% if site.ios_app_name %}
-       <meta name="apple-mobile-web-app-capable" content="yes">
-       <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    {% endif %}
-    <link rel="alternate" type="application/atom+xml" title="overtrue" href="/atom.xml">
-
-    <link rel="apple-touch-icon-precomposed" href="/assets/images/apple-touch-icon-57x57-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/apple-touch-icon-{% if site.ios_app_name %}{{site.ios_app_name}}-{% endif %}72x72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/apple-touch-icon-114x114-precomposed.png">
-    {% if page.title %}
-    <meta property="og:title" content="{{ page.title }}">
-      {% if page.keywords %}
-      {% assign keywords = page.keywords %}
-      {% else %}
-      {% assign keywords = site.keywords %}
-      {% endif %}
-    <meta name="keywords" content="{{ keywords | strip_html | strip_newlines}}">
-    <meta name="og:keywords" content="{{ keywords | strip_html | strip_newlines}}">
-      {% if page.excerpt %}
-    <meta name="description" content="{{ page.excerpt | strip_html | strip_newlines}}">
-    <meta name="og:description" content="{{ page.excerpt | strip_html | strip_newlines}}">
-      {% else if page.description %}
-    <meta name="description" content="{{ page.description | strip_html | strip_newlines}}">
-    <meta name="og:description" content="{{ page.description | strip_html | strip_newlines}}">
-      {% else if content %}
-    <meta name="description" content="{{ content | strip_html | strip_newlines | truncatewords: 100 }}">
-    <meta name="og:description" content="{{ content | strip_html | strip_newlines | truncatewords: 100 }}">
-      {% endif %}
-    {% else %}
-    <meta name="keywords" content="{{ site.keywords }}">
-    <meta name="description" content="{{ site.description }}">
-    {% endif %}
-    {% if page.og_image_url %}
-    <meta property="og:image" content="{{ page.og_image_url }}">
-    {% else %}
-        {% if page.photo_url %}
-    <meta property="og:image" content="{{ page.photo_url }}">
-        {% endif %}
-    {% endif %}
-    <meta property="og:url" content="{{ site.baseurl }}{{ page.url | remove_first:'index.html' }}">
-    <meta property="og:site_name" content="{{ site.domain }}">
-    <meta property="og:type" content="article">
-    <meta property="og:locale" content="zh_CN" />
-    {% if page.date %}
-    <meta property="article:published_time" content="{{ page.date | date: "%Y-%m-%d" }}">
-    {% endif %}
-
-    <!-- Favicon Icon -->
-    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png">
-
-    <!-- 3rd party css -->
-    <link rel="stylesheet" href="/bower_components/primer-css/css/primer.css">
-    <link rel="stylesheet" href="/bower_components/primer-markdown/dist/user-content.min.css">
-    <link rel="stylesheet" href="/bower_components/octicons/octicons/octicons.css">
-    <link rel="stylesheet" href="/bower_components/Trip.js/dist/trip.min.css">
-    <link rel="stylesheet" href="/bower_components/flag-icon-css/css/flag-icon.css" >
-    <link rel="stylesheet" href="/bower_components/share.js/dist/css/share.min.css">
-
-    <!-- 3rd party scripts -->
-    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="/bower_components/jquery-ui/jquery-ui.min.js"></script>
-    <script src="/bower_components/Trip.js/dist/trip.min.js"></script>
-    <script src="/bower_components/share.js/dist/js/share.min.js"></script>
-
-    <!-- custom scripts-->
-    <script src="/assets/js/index.js"></script>
-    <script src="/assets/js/geopattern.js"></script>
-    <script src="/assets/js/prism.js"></script>
-    <script src="/assets/js/lunr.min.js"></script>
-    <script src="/assets/js/search.js"></script>
-
-    {% for javascript in page.javascript %}
-    <script src="/assets/js/{{javascript}}"></script>
-    {% endfor %}
-
-</head>
-<body class="{{ page.class }}" ng-app="app">
-    <header class="site-header" id="site-header-id">
-        <div class="container">
-            <h1><a href="/" title="{{ site.name }}"><span class="octicon octicon-mark-github"></span> {{ site.name }}</a></h1>
-            <nav class="site-header-nav" role="navigation">
-                {% for nav in site.navs %}
-                <a href="{{ nav.href }}" class="{% if page.menu == nav.label %} selected {% endif %} site-header-nav-item hvr-underline-from-center" target="{{ nav.target | default: _self }}" title="{{ nav.label }}">{{ nav.label }}</a>
-                {% endfor %}
-            </nav>
-        </div>
-    </header>
-    <!-- / header -->
+<header class="site-header">
+    <div class="container">
+        <a id="site-header-brand" href="/" title="{{ site.name }}">
+            <span class="octicon octicon-mark-github"></span> {{ site.name }}
+        </a>
+        <nav class="site-header-nav" role="navigation">
+            {% for nav in site.navs %}
+            <a href="{{ nav.href }}"
+               class="{% if page.menu == nav.label %} selected {% endif %} site-header-nav-item hvr-underline-from-center"
+               target="{{ nav.target | default: _self }}"
+               title="{{ nav.label }}">
+                {{ nav.label }}
+            </a>
+            {% endfor %}
+        </nav>
+    </div>
+</header>

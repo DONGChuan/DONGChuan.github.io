@@ -1,26 +1,30 @@
-title: DONGChuan - Chuan's Website
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: Yummy Theme
 name: DONGChuan
 email: dongchuan55@gmail.com
-description: Chuan's Website
-keywords: 董川
-skill_software_keywords: [Java, C, C++, Qt, Python, MySQL, Oracle, SQLite, PL/SQL, Design Patterns]
-skill_j2ee_keywords: [Spring, Struct, Hibernet, JSP]
-skill_web_keywords: [HTML, CSS, Javascript, Jquery, ajax, Angularjs, Nodejs, Expressjs, MongoDB, Redis, PHP, Symfony, Boostrap]
-skill_mobile_app_keywords: [Android, Sketch UI Desgin]
+location: Nice, France
+company: MyCompany
+company_url: https://github.com/DONGChuan
+github_url: https://github.com/DONGChuan
 
-timezone: PRC
-encoding: "utf-8"
+url: "http://localhost:4000" # the base hostname & protocol for your site
 
-url: http://dongchuan.github.io
-baseurl:  "/"
-domain:
-permalink:     /articles/:year/:month/:title.html
-paginate_path: 'page:num'
-paginate:   10
-source_code: https://github.com/DONGChuan/DONGChuan.github.io
-
+## Gem
+gems:
+  - jekyll-paginate
+  - jekyll-geo-pattern
+  - rouge
+  - kramdown
+  - jekyll-github-metadata
 # Build settings
-markdown:    kramdown
+markdown: kramdown
 highlighter: rouge
 lsi:         false
 excerpt_separator: "\n\n"
@@ -35,18 +39,14 @@ kramdown:
   input: GFM
   enable_coderay: true
 
-gems:
-  - jemoji
-  - rouge
-  - jekyll-html-pipeline
-  - jekyll-paginate
+# Disque
+disque: httpdongchuangithubio.disqus.com
 
-analytics :
-  provider : google
-  google :
-      tracking_id : 'UA-72165600-1'
+# Pagination
+paginate: 10
+paginate_path: 'page:num'
 
-# navigation
+# Navigation
 navs:
   -
     href: /
@@ -61,10 +61,6 @@ navs:
     label: Blog
 
   -
-    href: /footprint
-    label: Footprint
-
-  -
     href: /bookmark
     label: Bookmark
 
@@ -72,5 +68,11 @@ navs:
     href: /about
     label: About
 
-popular_repos: ['GradleUserGuide','YummyWakeUp', 'Java-BackGammon', 'Java-Interview-Question', 'PoetrySearch']
-contribute_repos: ['UFreedom/YummyTime', 'UFreedom/CountDownTextView']
+# Sidebar to show popular repo
+side_bar_repo_limit: 5 # Number of repos to show
+
+# Google Analytics
+analytics :
+  provider : google
+  google :
+      tracking_id : 'UA-72165600-1'

@@ -1,38 +1,32 @@
-    <footer class="container">
-        <div class="site-footer" role="contentinfo">
-            <div class="copyright left mobile-block">
-                    © 2015
-                    <span title="DONNGChuan">DONGChuan</span>
-                    <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
-            </div>
+<footer class="container">
 
-            <ul class="site-footer-links right mobile-hidden">
-                <li>
-                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
-                </li>
-            </ul>
-            <a href="https://github.com/DONGChuan" target="_blank" aria-label="view source code">
-                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
-            </a>
-            <ul class="site-footer-links mobile-hidden">
-                {% for nav in site.navs %}
-                <li>
-                    <a href="{{ nav.href }}" title="{{ nav.label }}" target="{{ nav.target | default: _self }}">{{ nav.label }}</a>
-                </li>
-                {% endfor %}
-            </ul>
+    <div class="site-footer">
 
+        <div class="copyright pull-left">
+            © 2015-2016 <span>DONG Chuan</span>
         </div>
-    </footer>
-    <script>
-      jQuery(document).ready(function($) {
-        // geopattern
-        $('.geopattern').each(function(){
-          $(this).geopattern($(this).data('pattern-id'));
-        });
-       // hljs.initHighlightingOnLoad();
-      });
-    </script>
+
+        <a href="https://github.com/DONGChuan" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>
+
+        <div class="pull-right">
+            <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+        </div>
+
+    </div>
+
+    <!-- Third-Party JS -->
+    <script type="text/javascript" src="/bower_components/geopattern/js/geopattern.min.js"></script>
+
+    <!-- My JS -->
+    <script type="text/javascript" src="/assets/js/script.js"></script>
+
+    {% for javascript in page.javascript %}
+    <script src="/assets/js/{{javascript}}"></script>
+    {% endfor %}
+
+    <!-- Google Analytics -->
     <div style="display:none">
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -46,5 +40,4 @@
         </script>
     </div>
 
-    </body>
-</html>
+</footer>

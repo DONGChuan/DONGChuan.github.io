@@ -1,12 +1,12 @@
 {
-  "name": "primer-user-content",
+  "name": "primer-markdown",
   "keywords": [
     "github",
     "markdown",
     "css"
   ],
   "main": [
-    "dist/github-markdown.css"
+    "dist/user-content.css"
   ],
   "ignore": [
     "**/.*",

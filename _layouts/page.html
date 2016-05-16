@@ -1,57 +1,9 @@
 ---
 layout: default
-comments: true
 ---
-<section class="collection-head collection-head-scrolled geopattern" data-pattern-id="{{ page.title | truncate: 3}}">
-    <div class="container">
-        <div class="collection-title">
-            <h1 class="collection-header">{{ page.title }}</h1>
-            {% if page.subtitle %}
-                <div class="collection-info">
-                    <span class="meta-info">
-                        {{ page.subtitle}}
-                    </span>
-                </div>
-            {% endif %}
-            {% if page.cv %}
-            <div>
-                <button type="button" class="btn-cv btn-info hvr-grow-shadow">
-                    <span class="flag-icon flag-icon-bl"></span>
-                    <a href="/assets/files/CV_Chuan_Dong_FR.pdf" download="CV_Chuan_DONG_FR.pdf">Français</a>
-                </button>
-                <button type="button" class="btn-info hvr-grow-shadow">
-                    <span class="flag-icon flag-icon-gb"></span>
-                    English
-                </button>
-                <button type="button" class="btn-info hvr-grow-shadow">
-                    <span class="flag-icon flag-icon-cn"></span>
-                    中文
-                </button>
-            </div>
-            {% endif %}
-        </div>
-    </div>
-</section>
-<!-- / .banner -->
- <section class="container content">
-        <div class="columns">
-            <div class="column three-fourths" >
-                <article class="article-content markdown-body">
-                    {{ content }}
-                </article>
-                <div class="share">
-                    {% include sns-share.html %}
-                </div>
-                <div class="comment">
-                    {% include disqus-comments.html %}
-                </div>
-            </div>
-            <div class="column one-fourth">
-                {% include sidebar-search.html %}
-                {% include sidebar-popular-repo.html %}
-                {% include sidebar-contribute-repo.html %}
-            </div>
-        </div>
-    </section>
-<script src="/assets/js/trip.js"></script>
-    <!-- /section.content -->
+{% include jumbotron.html %}
+<article class="post container">
+
+    {{ content }}
+
+</article>
