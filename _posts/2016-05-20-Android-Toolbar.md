@@ -45,7 +45,7 @@ In `res/values/styles.xml`:
 <!-- Theme for activity -->
 <style name="AppTheme.NoActionBar">
     <item name="windowActionBar">false</item>
-	<item name="windowNoTitle">true</item>
+    <item name="windowNoTitle">true</item>
 </style>
 
 <!-- Theme for toolbar -->
