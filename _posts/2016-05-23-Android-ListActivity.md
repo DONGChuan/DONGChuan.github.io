@@ -9,12 +9,12 @@ tags: [android]
 
 ## Difference with `Activity`
 
-1. Override `onListItemClick()` method to add item click listen. With `Activity`, we need to create a separate listener with `OnClickListener`.
+1. Override `onListItemClick()` method to add item click listener. With `Activity`, we need to create a separate listener with `OnClickListener`.
 2. No need to use `findViewById()` to find listview in layout resource.
 3. Could show a special view to replace list view automatically when there is no data in list.
 4. `setListAdapter()` to set adapter instead of calling `ListView.setAdaper()`.
 
-> Please inform me if any experts know more about it.
+> Please inform me if any expert know more about it.
 
 ## Example
 
@@ -81,4 +81,4 @@ public class MainActivity extends ListActivity {
 ## Refs
 
 * [Android Developer ListActivity](https://developer.android.com/reference/android/app/ListActivity.html)
-* [differences between extending Activity and extending ListActivity?](http://stackoverflow.com/questions/11969386what-are-the-differences-between-extending-activity-and-extending-listactivity)
+* [Differences between extending Activity and extending ListActivity?](http://stackoverflow.com/questions/11969386what-are-the-differences-between-extending-activity-and-extending-listactivity)
