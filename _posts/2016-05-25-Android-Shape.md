@@ -58,7 +58,7 @@ Then inside `<shape>`, we could define the following properties:
     android:bottomRightRadius="Dimension" />
 {% endhighlight %}
 
-`android:radius` for all corners by overridden for each corner by its following attributes.
+`android:radius` for all corners. Overridden for each corner by the other four attributes.
 
 ### gradient
 
@@ -83,7 +83,7 @@ Then inside `<shape>`, we could define the following properties:
 * `android:startColor` - Starting color
 * `android:centerColor` - Optional color that comes between the start and end colors
 * `android:endColor` - Ending color
-* `android:gradientRadius` - Radius for the gradient. Only applied when android:type="radial".
+* `android:gradientRadius` - Radius for the gradient. Only applied when `android:type="radial"`.
 * `android:useLevel` - Boolean. "true" if this is used as a LevelListDrawable.
 * `android:type` - Type of gradient pattern to apply. 
 * `linear` - A linear gradient. By default.
@@ -110,12 +110,12 @@ Then inside `<shape>`, we could define the following properties:
     android:dashGap="Dimension" />
 {% endhighlight %}
 
-* `android:dashWidth` - Size of each dash line. Only valid if android:dashGap is set.
+* `android:dashWidth` - Size of each dash line. Only valid if `android:dashGap` is set.
 * `android:dashGap` - Distance between line dashes. Only valid if `android:dashWidth` is set.
 
 ### padding
 
-Padding to apply to the containing View element (this pads the position of the View content, not the shape).
+**Padding to apply to the containing View element** (this pads the position of the View content, not the shape).
 
 {% highlight xml %}
 <padding
