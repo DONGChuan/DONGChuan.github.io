@@ -45,7 +45,7 @@ Then inside `<shape>`, we could define the following properties:
 * `<size>`
 * `<padding>`
 
-### `<corners>`
+### corners
 
 **Creates rounded corners for the shape. Applies only when the shape is a rectangle.**
 
@@ -60,7 +60,7 @@ Then inside `<shape>`, we could define the following properties:
 
 `android:radius` for all corners by overridden for each corner by its following attributes.
 
-### `<gradient>`
+### gradient
 
 **Specifies a gradient color for the shape.**
 
@@ -90,7 +90,7 @@ Then inside `<shape>`, we could define the following properties:
 * `radial` - A radial gradient. The start color is the center color.
 * `sweep` - A sweeping line gradient.
 
-### `<solid>`
+### solid
 
 **A solid color to fill the shape.**
 
@@ -98,7 +98,7 @@ Then inside `<shape>`, we could define the following properties:
 <solid android:color="Color" />
 {% endhighlight %}
 
-### `<stroke>`
+### stroke
 
 **A stroke line for the shape.** Could be considered as border of the shape.
 
@@ -113,7 +113,7 @@ Then inside `<shape>`, we could define the following properties:
 * `android:dashWidth` - Size of each dash line. Only valid if android:dashGap is set.
 * `android:dashGap` - Distance between line dashes. Only valid if `android:dashWidth` is set.
 
-### `<padding>`
+### padding
 
 Padding to apply to the containing View element (this pads the position of the View content, not the shape).
 
@@ -125,7 +125,7 @@ Padding to apply to the containing View element (this pads the position of the V
     android:bottom="Dimension" />
 {% endhighlight %}
 
-### `<size>`
+### size
 
 **Size of the shape.**
 
