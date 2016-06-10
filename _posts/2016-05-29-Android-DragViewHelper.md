@@ -12,7 +12,7 @@ Quick note about learning ViewDragHelper from [ViewDragHelper tutorial
 
 > `ViewDragHelper` is in support.v4. It is a utility class for writing custom ViewGroups. It offers a number of useful operations and state tracking for allowing a user to drag and reposition views within their parent ViewGroup.
 
-**So it's for moving Views on ViewGroup!**. For example, customize a LinearLayout in which we could drag views.
+**So it's for moving Views in ViewGroup!**. For example, customize a LinearLayout in which we could drag views.
 
 ## Create an instance
 
@@ -25,14 +25,16 @@ ViewDragHelper.create(ViewGroup forParent, float sensitivity, ViewDragHelper.Cal
 > sensitive here means how sensitive the helper should be about detecting the start of a drag. Larger values are more sensitive. 1.0f is normal.
 
 {% highlight java %}
-mDraggerHelper = ViewDragHelper.create(this, 1.0f, new ViewDragHelper.Callback() { // some callbacks})
+mDraggerHelper = ViewDragHelper.create(this, 1.0f, new ViewDragHelper.Callback() { 
+        // some callbacks
+    })
 {% endhighlight %}
 
 ## Create Callbacks
 
 [ViewDragHelper.Callback](https://developer.android.com/reference/android/support/v4/widget/ViewDragHelper.Callback.html)  has many public methods to override. Some important ones:
 
-* `tryCaptureView(View child, int pointerId)` - Called when the user touches a view in the viewgroup. Should return true if the user is permitted to drag the given view with the indicated pointer.
+* `tryCaptureView(View child, int pointerId)` - Called when user touches a view in the viewgroup. Should return true if the user is permitted to drag the given view with the indicated pointer.
 * `clampViewPositionVertical(View child, int top, int dy)` - Restrict the motion of the dragged child view along the vertical axis.
 * `clampViewPositionHorizontal(View child, int left, int dx)`  - Restrict the motion of the dragged child view along the horizontal axis.
 * `getViewVerticalDragRange(View child)` - Returns range of vertical motion in pixels. Views cannot move vertically when it returns 0.
@@ -81,7 +83,7 @@ It needs to override two functions in ViewGroup:
 1. **`onInterceptTouchEvent()`** - In it, using `mDraggerView.shouldInterceptTouchEvent(event)` to decide if it should intercept this touch event or not.
 2. **`onTouchEvent()`** - In it, using `mDraggerView.processTouchEvent(event)` to process the motion event.
 
-`onInterceptTouchEvent()` is called whenever a touch event is detected on the surface of a ViewGroup, including on the surface of its children. If it returns true, the MotionEvent is intercepted, meaning it will be not be passed on to the child, but rather to `onTouchEvent()` method of ViewGroup.
+> `onInterceptTouchEvent()` is called whenever a touch event is detected on the surface of a ViewGroup, including on the surface of its children. If it returns true, the MotionEvent is intercepted, meaning it will be not be passed on to the child, but rather to `onTouchEvent()` method of ViewGroup.
 
 {% highlight java %}
 @Override
