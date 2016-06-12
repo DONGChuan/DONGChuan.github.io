@@ -89,12 +89,10 @@ set.play(animator1).after(animator3).setDuration(1000).start();
 
 Two ways:
 
-1. `new Animator.AnimatorListener()`
-2. `new AnimatorListenerAdapter()`
+1. `new Animator.AnimatorListener()` - need to override all the functions
+2. `new AnimatorListenerAdapter()` - only need to override the functions we want
 
 {% highlight java %}
-Animator.AnimatorListener needs to override all the four functions. With AnimatorListenerAdapter, we conly need to override the functions we need.
-
 ObjectAnimator animator = ObjectAnimator.ofFloat(view, "alpha", 0F, 1F); 
 animator.setDuration(1000); 
 animator.addListener(new AnimatorListenerAdapter() { 
