@@ -46,32 +46,32 @@ The following is an example. All the child views could be dragged in the groupvi
 {% highlight java %}
 mDraggerHelper = ViewDragHelper.create(this, 1.0f, new ViewDragHelper.Callback() {
 
-            @Override
-            public boolean tryCaptureView(View child, int pointerId) {
-                return true;
-            }
+        @Override
+        public boolean tryCaptureView(View child, int pointerId) {
+            return true;
+        }
+    
+        @Override
+        public int clampViewPositionHorizontal(View child, int left, int dx) {
+    
+            final int leftBound = getPaddingLeft();
+            final int rightBound = getWidth() - child.getWidth() - getPaddingRight();
+    
+            // Views could only stay inside groupview horizontally
+            return Math.min(Math.max(left, leftBound), rightBound);
+        }
+    
+        @Override
+        public int clampViewPositionVertical(View child, int top, int dy) {
+    
+            final int topBound = getPaddingTop();
+            final int bottomBound = getHeight() - child.getHeight() - getPaddingBottom();
+    
+            // Views could only stay inside groupview vertically
+            return Math.min(Math.max(top, topBound), bottomBound);
+        }
 
-            @Override
-            public int clampViewPositionHorizontal(View child, int left, int dx) {
-
-                final int leftBound = getPaddingLeft();
-                final int rightBound = getWidth() - child.getWidth() - getPaddingRight();
-
-                // Views could only stay inside groupview horizontally
-                return Math.min(Math.max(left, leftBound), rightBound);
-            }
-
-            @Override
-            public int clampViewPositionVertical(View child, int top, int dy) {
-
-                final int topBound = getPaddingTop();
-                final int bottomBound = getHeight() - child.getHeight() - getPaddingBottom();
-
-                // Views could only stay inside groupview vertically
-                return Math.min(Math.max(top, topBound), bottomBound);
-            }
-
-        });
+    });
 {% endhighlight %}
 
 ## Detect Touch Event
