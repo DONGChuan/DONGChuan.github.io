@@ -12,18 +12,21 @@ tags: [android]
 Animator is for **Interactive animation**. In general, we use animation like this: 
 
 {% highlight java %}
-TranslateAnimation animation = new TranslateAnimation(0, 200, 0, 0); // Change x from 0 to 200 animation.setDuration(1000); 
+TranslateAnimation animation = new TranslateAnimation(0, 200, 0, 0); // Change x from 0 to 200 
+animation.setDuration(1000); 
 animation.setFillAfter(true); // View will stay in the position where animation finished. Not return back 
 imageView.startAnimation(animation);
 {% endhighlight %}
 
-But here if you add a onClick listener. You will find, clicParcelable-Interface.mdking on the new location where the view is located currently doesn't work! But clicking on the previous location works?! Because Animation only **redraws** UI. But the response location won't change. So it's not fit with interactive animation.
+But here if we add an onClick listener. We will find, clicking on the new location where the view is located currently doesn't work! But clicking on the previous location works?!
+ 
+It is because Animation only **redraws** UI. But the response location won't change. So it's not fit with interactive animation.
 
-So to make better interactive animation, we have now two animator after 3.0:
+So to make better interactive animation, we have now two animators after 3.0:
 
 **ValueAnimator**
 
-This class provides a simple timing engine for running animations which calculate animated values and set them on target objects. **ValueAnimator itself does not act on any of properties nor provide any animation**. It is just a single timing pulse that all animations use (You could also use it for other things). It runs in a custom handler to ensure that property changes happen on the UI thread.
+It provides a simple timing engine for running animations which calculate animated values and set them on target objects. **ValueAnimator itself does not act on any of properties nor provide any animation**. It is just a single timing pulse that all animations use (We could also use it for other things). It runs in a custom handler to ensure that property changes happen on the UI thread.
 
 By default, ValueAnimator uses non-linear time interpolation, via the AccelerateDecelerateInterpolator class, which accelerates into and decelerates out of an animation. This behavior can be changed by calling setInterpolator(TimeInterpolator).
 
@@ -46,7 +49,7 @@ ObjectAnimator.ofFloat(im, "Y", 0f, 200f).setDuration(1000).start();
 ObjectAnimator.ofFloat(im, "rotation", 0f, 360f).setDuration(1000).start();
 {% endhighlight %}
 
-But you will see here, **all actions run in the mean time beacasue start() is asynchronous**. So here we could use PropertyValuesHolder and AnimatorSet to control animators to run.
+But we will see here, **all actions run in the mean time beacasue start() is asynchronous**. So here we could use PropertyValuesHolder and AnimatorSet to control animators to run.
 
 ### PropertyValuesHolder
 
@@ -83,8 +86,9 @@ set.play(animator1).after(animator3).setDuration(1000).start();
 ### Set Listener
 
 Two ways:
-1. new Animator.AnimatorListener()
-2. new AnimatorListenerAdapter()
+
+1. `new Animator.AnimatorListener()`
+2. `new AnimatorListenerAdapter()`
 
 {% highlight java %}
 Animator.AnimatorListener needs to override all the four functions. With AnimatorListenerAdapter, we conly need to override the functions we need.
