@@ -24,13 +24,13 @@ It is because Animation only **redraws** UI. But the response location won't cha
 
 So to make better interactive animation, we have now two animators after 3.0:
 
-**ValueAnimator**
+#### ValueAnimator
 
 It provides a simple timing engine for running animations which calculate animated values and set them on target objects. **ValueAnimator itself does not act on any of properties nor provide any animation**. It is just a single timing pulse that all animations use (We could also use it for other things). It runs in a custom handler to ensure that property changes happen on the UI thread.
 
 By default, ValueAnimator uses non-linear time interpolation, via the AccelerateDecelerateInterpolator class, which accelerates into and decelerates out of an animation. This behavior can be changed by calling setInterpolator(TimeInterpolator).
 
-**ObjectAnimator**
+#### ObjectAnimator
 
 To animate a property of target object. **It needs Get/Set functions for this property**. More details, this subclass of ValueAnimator provides support for animating properties on target objects. The constructors of this class take parameters to define the target object that will be animated as well as the name of the property that will be animated. Appropriate set/get functions are then determined internally and the animation will call these functions as necessary to animate the property.
 
@@ -54,7 +54,9 @@ But we will see here, **all actions run in the mean time beacasue start() is asy
 ### PropertyValuesHolder
 
 {% highlight java %}
-PropertyValuesHolder p1 = PropertyValuesHolder.ofFloat("translationX", 0F, 200F); PropertyValuesHolder p2 = PropertyValuesHolder.ofFloat("translationY", 0F, 200F); PropertyValuesHolder p3 = PropertyValuesHolder.ofFloat("rotation", 0F, 360F); 
+PropertyValuesHolder p1 = PropertyValuesHolder.ofFloat("translationX", 0F, 200F); 
+PropertyValuesHolder p2 = PropertyValuesHolder.ofFloat("translationY", 0F, 200F); 
+PropertyValuesHolder p3 = PropertyValuesHolder.ofFloat("rotation", 0F, 360F); 
 
 // Run all the property values together 
 ObjectAnimator.ofPropertyValuesHolder(im, p1, p2, p3).setDuration(1000).start();
