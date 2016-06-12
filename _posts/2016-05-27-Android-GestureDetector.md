@@ -5,11 +5,11 @@ category: android
 tags: [android]
 ---
 
-Quick note about learning ｀GestureDetector｀ and `ScaleGestureDetector`.
+Quick note about learning `GestureDetector` and `ScaleGestureDetector`.
 
 ## GestureDetector
 
-Android provides ｀GestureDetector｀ class for detecting common gestures.
+Android provides `GestureDetector` class for detecting common gestures.
 
 ### Steps
 
