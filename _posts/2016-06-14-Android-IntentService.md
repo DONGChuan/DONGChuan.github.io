@@ -5,15 +5,13 @@ category: android
 tags: [android]
 ---
 
-### 定义
-
 `IntentService` 是用来处理异步 (asynchronous) 请求的 `Service` 的子类. 但是是通过创建一个独立的[工作者线程 (worker thread)](http://www.ibm.com/developerworks/library/j-jtp0730/) 来完成工作. 并且在完成工作后自动关闭服务.
 
-### 什么时候用?
+## 什么时候用?
 
 通常的 `Service` 是用于无需 UI 的任务. 但是不能执行耗时任务. 不然的话需要创建额外的线程来执行任务. 所以就有了 IntentService. 它主要被用于处理耗时任务的服务, 自身内部会自动创建一个额外的线程来执行任务.
 
-### 注意点
+## 注意点
 
 * 所有的请求都是在同一个工作者线程中处理的.
 * 但是一次只能处理一个请求.
@@ -21,7 +19,7 @@ tags: [android]
 * 可以是一个耗时任务. 由于异步, 它也不会阻断主线程. 
 * 不需要主动调用 stopSelf() 来结束服务. 在所有的 intent 被处理完后, 系统会自动关闭服务.
 
-### 源码简析
+## 源码简析
 
 [源码地址](https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/app/IntentService.java)
 
@@ -120,7 +118,7 @@ public abstract class IntentService extends Service {
 }
 {% endhighlight %}
 
-### 如何使用
+## 如何使用
 
 继承 `IntentService` 并实现 `onHandleIntent(Intent)` 方法. 然后就可以接收 `Intent `并启动一个工作者线程处理工作, 结束后自动关闭服务.
 
@@ -156,7 +154,7 @@ public class IntentServiceSub extends IntentService {
 }
 {% endhighlight %}
 
-### 常见问题
+## 常见问题
 
 1. 为什么多次启动 `IntentService` 会顺序执行事件，停止服务后，后续的事件得不到执行？
 `IntentService` 中使用的 `Handler`, `Looper`, `MessageQueue` 机制把消息发送到相同的线程中去执行的, 所以**多次启动 `IntentService` 不会重新创建新的服务和新的线程， 只是把消息加入消息队列中等待执行**, 而如果服务停止, 会清除消息队列中的消息, 后续的事件得不到执行.
@@ -164,7 +162,7 @@ public class IntentServiceSub extends IntentService {
 2. 为什么不建议通过 `bindService()` 启动 `IntentService`？
 `IntentService` 源码中的 `onBind()` 默认返回 `null`. 不适合 `bindService()` 启动服务，如果你执意要 `bindService()` 来启动 `IntentService`, 可能因为你想通过 `Binder` 或 `Messenger` 使得 `IntentService` 和 `Activity` 可以通信, 这样那么 `onHandleIntent()` 不会被回调,相当于在你使用 `Service` 而不是 `IntentService`.
 
-### 参考
+## 参考
 
 * [IntentService 示例与详解](http://www.jianshu.com/p/edbd9e21542b) - [[jacky123](http://www.jianshu.com/users/9fd6d8c00868)](http://www.jianshu.com/users/9fd6d8c00868/latest_articles)
 * [IntentService简介和使用](http://www.jianshu.com/p/6f97028a26f9) - [冯奕欢](http://www.jianshu.com/users/444dabff6bef)
