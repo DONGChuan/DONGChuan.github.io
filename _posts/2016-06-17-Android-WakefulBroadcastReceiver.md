@@ -79,7 +79,7 @@ public static boolean completeWakefulIntent(Intent intent) {
 
 {% highlight xml %}
 <receiver android:name=".SimpleWakefulReceiver"></receiver>
-```
+{% endhighlight %}
 
 然后继承 `WakefulBroadcastReceiver` 并实现 `onReceive()` 方法
 
