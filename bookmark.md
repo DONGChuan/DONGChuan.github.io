@@ -16,6 +16,7 @@ menu: Bookmark
 - [greenDAO](http://greendao-orm.com/) - greenDAO is a light and fast ORM solution that maps objects to SQLite databases
 - [EventBus](http://greenrobot.github.io/EventBus/) - Android optimized event bus that simplifies communication
 - [Transitions-Everywhere](https://github.com/andkulikov/Transitions-Everywhere) - Backport of Android Transitions API for animations
+- [Battery Historian](https://github.com/google/battery-historian) - Analyze battery consumers using Android "bugreport" files
 
 ## PHP
 - [Idiorm](https://github.com/j4mie/idiorm/) - A lightweight nearly-zero-config object-relational mapper and fluent query builder for PHP5
