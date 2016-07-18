@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Android WakefulBroadcastReceiver
+title: WakefulBroadcastReceiver 学习笔记
 category: android
 tags: [android]
 ---

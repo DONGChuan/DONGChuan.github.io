@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Android IntentService
+title: IntentService 学习笔记
 category: android
 tags: [android]
 ---
