@@ -55,8 +55,7 @@ tags: [android]
 PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);
 
 // 创建唤醒锁
-WakeLock wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK 
-               | PowerManager.ACQUIRE_CAUSES_WAKEUP, "MyWakelockTag");
+WakeLock wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "MyWakelockTag");
 
 // 获得唤醒锁
 wakeLock.acquire();
