@@ -7,7 +7,7 @@ tags: [android]
 
 Service, 四大组件之一, 是一个可以在后台执行长时间运行操作而不使用用户界面的应用组件. 比如播放音乐, 下载文件等.
 
-请注意, 虽然是后台执行任务, 但是**Service 确是运行在主线程**! 如果要执行耗时任务, 最好手动创建新线程或者直接使用 `IntentService`. (参考 [IntentService 学习笔记](http://dongchuan.github.io/android/2016/06/14/Android-IntentService.html)).
+请注意, 虽然是后台执行任务, 但是 **Service 是运行在主线程的**! 如果要执行耗时任务, 最好手动创建新线程或者直接使用 `IntentService`. (参考 [IntentService 学习笔记](http://dongchuan.github.io/android/2016/06/14/Android-IntentService.html)).
 
 ## 两种启动方式
 
@@ -18,7 +18,7 @@ Service, 四大组件之一, 是一个可以在后台执行长时间运行操作
 
 * startService 只是启动服务, 启动它的组件（如 Activity）和服务并没有关联, 只有当服务调用 `stopSelf()` 或者其他组件调用 `stopService()` 时服务才会终止. 
 
-* bindService 方法启动服务, 其他组件可以通过回调获取服务的代理对象**和服务交互**, 而这两方也进行了**绑定**, 当启动方销毁时, 服务也会自动进行 `unBind` 操作, 当发现所有绑定都进行了 `unBind` 时才会销毁服务.
+* bindService 方法启动服务, 其它组件可以通过回调获取服务的代理对象**和服务交互**, 而这两方也进行了**绑定**, 当启动方销毁时, 服务也会自动进行 `unBind` 操作, 当发现所有绑定都进行了 `unBind` 时才会销毁服务.
 
 ### 生命周期
 
@@ -71,7 +71,7 @@ stopService(intent);
 stopSelf();
 {% endhighlight %}
 
-> 如果不调用 `stopService` 或者 `stopSelf`, 直接关掉 Activity 对 服务没影响, 因为两者的生命周期没有关联.
+> 如果不调用 `stopService` 或者 `stopSelf`, 直接关掉 Activity 对服务没影响, 因为两者的生命周期没有关联.
 
 ### onStartCommand 返回值
 
@@ -87,7 +87,7 @@ stopSelf();
 
 * START_NOT_STICKY 
 
-如果服务在开始后 (`onStartCommand()` 返回后) 被终止, 但是不会保持已开始状态. 系统也不会再自建该服务. 只能通过显示的调用 startService(Intent) 来重新创建服务. 这是最安全的选项, 可以**避免在不必要时以及应用能够轻松重启所有未完成的作业时运行服务**.
+如果服务在开始后 (`onStartCommand()` 返回后) 被终止, 但是不会保持已开始状态. 系统也不会再自建该服务. 只能通过显示的调用 `startService(Intent)` 来重新创建服务. 这是最安全的选项, 可以**避免在不必要时以及应用能够轻松重启所有未完成的作业时运行服务**.
 
 * START_REDELIVER_INTENT 
 如果服务在开始后 (`onStartCommand()` 返回后) 被终止, 则会重建服务, 并且传入最后一个接收的 intent 到 `onStartCommand()`. 这适用于主动执行应该立即恢复的服务(例如下载文件).
@@ -100,7 +100,7 @@ stopSelf();
 
 ## 绑定服务
 
-通过 `onBind()` 方法启动的service则会在 `onCreate()` 方法之后调用 `onBind()` 方法, 该方法返回一个 `Binder` 对象, 与该服务绑定的组件一般是通过返回的这个 `Binder 对象与服务进行通信通信.
+通过 `onBind()` 方法启动的service则会在 `onCreate()` 方法之后调用 `onBind()` 方法, 该方法返回一个 `Binder` 对象, 与该服务绑定的组件一般是通过返回的这个 `Binder` 对象与服务进行通信.
 
 当所有与该服务绑定的组件分别都调用 `unBindService()` 后, 该服务才会被销毁
 
@@ -112,9 +112,9 @@ stopSelf();
 public class BindService extends Service{
 
     public class MyBinder extends Binder {
-        // 我们可以通过这些方法告知绑定的件服务当前的状态
+        // 我们可以通过这些方法告知绑定的组建服务当前的状态, 比如某个变量的值
         public int doSth(){
-            // 返回服务当前的状态或者某些变量的值
+            // 返回服务当前的状态
         }
     }
 
@@ -135,7 +135,7 @@ public class BindService extends Service{
 
 #### 注册服务
 
-同 ｀startService｀ 一样需要在 AndroidManifest.xml 里进行.
+同 `startService` 一样需要在 AndroidManifest.xml 里进行注册.
 
 {% highlight java %}
 <service 
