@@ -24,7 +24,7 @@ Service, 四大组件之一, 是一个可以在后台执行长时间运行操作
 
 通过 startService 与 bindService 两种方式启动的 Service 的生命周期
 
-![service生命周期.jpg](http://upload-images.jianshu.io/upload_images/2459759-7763e91e26f2ac55.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![service生命周期.jpg](https://github.com/DONGChuan/DONGChuan.github.io/blob/master/assets/images/service-life-cycle.jpg)
 
 ## 启动服务
 
@@ -32,7 +32,7 @@ Service, 四大组件之一, 是一个可以在后台执行长时间运行操作
 
 #### 创建服务类
 
-继承 Service 类并覆写 `onCreate()`  `onStartCommand()` `onDestory()` 三个方法
+继承 Service 类并覆写 `onCreate()`  `onStartCommand()` `onDestroy()` 三个方法
 
 #### 注册服务
 

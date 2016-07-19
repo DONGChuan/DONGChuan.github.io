@@ -11,10 +11,10 @@ tags: [android]
 
 ## 四种启动模式
 
-* standard (默认)
-* singleTop 
-* singleTask 
-* singleInstance
+* **standard** (默认)
+* **singleTop**
+* **singleTask**
+* **singleInstance**
 
 ## 如何设置启动模式
 
