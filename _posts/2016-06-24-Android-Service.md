@@ -24,7 +24,7 @@ Service, 四大组件之一, 是一个可以在后台执行长时间运行操作
 
 通过 startService 与 bindService 两种方式启动的 Service 的生命周期
 
-![service生命周期.jpg](https://github.com/DONGChuan/DONGChuan.github.io/blob/master/assets/images/service-life-cycle.jpg)
+![service生命周期.jpg](http://DONGChuan.github.io/assets/images/service-life-cycle.jpg)
 
 ## 启动服务
 
