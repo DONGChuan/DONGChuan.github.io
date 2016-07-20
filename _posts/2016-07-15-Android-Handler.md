@@ -16,9 +16,9 @@ Handler 主要有 2 个作用:
 
 ## 如何使用
 
-### 创建一个 handler 实例.
+### 创建一个 Handler 实例
 
-在主线程中创建 handler 实例
+在主线程中创建 Handler 实例
 
 {% highlight java %}
 Handler handler = new Handler(){
@@ -31,7 +31,7 @@ Handler handler = new Handler(){
 }
 {% endhighlight %}
 
-或者使用 Handler.Callback() 在处理消息之前加入一些前置的判断: 
+或者使用 `Handler.Callback()` 在处理消息之前加入一些前置的判断: 
 
 {% highlight java %}
 Handler handler = new Handler(new Handler.Callback() {
@@ -50,7 +50,7 @@ Handler handler = new Handler(new Handler.Callback() {
 
 ### 发送消息
 
-在**新的线程**中发送消息, **发送的消息都会进入 Handler 的 handleMessage() 方法中**, 即是发送到主线程.
+在**新的线程**中发送消息, **发送的消息都会进入 Handler 的 `handleMessage()` 方法中**, 即是发送到主线程.
 
 {% highlight java %}
 //第一种 
@@ -80,10 +80,10 @@ handler.sendMessageAtFrontOfQueue();
 
 Handler 一共有四个组件
 
-* Message: 是 Handler 接收和处理的消息对象
-* Looper: 每个线程只能有一个 Looper. 它的 loop 方法负责读取 MessageQueue 中的消息, 读到消息之后就把消息交给发送该消息的 Handler 进行处理.
-* MessageQueue: 消息队列. 它采用先进先出的方式来管理 Message. 程序创建 Looper 对象时, 会在它的构造器中创建 MessageQueue 对象. 
-* Handler: 就是之前描述的发送消息和处理消息. 
+* **Message**: 是 Handler 接收和处理的消息对象
+* **Looper**: 每个线程只能有一个 Looper. 它的 loop 方法负责读取 MessageQueue 中的消息, 读到消息之后就把消息交给发送该消息的 Handler 进行处理.
+* **MessageQueue**: 消息队列. 它采用先进先出的方式来管理 Message. 程序创建 Looper 对象时, 会在它的构造器中创建 MessageQueue 对象. 
+* **Handler**: 就是之前描述的发送消息和处理消息. 
 
 ### 流程图
 
