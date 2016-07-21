@@ -27,8 +27,8 @@ package io.github.loopx;
 
 // Declare any non-default types here with import statements
 
-interface IMyService {    
-    //计算 a + b    
+interface IMyService {
+    //计算 a + b, 这个方法将在服务端的服务里实现, 然后让客户端绑定服务来调用这个方法.
     int add(int a,int b);
 }
 {% endhighlight %}
@@ -37,12 +37,13 @@ interface IMyService {
 
 ### 在服务端创建服务监听请求
 
-在服务端创建一个服务用来监听客户端的连接请求.
+在服务端创建一个服务用来监听客户端的连接请求 (客户端绑定该服务).
 
 {% highlight java %}
 public class IRemoteService extends Service {
 
-    //客户端绑定 service 时会执行
+    // 客户端绑定服务时会执行 ServiceConnection.onServiceConnected 获得该 iBinder. 
+    // 从而可以调用 add() 方法
     @Override
     public IBinder onBind(Intent intent) {
         return iBinder;
@@ -74,7 +75,7 @@ public class IRemoteService extends Service {
 
 ### 在客户端创建同样的 AIDL 文件
 
-**同样要在客户端创建AIDL文件, 里面的包名和所在位置要求完全一样**
+**同样要在客户端创建AIDL文件, 里面的包名和所在位置要求完全一样**, 这样在客户端也会生成一个 IMyService 类.
 
 ### 绑定服务端的服务
 
