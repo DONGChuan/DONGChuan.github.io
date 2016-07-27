@@ -19,6 +19,9 @@ menu: Bookmark
 - [Battery Historian](https://github.com/google/battery-historian) - Analyze battery consumers using Android "bugreport" files
 - [Facebook Rebound](http://facebook.github.io/rebound/) - Spring Animations for Android
 
+## IOS
+- [Popping](https://github.com/schneiderandre/popping) - A collection of animation examples for iOS apps.
+- 
 ## PHP
 - [Idiorm](https://github.com/j4mie/idiorm/) - A lightweight nearly-zero-config object-relational mapper and fluent query builder for PHP5
 - [GitElephant](https://github.com/matteosister/GitElephant) - An abstraction layer to manage your git repositories with php
