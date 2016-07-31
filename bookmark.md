@@ -88,3 +88,6 @@ menu: Bookmark
 - [GitHub Cheat Sheet](https://github.com/tiimgreen/github-cheat-sheet) - GitHub Practical Tips
 - [Git Quick Reference](http://jonas.nitro.dk/git/quick-reference.html) - Git Quick Reference
 - [HTTP API Design Guide](https://geemus.gitbooks.io/http-api-design/content/en/index.html) - HTTP+JSON API design practices
+
+## Websites
+- [HTML5 Up](https://html5up.net/) - Site Template
