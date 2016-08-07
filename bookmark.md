@@ -78,6 +78,7 @@ menu: Bookmark
 
 ## Color
 - [Minimalist-Color-Palettes](https://www.behance.net/gallery/32154055/Minimalist-Color-Palettes-2015) - Minimalist Color Palettes
+- [Flatuiculors](http://flatuicolors.com/)
 
 ## Tool
 - [ProcessOn](https://www.processon.com/) - UML web app for team (Chinese)
