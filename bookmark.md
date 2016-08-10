@@ -18,10 +18,11 @@ menu: Bookmark
 - [Transitions-Everywhere](https://github.com/andkulikov/Transitions-Everywhere) - Backport of Android Transitions API for animations
 - [Battery Historian](https://github.com/google/battery-historian) - Analyze battery consumers using Android "bugreport" files
 - [Facebook Rebound](http://facebook.github.io/rebound/) - Spring Animations for Android
+- [Dagger](http://google.github.io/dagger/) - Dagger is a fully static, compile-time dependency injection framework for both Java and Android
 
 ## IOS
 - [Popping](https://github.com/schneiderandre/popping) - A collection of animation examples for iOS apps.
-- 
+
 ## PHP
 - [Idiorm](https://github.com/j4mie/idiorm/) - A lightweight nearly-zero-config object-relational mapper and fluent query builder for PHP5
 - [GitElephant](https://github.com/matteosister/GitElephant) - An abstraction layer to manage your git repositories with php
