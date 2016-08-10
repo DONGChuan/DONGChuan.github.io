@@ -19,6 +19,7 @@ menu: Bookmark
 - [Battery Historian](https://github.com/google/battery-historian) - Analyze battery consumers using Android "bugreport" files
 - [Facebook Rebound](http://facebook.github.io/rebound/) - Spring Animations for Android
 - [Dagger](http://google.github.io/dagger/) - Dagger is a fully static, compile-time dependency injection framework for both Java and Android
+- [Retrofit](http://square.github.io/retrofit/) - A type-safe HTTP client for Android and Java
 
 ## IOS
 - [Popping](https://github.com/schneiderandre/popping) - A collection of animation examples for iOS apps.
