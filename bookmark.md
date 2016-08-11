@@ -20,6 +20,7 @@ menu: Bookmark
 - [Facebook Rebound](http://facebook.github.io/rebound/) - Spring Animations for Android
 - [Dagger](http://google.github.io/dagger/) - Dagger is a fully static, compile-time dependency injection framework for both Java and Android
 - [Retrofit](http://square.github.io/retrofit/) - A type-safe HTTP client for Android and Java
+- [Butter Knife](http://jakewharton.github.io/butterknife/) - Annotate fields with @BindView and a view ID for Butter Knife to find and automatically cast the corresponding view in your layout.
 
 ## IOS
 - [Popping](https://github.com/schneiderandre/popping) - A collection of animation examples for iOS apps.
