@@ -22,6 +22,7 @@ menu: Bookmark
 - [Retrofit](http://square.github.io/retrofit/) - A type-safe HTTP client for Android and Java
 - [OkHttp](http://square.github.io/okhttp/) - An HTTP & HTTP/2 client for Android and Java applications
 - [Butter Knife](http://jakewharton.github.io/butterknife/) - Annotate fields with @BindView and a view ID for Butter Knife to find and automatically cast the corresponding view in your layout.
+- [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart) - Powerful & easy to use chart library for Android
 
 ## IOS
 - [Popping](https://github.com/schneiderandre/popping) - A collection of animation examples for iOS apps.
