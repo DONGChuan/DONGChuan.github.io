@@ -13,29 +13,29 @@ RxBinding 是 RxAndroid 中处理控件异步调用的方式. 通过绑定组件
 
 添加依赖:
 
-{% highlight %}
+```
 compile 'io.reactivex:rxandroid:1.2.0'
 compile 'io.reactivex:rxjava:1.1.4'
 compile 'com.jakewharton.rxbinding:rxbinding:0.4.0'
-{% endhighlight %}
+```
 
-如果使用 'support-v4' 库还需要加入:
+如果使用 `support-v4` 库还需要加入:
 
-{% highlight %}
+```
 compile 'com.jakewharton.rxbinding:rxbinding-support-v4:0.4.0'
-{% endhighlight %}
+```
 
-如果使用 'appcompat-v7' 库还需要加入:
+如果使用 `appcompat-v7` 库还需要加入:
 
-{% highlight %}
+```
 compile 'com.jakewharton.rxbinding:rxbinding-appcompat-v7:0.4.0'
-{% endhighlight %}
+```
 
-如果使用 recyclerview 需要加入:
+如果使用 `recyclerview` 需要加入:
 
-{% highlight %}
+```
 compile 'com.jakewharton.rxbinding:rxbinding-recyclerview-v7:0.4.0'
-{% endhighlight %}
+```
 
 具体信息参考[官方库](https://github.com/JakeWharton/RxBinding)
 
