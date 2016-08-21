@@ -13,7 +13,7 @@ RxBinding 是 RxAndroid 中处理控件异步调用的方式. 通过绑定组件
 
 添加依赖:
 
-{% highlight java %}
+{% highlight %}
 compile 'io.reactivex:rxandroid:1.2.0'
 compile 'io.reactivex:rxjava:1.1.4'
 compile 'com.jakewharton.rxbinding:rxbinding:0.4.0'
@@ -21,19 +21,19 @@ compile 'com.jakewharton.rxbinding:rxbinding:0.4.0'
 
 如果使用 'support-v4' 库还需要加入:
 
-{% highlight java %}
+{% highlight %}
 compile 'com.jakewharton.rxbinding:rxbinding-support-v4:0.4.0'
 {% endhighlight %}
 
 如果使用 'appcompat-v7' 库还需要加入:
 
-{% highlight java %}
+{% highlight %}
 compile 'com.jakewharton.rxbinding:rxbinding-appcompat-v7:0.4.0'
 {% endhighlight %}
 
 如果使用 recyclerview 需要加入:
 
-{% highlight java %}
+{% highlight %}
 compile 'com.jakewharton.rxbinding:rxbinding-recyclerview-v7:0.4.0'
 {% endhighlight %}
 
@@ -95,7 +95,7 @@ Subscription editTextSub = RxTextView.textChanges(editText).subscribe(new Action
 // make sure to unsubscribe the subscription
 {% endhighlight %}
 
-### ListView 点击
+### ListView 添加点击事件
 
 下面这个例子是使用 `RxAdapterView` 给 `ListView` 添加点击事件:
 
@@ -126,7 +126,7 @@ RxAdapterView.itemClicks( listView )
 
 ## 使用 RxJava 操作符
 
-既然 RxBinding 是基于 RxJava, 我们当然可以使用 RxJava 的操作符, 比如 `map() 
+既然 RxBinding 是基于 RxJava, 我们当然可以使用 RxJava 的操作符, 比如 `map()`
 
 {% highlight java %}
 TextView nameLabel = (TextView) findViewById(R.id.name_label);
